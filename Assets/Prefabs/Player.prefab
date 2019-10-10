@@ -185,7 +185,7 @@ MonoBehaviour:
   m_JumpForce: 600
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 1024
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
