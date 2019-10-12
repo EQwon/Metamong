@@ -35,8 +35,8 @@ public class MonsterBasicAttack : MonoBehaviour
 
         yield return new WaitForSeconds(delay.pre);
 
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(attackPos, attackSize, 0, attackLayer);
-        ApplyDamage(colliders);
+        Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
+        ApplyDamage(collider);
 
         yield return new WaitForSeconds(delay.post);
 
@@ -49,14 +49,11 @@ public class MonsterBasicAttack : MonoBehaviour
         Gizmos.DrawWireCube(attackPos, attackSize);
     }
 
-    private void ApplyDamage(Collider2D[] colliders)
+    private void ApplyDamage(Collider2D coll)
     {
-        foreach (Collider2D coll in colliders)
-        {
-            GameObject enemy = coll.gameObject;
-            Debug.Log(enemy.name);
-            //데미지를 주면 됩니다.
-        }
+        GameObject hero = coll.gameObject;
+
+        hero.GetComponent<PlayerInput>().GetDamage(damage);
     }
 
     public void FlipFacingDir()

@@ -13,7 +13,7 @@ public class WeaponDelay
 public class PlayerAttack : MonoBehaviour
 {
     public WeaponDelay delay;
-    public int damage;
+    private int damage;
     [SerializeField] private LayerMask attackLayer;
 
     private int isFacingRight = 1;
@@ -21,6 +21,13 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, -0.2f) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(1.6f, 1.6f); } }
+
+    private void Awake()
+    {
+        PlayerStatus stat = GetComponent<PlayerStatus>();
+
+        damage = stat.Damage;
+    }
 
     private void FixedUpdate()
     {

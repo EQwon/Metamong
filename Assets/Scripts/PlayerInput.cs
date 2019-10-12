@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private int health;
+
     private PlayerMovement mover;
     private PlayerAttack attacker;
     private Animator animator;
@@ -13,6 +15,9 @@ public class PlayerInput : MonoBehaviour
 
     private void Awake()
     {
+        PlayerStatus stat = GetComponent<PlayerStatus>();
+
+        health = stat.MaxHealth;
         mover = GetComponent<PlayerMovement>();
         attacker = GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
@@ -45,5 +50,10 @@ public class PlayerInput : MonoBehaviour
         attacker.Attack(horizontalMove, attack);
         jump = false;
         attack = false;
+    }
+
+    public void GetDamage(int amount)
+    {
+        health -= amount;
     }
 }

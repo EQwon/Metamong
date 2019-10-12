@@ -43,18 +43,9 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
-    private void InvisibleWall()
+    public void Chasing()
     {
-        if (transform.position.x >= patrolEndX && m_FacingRight)
-        {
-            //m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
-            targetVelocity = new Vector2(0, m_Rigidbody2D.velocity.y);
-        }
-        else if (transform.position.x <= patrolStartX && !m_FacingRight)
-        {
-            //m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
-            targetVelocity = new Vector2(0, m_Rigidbody2D.velocity.y);
-        }
+
     }
 
     private void OnDrawGizmos()

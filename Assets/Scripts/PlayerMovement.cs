@@ -3,9 +3,10 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-    [SerializeField] private float m_JumpForce = 400f;
     [SerializeField] private LayerMask m_WhatIsGround;
+
+    private float speed;
+    private float m_JumpForce;
 
     private Vector2 groundChecker { get { return new Vector2(0, -0.95f) + (Vector2)transform.position; } }
     const float k_GroundedRadius = 0.2f;
@@ -23,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+        PlayerStatus stat = GetComponent<PlayerStatus>();
+        speed = stat.Speed;
+        m_JumpForce = stat.JumpForce;
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
