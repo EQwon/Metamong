@@ -7,6 +7,7 @@ public enum MonsterState { Patrol, Chasing, Attack, Hitted, Dead };
 public class MonsterAI : MonoBehaviour
 {
     [SerializeField] private MonsterState state;
+    [SerializeField] private int health = 10;
     [SerializeField] private bool isFindHero = false;
     [SerializeField] private bool canAttackHero = false;
     [SerializeField] private bool isHitted = false;
@@ -28,7 +29,7 @@ public class MonsterAI : MonoBehaviour
         attacker = GetComponent<MonsterBasicAttack>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         SwitchState();
 
@@ -47,10 +48,10 @@ public class MonsterAI : MonoBehaviour
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
-                // 이 스크립트의 Hitted 함수
+                Hitted();
                 break;
             case MonsterState.Dead:
-                // 이 스크립트의 Dead 함수
+                Dead();
                 break;
         }
     }
@@ -83,5 +84,23 @@ public class MonsterAI : MonoBehaviour
         }
 
         state = MonsterState.Patrol;
+    }
+
+    public void GetDamage(int amount)
+    {
+        health -= amount;
+        IsHitted = true;
+
+        if (health <= 0) IsDead = true;
+    }
+
+    private void Hitted()
+    {
+        IsHitted = false;
+    }
+
+    private void Dead()
+    {
+        Destroy(gameObject);
     }
 }

@@ -27,7 +27,6 @@ public class MonsterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Patrol();
-        InvisibleWall();
     }
 
     public void Patrol()
@@ -76,6 +75,7 @@ public class MonsterMovement : MonoBehaviour
     {
         m_FacingRight = !m_FacingRight;
         GetComponent<MonsterSight>().FlipFacingDir();
+        GetComponent<MonsterBasicAttack>().FlipFacingDir();
 
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;

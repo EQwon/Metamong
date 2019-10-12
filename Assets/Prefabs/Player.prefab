@@ -215,9 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay:
-    pre: 1
-    post: 1
-  damage: 1
+    pre: 0.1
+    post: 0.1
+  damage: 5
   attackLayer:
     serializedVersion: 2
     m_Bits: 512

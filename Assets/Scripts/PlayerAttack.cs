@@ -64,8 +64,8 @@ public class PlayerAttack : MonoBehaviour
         foreach (Collider2D coll in colliders)
         {
             GameObject enemy = coll.gameObject;
-            Debug.Log(enemy.name);
-            //데미지를 주면 됩니다.
+
+            enemy.GetComponent<MonsterAI>().GetDamage(damage);
         }
     }
 }

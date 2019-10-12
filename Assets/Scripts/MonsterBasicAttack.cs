@@ -58,4 +58,9 @@ public class MonsterBasicAttack : MonoBehaviour
             //데미지를 주면 됩니다.
         }
     }
+
+    public void FlipFacingDir()
+    {
+        isFacingRight *= -1;
+    }
 }

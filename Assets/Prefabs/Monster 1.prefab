@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3468727701352014593}
   - component: {fileID: 3468727701352014606}
-  - component: {fileID: 3468727701352014607}
+  - component: {fileID: 3005260258031424928}
   - component: {fileID: 2556204904265768748}
   - component: {fileID: 309991415872843832}
   - component: {fileID: 6830748713364826235}
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3468727701352014607
-BoxCollider2D:
+--- !u!58 &3005260258031424928
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,19 +99,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.24}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1875, y: 2}
-    newSize: {x: 0.35, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.09}
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.9}
-  m_EdgeRadius: 0
+  m_Radius: 0.6
 --- !u!50 &2556204904265768748
 Rigidbody2D:
   serializedVersion: 4
@@ -146,6 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  health: 10
   isFindHero: 0
   canAttackHero: 0
   isHitted: 0

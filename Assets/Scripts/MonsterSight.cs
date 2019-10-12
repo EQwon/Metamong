@@ -9,13 +9,13 @@ public class MonsterSight : MonoBehaviour
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private LayerMask obstacleLayer;
 
-    //private MonsterAI AI;
+    private MonsterAI AI;
     private bool isFacingRight = true;
     private float nowViewAngle;
 
     private void Start()
     {
-        //AI = GetComponent<MonsterAI>();
+        AI = GetComponent<MonsterAI>();
     }
 
     private void FixedUpdate()
@@ -41,7 +41,7 @@ public class MonsterSight : MonoBehaviour
 
     private void FindTarget()
     {
-        //AI.isFindHero = false;
+        AI.IsFindHero = false;
 
         Vector2 originPos = transform.position;
         Collider2D[] hittedTargets = Physics2D.OverlapCircleAll(originPos, Mathf.Abs(viewRange), targetLayer);
@@ -63,7 +63,7 @@ public class MonsterSight : MonoBehaviour
             // '장애물이 존재하지 않'거나 '장애물이 존재해도 타겟 뒤에 있으면'
             if (!rayTarget || Vector2.Distance(rayTarget.transform.position, originPos) > distance)
             {
-                //AI.isFindHero = true;
+                AI.IsFindHero = true;
                 Debug.DrawLine(originPos, targetPos, Color.red);
                 return;
             }
