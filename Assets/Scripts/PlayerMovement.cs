@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     private float m_JumpForce;
 
-    private Vector2 groundChecker { get { return new Vector2(0, -0.95f) + (Vector2)transform.position; } }
+    private Vector2 groundChecker { get { return new Vector2(0, -1.1f) + (Vector2)transform.position; } }
     const float k_GroundedRadius = 0.2f;
     private bool m_Grounded;
     private Rigidbody2D m_Rigidbody2D;
@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     {
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
-
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundChecker, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)

@@ -41,7 +41,7 @@ public class MonsterAI : MonoBehaviour
                 break;
             case MonsterState.Chasing:
                 // MonsterMovement의 Chasing 함수
-                //mover.Chasing();
+                mover.Chasing();
                 break;
             case MonsterState.Attack:
                 // 할당되어 있는 attacker의 Attack 함수

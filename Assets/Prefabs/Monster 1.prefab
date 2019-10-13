@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  health: 10
+  health: 50
   isFindHero: 0
   canAttackHero: 0
   isHitted: 0
@@ -155,7 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolStartX: -1
   patrolEndX: 1
-  speed: 3
+  speed: 4
+  chasingSpeed: 6
+  waitingTime: 0.5
 --- !u!114 &6183502279987701014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRange: 5
   viewAngle: 30
+  attackRange: 2
   targetLayer:
     serializedVersion: 2
     m_Bits: 256

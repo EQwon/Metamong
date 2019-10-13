@@ -7,13 +7,17 @@ public class MonsterMovement : MonoBehaviour
 {
     [SerializeField] private float patrolStartX;
     [SerializeField] private float patrolEndX;
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 4f;
+    [SerializeField] private float chasingSpeed = 6f;
+    [SerializeField] private float waitingTime = 0.5f;
 
     private Rigidbody2D m_Rigidbody2D;
     private Vector3 m_Velocity = Vector3.zero;
     private bool m_FacingRight = true;
     const float m_MovementSmoothing = 0.05f;
     private Vector2 targetVelocity;
+    private float damp = 0.2f;
+    private bool isWaiting = false;
 
     private void Awake()
     {
@@ -26,26 +30,43 @@ public class MonsterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Patrol();
+        Boarder();
     }
 
+    private void Boarder()
+    {
+        if (transform.position.x > patrolEndX + damp) m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
+        if (transform.position.x < patrolStartX - damp) m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
+    }
+
+    // 오른쪽 끝 라인에 다달았을 때 정지
+
+    // 0.5초 후 왼쪽으로 이동
+    // 왼쪽 끝 라인에 다달았을 때 정지
+    // 0.5 초 후 오른쪽으로 이동
     public void Patrol()
     {
-        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
         if (transform.position.x >= patrolEndX && m_FacingRight)
         {
-            Flip();
+            targetVelocity = Vector2.zero;
+            StartCoroutine(Waiting());
         }
         else if (transform.position.x <= patrolStartX && !m_FacingRight)
         {
-            Flip();
+            targetVelocity = Vector2.zero;
+            StartCoroutine(Waiting());
+        }
+        else
+        {
+            targetVelocity = m_FacingRight ? new Vector2(speed, m_Rigidbody2D.velocity.y) : new Vector2(-speed, m_Rigidbody2D.velocity.y);
+
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
         }
     }
 
     public void Chasing()
     {
-
+        
     }
 
     private void OnDrawGizmos()
@@ -62,6 +83,19 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator Waiting()
+    {
+        if (isWaiting) yield break;
+
+        isWaiting = true;
+
+        yield return new WaitForSeconds(waitingTime);
+
+        isWaiting = false;
+
+        Flip();
+    }
+
     private void Flip()
     {
         m_FacingRight = !m_FacingRight;
@@ -71,6 +105,5 @@ public class MonsterMovement : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-        targetVelocity *= Vector2.left;
     }
 }

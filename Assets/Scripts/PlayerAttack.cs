@@ -19,8 +19,8 @@ public class PlayerAttack : MonoBehaviour
     private int isFacingRight = 1;
     private bool canAttack = true;
 
-    private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, -0.2f) + (Vector2)transform.position; } }
-    private Vector2 attackSize { get { return new Vector2(1.6f, 1.6f); } }
+    private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, 0f) + (Vector2)transform.position; } }
+    private Vector2 attackSize { get { return new Vector2(1.5f, 2f); } }
 
     private void Awake()
     {
