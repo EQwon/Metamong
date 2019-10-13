@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-public class MonsterBasicAttack : MonoBehaviour
+public class MonsterAttack : MonoBehaviour
 {
-    public WeaponDelay delay;
-    public int damage;
+    [SerializeField] private WeaponDelay delay;
+    [SerializeField] private int attackDamage = 5;
+    [SerializeField] private int touchDamage = 5;
     [SerializeField] private LayerMask attackLayer;
 
     private int isFacingRight = 1;
@@ -14,10 +13,6 @@ public class MonsterBasicAttack : MonoBehaviour
 
     private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, -0.2f) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(1.6f, 1.6f); } }
-
-    private void FixedUpdate()
-    {
-    }
 
     public void TryAttack()
     {
@@ -36,7 +31,7 @@ public class MonsterBasicAttack : MonoBehaviour
         yield return new WaitForSeconds(delay.pre);
 
         Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
-        ApplyDamage(collider);
+        if(collider) ApplyDamage(collider);
 
         yield return new WaitForSeconds(delay.post);
 
@@ -53,11 +48,19 @@ public class MonsterBasicAttack : MonoBehaviour
     {
         GameObject hero = coll.gameObject;
 
-        hero.GetComponent<PlayerInput>().GetDamage(damage);
+        hero.GetComponent<PlayerInput>().GetDamage(attackDamage, gameObject);
     }
 
     public void FlipFacingDir()
     {
         isFacingRight *= -1;
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            coll.gameObject.GetComponent<PlayerInput>().GetDamage(touchDamage, gameObject);
+        }
     }
 }

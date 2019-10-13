@@ -5,8 +5,8 @@ using UnityEngine;
 public class MonsterSight : MonoBehaviour
 {
     [SerializeField] [Range(0, 10f)] private float viewRange = 5f;
+    [SerializeField] [Range(0, 10f)] private float attackRange = 2f;
     [SerializeField] [Range(0, 90f)] private float viewAngle = 60f;
-    [SerializeField] private float attackRange = 2f;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private LayerMask obstacleLayer;
 

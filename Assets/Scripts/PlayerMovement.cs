@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] [Range(0, 1000f)] private float knockBackForce = 400f;
+    [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 1f;
     [SerializeField] private LayerMask m_WhatIsGround;
 
     private float speed;
@@ -71,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void Flip()
     {
         m_FacingRight = !m_FacingRight;
@@ -79,5 +81,15 @@ public class PlayerMovement : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public IEnumerator KnockBack(GameObject attacker)
+    {
+        m_Rigidbody2D.velocity = Vector2.zero;
+
+        float horizontalForce = attacker.transform.position.x > transform.position.x ? -knockBackForce : knockBackForce;
+        m_Rigidbody2D.AddForce(new Vector2(horizontalForce, 100f));
+
+        yield return new WaitForSeconds(knockBackFreezeTime);
     }
 }

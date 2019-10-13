@@ -52,8 +52,9 @@ public class PlayerInput : MonoBehaviour
         attack = false;
     }
 
-    public void GetDamage(int amount)
+    public void GetDamage(int amount, GameObject attacker)
     {
         health -= amount;
+        //StartCoroutine(mover.KnockBack(attacker));
     }
 }

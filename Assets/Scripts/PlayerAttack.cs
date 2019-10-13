@@ -72,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
         {
             GameObject enemy = coll.gameObject;
 
-            enemy.GetComponent<MonsterAI>().GetDamage(damage);
+            enemy.GetComponent<MonsterAI>().GetDamage(damage, gameObject);
         }
     }
 }

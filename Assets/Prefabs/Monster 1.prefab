@@ -153,11 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff1e6b9d802bdb4b82caea1e77a763f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolStartX: -1
-  patrolEndX: 1
+  patrolStartX: -8.5
+  patrolEndX: 3.5
   speed: 4
-  chasingSpeed: 6
   waitingTime: 0.5
+  chasingSpeed: 6
+  knockBackForce: 400
+  knockBackFreezeTime: 1
 --- !u!114 &6183502279987701014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,9 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfdbd39577111244bf6da6a46626857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 5
-  viewAngle: 30
+  viewRange: 10
   attackRange: 2
+  viewAngle: 45
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -192,9 +194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay:
-    pre: 0.1
-    post: 2
-  damage: 5
+    pre: 0.5
+    post: 1
+  attackDamage: 5
+  touchDamage: 5
   attackLayer:
     serializedVersion: 2
     m_Bits: 256

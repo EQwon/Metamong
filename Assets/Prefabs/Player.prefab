@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
-  damage: 100
+  damage: 1
   speed: 8
   jumpForce: 850
 --- !u!114 &8541901529948109588
@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b34d31dfca6d842b986037cdd4509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBackForce: 400
+  knockBackFreezeTime: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 1024

@@ -15,7 +15,7 @@ public class MonsterAI : MonoBehaviour
 
     private MonsterMovement mover;
     private MonsterSight sight;
-    private MonsterBasicAttack attacker;
+    private MonsterAttack attacker;
 
     public bool IsFindHero { get { return isFindHero; } set { isFindHero = value; } }
     public bool CanAttackHero { get { return canAttackHero; } set { canAttackHero = value; } }
@@ -26,7 +26,7 @@ public class MonsterAI : MonoBehaviour
     {
         mover = GetComponent<MonsterMovement>();
         sight = GetComponent<MonsterSight>();
-        attacker = GetComponent<MonsterBasicAttack>();
+        attacker = GetComponent<MonsterAttack>();
     }
 
     private void FixedUpdate()
@@ -83,10 +83,11 @@ public class MonsterAI : MonoBehaviour
         state = MonsterState.Patrol;
     }
 
-    public void GetDamage(int amount)
+    public void GetDamage(int amount, GameObject player)
     {
         health -= amount;
         IsHitted = true;
+        StartCoroutine(mover.KnockBack(player));
 
         if (health <= 0) IsDead = true;
     }

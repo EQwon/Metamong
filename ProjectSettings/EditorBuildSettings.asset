@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: a24c8ffe75309f24b8ca1460245f25bc
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/EQTest.unity
     guid: da238ca869a0a7e488edf339f4ccf515
   m_configObjects: {}

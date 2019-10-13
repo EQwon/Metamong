@@ -5,11 +5,25 @@ using UnityEditor;
 
 public class MonsterMovement : MonoBehaviour
 {
+    [Header("Patrol")]
+    [Tooltip("Patrol 왼쪽 끝")]
     [SerializeField] private float patrolStartX;
+    [Tooltip("Patrol 오른쪽 끝")]
     [SerializeField] private float patrolEndX;
+    [Tooltip("Patrol 속도")]
     [SerializeField] private float speed = 4f;
+    [Tooltip("Patrol 방향 전환 대기 시간")]
+    [SerializeField] [Range(0, 3f)] private float waitingTime = 0.5f;
+
+    [Header("Chasing")]
+    [Tooltip("Chasing 속도")]
     [SerializeField] private float chasingSpeed = 6f;
-    [SerializeField] private float waitingTime = 0.5f;
+
+    [Header("KnockBack")]
+    [Tooltip("공격 넉백에 의해 밀쳐지는 힘")]
+    [SerializeField] [Range(0, 1000f)] private float knockBackForce = 400f;
+    [Tooltip("공격 넉백에 의한 경직 시간")]
+    [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 1f;
 
     private Rigidbody2D m_Rigidbody2D;
     private Vector3 m_Velocity = Vector3.zero;
@@ -18,6 +32,7 @@ public class MonsterMovement : MonoBehaviour
     private Vector2 targetVelocity;
     private float damp = 0.2f;
     private bool isWaiting = false;
+    private bool isFreeze = false;
 
     private void Awake()
     {
@@ -41,6 +56,8 @@ public class MonsterMovement : MonoBehaviour
 
     public void Patrol()
     {
+        if (isFreeze) return;
+
         // 오른쪽 끝에 도달했을 경우
         if (transform.position.x >= patrolEndX && m_FacingRight)
         {
@@ -64,7 +81,13 @@ public class MonsterMovement : MonoBehaviour
 
     public void Chasing()
     {
-        if (transform.position.x >= patrolEndX || transform.position.x <= patrolStartX)
+        if (isFreeze) return;
+
+        if (transform.position.x >= patrolEndX && m_FacingRight)
+        {
+            targetVelocity = Vector2.zero;
+        }
+        else if (transform.position.x <= patrolStartX && !m_FacingRight)
         {
             targetVelocity = Vector2.zero;
         }
@@ -103,11 +126,24 @@ public class MonsterMovement : MonoBehaviour
         Flip();
     }
 
+    public IEnumerator KnockBack(GameObject player)
+    {
+        isFreeze = true;
+        m_Rigidbody2D.velocity = Vector2.zero;
+
+        float horizontalForce = player.transform.position.x > transform.position.x ? -knockBackForce : knockBackForce;
+        m_Rigidbody2D.AddForce(new Vector2(horizontalForce, 100f));
+
+        yield return new WaitForSeconds(knockBackFreezeTime);
+
+        isFreeze = false;
+    }
+
     private void Flip()
     {
         m_FacingRight = !m_FacingRight;
         GetComponent<MonsterSight>().FlipFacingDir();
-        GetComponent<MonsterBasicAttack>().FlipFacingDir();
+        GetComponent<MonsterAttack>().FlipFacingDir();
 
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
