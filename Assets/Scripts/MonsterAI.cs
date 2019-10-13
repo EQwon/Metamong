@@ -36,15 +36,12 @@ public class MonsterAI : MonoBehaviour
         switch (state)
         {
             case MonsterState.Patrol:
-                // MonsterMovement의 Patrol 함수
                 mover.Patrol();
                 break;
             case MonsterState.Chasing:
-                // MonsterMovement의 Chasing 함수
                 mover.Chasing();
                 break;
             case MonsterState.Attack:
-                // 할당되어 있는 attacker의 Attack 함수
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:

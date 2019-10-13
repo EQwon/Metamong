@@ -39,23 +39,21 @@ public class MonsterMovement : MonoBehaviour
         if (transform.position.x < patrolStartX - damp) m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
     }
 
-    // 오른쪽 끝 라인에 다달았을 때 정지
-
-    // 0.5초 후 왼쪽으로 이동
-    // 왼쪽 끝 라인에 다달았을 때 정지
-    // 0.5 초 후 오른쪽으로 이동
     public void Patrol()
     {
+        // 오른쪽 끝에 도달했을 경우
         if (transform.position.x >= patrolEndX && m_FacingRight)
         {
             targetVelocity = Vector2.zero;
             StartCoroutine(Waiting());
         }
+        // 왼쪽 끝에 도달했을 경우
         else if (transform.position.x <= patrolStartX && !m_FacingRight)
         {
             targetVelocity = Vector2.zero;
             StartCoroutine(Waiting());
         }
+        // patrol 범위 사이일 경우
         else
         {
             targetVelocity = m_FacingRight ? new Vector2(speed, m_Rigidbody2D.velocity.y) : new Vector2(-speed, m_Rigidbody2D.velocity.y);
@@ -66,7 +64,16 @@ public class MonsterMovement : MonoBehaviour
 
     public void Chasing()
     {
-        
+        if (transform.position.x >= patrolEndX || transform.position.x <= patrolStartX)
+        {
+            targetVelocity = Vector2.zero;
+        }
+        else
+        {
+            targetVelocity = m_FacingRight ? new Vector2(chasingSpeed, m_Rigidbody2D.velocity.y) : new Vector2(-chasingSpeed, m_Rigidbody2D.velocity.y);
+
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+        }
     }
 
     private void OnDrawGizmos()
