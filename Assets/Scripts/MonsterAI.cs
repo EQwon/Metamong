@@ -74,7 +74,6 @@ public class MonsterAI : MonoBehaviour
             if (CanAttackHero)
             {
                 state = MonsterState.Attack;
-                CanAttackHero = false;
                 return;
             }
             return;

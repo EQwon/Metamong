@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  health: 50
+  health: 70
   isFindHero: 0
   canAttackHero: 0
   isHitted: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff1e6b9d802bdb4b82caea1e77a763f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolStartX: -8.5
-  patrolEndX: 3.5
+  patrolStartX: -6
+  patrolEndX: 6
   speed: 4
   waitingTime: 0.5
   chasingSpeed: 6
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRange: 10
-  attackRange: 2
-  viewAngle: 45
+  attackRange: 4
+  viewAngle: 89
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -194,10 +194,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay:
-    pre: 0
-    post: 0
-  attackDamage: 5
+    pre: 0.2
+    attack: 0.5
+    post: 1
+  attackDamage: 10
   touchDamage: 5
   attackLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  rushSpeed: 8

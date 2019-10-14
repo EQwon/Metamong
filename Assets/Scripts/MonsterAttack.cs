@@ -10,9 +10,24 @@ public class MonsterAttack : MonoBehaviour
 
     private int isFacingRight = 1;
     private bool canAttack = true;
+    private bool doingAttack = false;
 
     private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, -0.2f) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(1.6f, 1.6f); } }
+
+    private void FixedUpdate()
+    {
+        if (doingAttack)
+        {
+            DoAttack();
+        }
+    }
+
+    public virtual void DoAttack()
+    {
+        Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
+        if (collider) ApplyDamage(collider);
+    }
 
     public void TryAttack()
     {
@@ -30,8 +45,11 @@ public class MonsterAttack : MonoBehaviour
 
         yield return new WaitForSeconds(delay.pre);
 
-        Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
-        if(collider) ApplyDamage(collider);
+        doingAttack = true;
+
+        yield return new WaitForSeconds(delay.attack);
+
+        doingAttack = false;
 
         yield return new WaitForSeconds(delay.post);
 

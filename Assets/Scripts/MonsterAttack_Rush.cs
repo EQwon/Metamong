@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class MonsterAttack_Rush : MonsterAttack
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float rushSpeed = 8f;
+    private MonsterMovement mover;
+
+    private void Start()
     {
-        
+        mover = GetComponent<MonsterMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void DoAttack()
     {
-        
+        base.DoAttack();
+        mover.Rush(rushSpeed);
     }
 }

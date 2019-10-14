@@ -7,6 +7,7 @@ using UnityEditor;
 public class WeaponDelay
 {
     public float pre;
+    public float attack;
     public float post;
 }
 
@@ -95,12 +96,14 @@ public class DelayDrawerUIE : PropertyDrawer
         EditorGUI.indentLevel = 0;
 
         // Calculate rects
-        float rectWidth = (position.width - 10) / 2;
+        float rectWidth = (position.width - 10) / 3;
         var preRect = new Rect(position.x, position.y, rectWidth, position.height);
-        var postRect = new Rect(position.x + rectWidth + 10, position.y, rectWidth, position.height);
+        var attackRect = new Rect(position.x + rectWidth + 5, position.y, rectWidth, position.height);
+        var postRect = new Rect(position.x + rectWidth * 2 + 10, position.y, rectWidth, position.height);
 
         // Draw fields - passs GUIContent.none to each so they are drawn without labels
         EditorGUI.PropertyField(preRect, property.FindPropertyRelative("pre"), GUIContent.none);
+        EditorGUI.PropertyField(attackRect, property.FindPropertyRelative("attack"), GUIContent.none);
         EditorGUI.PropertyField(postRect, property.FindPropertyRelative("post"), GUIContent.none);
 
         // Set indent back to what it was

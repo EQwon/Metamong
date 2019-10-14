@@ -99,6 +99,25 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
+    public void Rush(float rushSpeed)
+    {
+        Debug.Log("Rushing!");
+        if (transform.position.x >= patrolEndX && m_FacingRight)
+        {
+            targetVelocity = Vector2.zero;
+        }
+        else if (transform.position.x <= patrolStartX && !m_FacingRight)
+        {
+            targetVelocity = Vector2.zero;
+        }
+        else
+        {
+            targetVelocity = m_FacingRight ? new Vector2(rushSpeed, m_Rigidbody2D.velocity.y) : new Vector2(-rushSpeed, m_Rigidbody2D.velocity.y);
+
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (!EditorApplication.isPlaying)

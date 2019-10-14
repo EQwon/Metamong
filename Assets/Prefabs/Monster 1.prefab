@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff1e6b9d802bdb4b82caea1e77a763f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolStartX: -8.5
-  patrolEndX: 3.5
+  patrolStartX: -6
+  patrolEndX: 6
   speed: 4
   waitingTime: 0.5
   chasingSpeed: 6
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfdbd39577111244bf6da6a46626857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 10
+  viewRange: 6
   attackRange: 2
   viewAngle: 45
   targetLayer:
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay:
     pre: 0.5
+    attack: 0.01
     post: 1
   attackDamage: 5
   touchDamage: 5
