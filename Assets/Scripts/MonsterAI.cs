@@ -7,7 +7,7 @@ public enum MonsterState { Patrol, Chasing, Attack, Hitted, Dead };
 public class MonsterAI : MonoBehaviour
 {
     [SerializeField] private MonsterState state;
-    [SerializeField] private int health = 10;
+    [SerializeField] private int health = 100;
     [SerializeField] private bool isFindHero = false;
     [SerializeField] private bool canAttackHero = false;
     [SerializeField] private bool isHitted = false;
@@ -16,6 +16,9 @@ public class MonsterAI : MonoBehaviour
     private MonsterMovement mover;
     private MonsterSight sight;
     private MonsterAttack attacker;
+    private GameObject healthBar;
+    private GameObject healthBarValue;
+    private float maxHealth;
 
     public bool IsFindHero { get { return isFindHero; } set { isFindHero = value; } }
     public bool CanAttackHero { get { return canAttackHero; } set { canAttackHero = value; } }
@@ -27,6 +30,11 @@ public class MonsterAI : MonoBehaviour
         mover = GetComponent<MonsterMovement>();
         sight = GetComponent<MonsterSight>();
         attacker = GetComponent<MonsterAttack>();
+
+        maxHealth = health;
+        healthBar = transform.GetChild(0).gameObject;
+        healthBarValue = healthBar.transform.GetChild(0).gameObject;
+        healthBar.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -85,6 +93,7 @@ public class MonsterAI : MonoBehaviour
     public void GetDamage(int amount, GameObject player)
     {
         health -= amount;
+        healthBarValue.transform.localScale = new Vector3(health / maxHealth, 1, 1);
         IsHitted = true;
         StartCoroutine(mover.KnockBack(player));
 
@@ -93,6 +102,7 @@ public class MonsterAI : MonoBehaviour
 
     private void Hitted()
     {
+        healthBar.SetActive(true);
         IsHitted = false;
     }
 

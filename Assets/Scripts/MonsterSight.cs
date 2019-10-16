@@ -57,8 +57,8 @@ public class MonsterSight : MonoBehaviour
             float distance = Mathf.Abs(dir.magnitude);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             
-            if (distance > Mathf.Abs(viewRange)) continue;          // 거리가 멀면 넘긴다.
-            if (!IsInAngle(nowViewAngle, -nowViewAngle, angle)) continue;  // 시야각을 벗어나면 넘긴다.
+            if (distance > Mathf.Abs(viewRange)) continue;                  // 거리가 멀면 넘긴다.
+            if (!IsInAngle(nowViewAngle, -nowViewAngle, angle)) continue;   // 시야각을 벗어나면 넘긴다.
 
             RaycastHit2D rayTarget = Physics2D.Raycast(originPos, dir, Mathf.Abs(viewRange), obstacleLayer);
 

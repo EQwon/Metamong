@@ -163,8 +163,6 @@ public class MonsterMovement : MonoBehaviour
         GetComponent<MonsterSight>().FlipFacingDir();
         GetComponent<MonsterAttack>().FlipFacingDir();
 
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
     }
 }
