@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class MonsterAttack : MonoBehaviour
 {
+    [Header("Attack")]
     [SerializeField] private WeaponDelay delay;
     [SerializeField] private int attackDamage = 5;
-    [SerializeField] private int touchDamage = 5;
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private Vector2 attackAreaPos;
     [SerializeField] private Vector2 attackArea;
@@ -70,20 +70,11 @@ public class MonsterAttack : MonoBehaviour
     private void ApplyDamage(Collider2D coll)
     {
         GameObject hero = coll.gameObject;
-        Debug.Log("Apply Damage to Hero");
         hero.GetComponent<PlayerInput>().GetDamage(attackDamage, gameObject);
     }
 
     public void FlipFacingDir()
     {
         isFacingRight *= -1;
-    }
-
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            coll.gameObject.GetComponent<PlayerInput>().GetDamage(touchDamage, gameObject);
-        }
     }
 }
