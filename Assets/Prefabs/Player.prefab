@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8541901529948109594}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
-  damage: 1
+  damage: 100
   speed: 8
   jumpForce: 850
 --- !u!114 &8541901529948109588
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b34d31dfca6d842b986037cdd4509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackForce: 400
+  knockBackForce: 1200
   knockBackFreezeTime: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay:
     pre: 0.1
-    attack: 0.01
+    attack: 0
     post: 1.33
   attackLayer:
     serializedVersion: 2

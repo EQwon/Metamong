@@ -14,6 +14,9 @@ public class MonsterAttack : MonoBehaviour
 
     private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, -0.2f) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(1.6f, 1.6f); } }
+    public int IsFacingRight { get { return isFacingRight; } }
+    public int AttackDamage { get { return attackDamage; } }
+    public LayerMask AttackLayer { get { return attackLayer; } }
 
     private void FixedUpdate()
     {
@@ -65,7 +68,7 @@ public class MonsterAttack : MonoBehaviour
     private void ApplyDamage(Collider2D coll)
     {
         GameObject hero = coll.gameObject;
-
+        Debug.Log("Apply Damage to Hero");
         hero.GetComponent<PlayerInput>().GetDamage(attackDamage, gameObject);
     }
 

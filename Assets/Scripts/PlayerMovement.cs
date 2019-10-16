@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1000f)] private float knockBackForce = 400f;
-    [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 1f;
+    [SerializeField] [Range(500, 1500f)] private float knockBackForce = 600f;
+    [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 0.5f;
     [SerializeField] private LayerMask m_WhatIsGround;
 
     private float speed;
@@ -83,12 +83,12 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public IEnumerator KnockBack(GameObject attacker)
+    public IEnumerator KnockBack(Vector2 dir)
     {
         m_Rigidbody2D.velocity = Vector2.zero;
 
-        float horizontalForce = attacker.transform.position.x > transform.position.x ? -knockBackForce : knockBackForce;
-        m_Rigidbody2D.AddForce(new Vector2(horizontalForce, 100f));
+        Vector2 force = dir.normalized * knockBackForce;
+        m_Rigidbody2D.AddForce(force);
 
         yield return new WaitForSeconds(knockBackFreezeTime);
     }

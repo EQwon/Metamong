@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3468727701352014604
+--- !u!1 &7228884104200151665
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3468727701352014593}
-  - component: {fileID: 3468727701352014606}
-  - component: {fileID: 3005260258031424928}
-  - component: {fileID: 2556204904265768748}
-  - component: {fileID: 309991415872843832}
-  - component: {fileID: 6830748713364826235}
-  - component: {fileID: 6183502279987701014}
-  - component: {fileID: 684196423632927130}
-  m_Layer: 9
-  m_Name: Monster 1
+  - component: {fileID: 3454689697164148822}
+  - component: {fileID: 2680418026231852483}
+  - component: {fileID: 7811484295373009726}
+  - component: {fileID: 5894705833230870582}
+  - component: {fileID: 183503134071350841}
+  m_Layer: 0
+  m_Name: Needle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3468727701352014593
+--- !u!4 &3454689697164148822
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
+  m_GameObject: {fileID: 7228884104200151665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3468727701352014606
+--- !u!212 &2680418026231852483
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
+  m_GameObject: {fileID: 7228884104200151665}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,41 +72,51 @@ SpriteRenderer:
   m_SortingLayerID: -268099563
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 86ca59b9bca0e409b9ba2784fbe69f01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f4de4fbc02f11a4ea427f5bce12498b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.35, y: 0.32}
+  m_Size: {x: 0.32, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3005260258031424928
-CircleCollider2D:
+--- !u!61 &7811484295373009726
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
+  m_GameObject: {fileID: 7228884104200151665}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.09}
+  m_Offset: {x: -0.25, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.1875}
+    newSize: {x: 0.32, y: 0.06}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.6
---- !u!50 &2556204904265768748
+  m_Size: {x: 0.5, y: 0.1}
+  m_EdgeRadius: 0
+--- !u!50 &5894705833230870582
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
+  m_GameObject: {fileID: 7228884104200151665}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -117,88 +124,27 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &309991415872843832
+--- !u!114 &183503134071350841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
+  m_GameObject: {fileID: 7228884104200151665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cf3f37caad05349a5210a1608cbe0d, type: 3}
+  m_Script: {fileID: 11500000, guid: eba6af9f2d5fbe948922a89005f60d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  health: 50
-  isFindHero: 0
-  canAttackHero: 0
-  isHitted: 0
-  isDead: 0
---- !u!114 &6830748713364826235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff1e6b9d802bdb4b82caea1e77a763f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolStartX: -6
-  patrolEndX: 6
-  speed: 4
-  waitingTime: 0.5
-  chasingSpeed: 6
-  knockBackForce: 400
-  knockBackFreezeTime: 0.5
---- !u!114 &6183502279987701014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfdbd39577111244bf6da6a46626857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRange: 6
-  attackRange: 2
-  viewAngle: 45
-  targetLayer:
+  attackLayer:
     serializedVersion: 2
     m_Bits: 256
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 1024
---- !u!114 &684196423632927130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468727701352014604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f5479eef585d0e49b436e11e298f61c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay:
-    pre: 0.5
-    attack: 0
-    post: 1
-  attackDamage: 5
-  touchDamage: 5
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 256

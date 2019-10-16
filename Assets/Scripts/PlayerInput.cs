@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -55,6 +53,11 @@ public class PlayerInput : MonoBehaviour
     public void GetDamage(int amount, GameObject attacker)
     {
         health -= amount;
-        //StartCoroutine(mover.KnockBack(attacker));
+
+        Vector2 dir = Vector2.zero;
+        dir.x = transform.position.x > attacker.transform.position.x ? 1 : -1;
+        dir.y = 0.3f;
+
+        StartCoroutine(mover.KnockBack(dir));
     }
 }

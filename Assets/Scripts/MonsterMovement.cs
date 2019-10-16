@@ -20,9 +20,9 @@ public class MonsterMovement : MonoBehaviour
     [SerializeField] private float chasingSpeed = 6f;
 
     [Header("KnockBack")]
-    [Tooltip("공격 넉백에 의해 밀쳐지는 힘")]
+    [Tooltip("플레이어의 공격에 의한 넉백의 정도")]
     [SerializeField] [Range(0, 1000f)] private float knockBackForce = 400f;
-    [Tooltip("공격 넉백에 의한 경직 시간")]
+    [Tooltip("플레이어의 공격에 의한 경직 시간")]
     [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 1f;
 
     private Rigidbody2D m_Rigidbody2D;
@@ -101,7 +101,6 @@ public class MonsterMovement : MonoBehaviour
 
     public void Rush(float rushSpeed)
     {
-        Debug.Log("Rushing!");
         if (transform.position.x >= patrolEndX && m_FacingRight)
         {
             targetVelocity = Vector2.zero;
