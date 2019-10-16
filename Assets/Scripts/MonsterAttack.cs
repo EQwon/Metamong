@@ -7,13 +7,15 @@ public class MonsterAttack : MonoBehaviour
     [SerializeField] private int attackDamage = 5;
     [SerializeField] private int touchDamage = 5;
     [SerializeField] private LayerMask attackLayer;
+    [SerializeField] private Vector2 attackAreaPos;
+    [SerializeField] private Vector2 attackArea;
 
     private int isFacingRight = 1;
     private bool canAttack = true;
     private bool doingAttack = false;
 
-    private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, -0.2f) + (Vector2)transform.position; } }
-    private Vector2 attackSize { get { return new Vector2(1.6f, 1.6f); } }
+    private Vector2 attackPos { get { return new Vector2(isFacingRight * attackAreaPos.x, attackAreaPos.y) + (Vector2)transform.position; } }
+    private Vector2 attackSize { get { return new Vector2(attackArea.x, attackArea.y); } }
     public int IsFacingRight { get { return isFacingRight; } }
     public int AttackDamage { get { return attackDamage; } }
     public LayerMask AttackLayer { get { return attackLayer; } }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraWalk : MonoBehaviour
 {
-    [SerializeField] private float leftLimit;
-    [SerializeField] private float rightLimit;
+    [SerializeField] private float leftHorizontalLimit;
+    [SerializeField] private float rightHorizontalLimit;
 
     private Vector3 targetPos;
     private GameObject player;
@@ -13,19 +13,19 @@ public class CameraWalk : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        targetPos.y = transform.position.y;
         targetPos.z = -10f;
     }
 
     private void FixedUpdate()
     {
         targetPos.x = player.transform.position.x;
+        targetPos.y = player.transform.position.y;
 
-        if (targetPos.x < leftLimit)
-            targetPos.x = leftLimit;
+        if (targetPos.x < leftHorizontalLimit)
+            targetPos.x = leftHorizontalLimit;
 
-        if (targetPos.x > rightLimit)
-            targetPos.x = rightLimit;
+        if (targetPos.x > rightHorizontalLimit)
+            targetPos.x = rightHorizontalLimit;
 
         transform.position = targetPos;
     }
