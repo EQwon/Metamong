@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MonsterAttack_Rush : MonsterAttack
 {
+    [Header("Rush")]
     [SerializeField] private float rushSpeed = 8f;
+
     private MonsterMovement mover;
 
     private void Start()

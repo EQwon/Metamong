@@ -44,15 +44,19 @@ public class MonsterAI : MonoBehaviour
         switch (state)
         {
             case MonsterState.Patrol:
+                GetComponent<SpriteRenderer>().color = Color.white;
                 mover.Patrol();
                 break;
             case MonsterState.Chasing:
+                GetComponent<SpriteRenderer>().color = Color.yellow;
                 mover.Chasing();
                 break;
             case MonsterState.Attack:
+                GetComponent<SpriteRenderer>().color = Color.red;
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
+                GetComponent<SpriteRenderer>().color = Color.grey;
                 Hitted();
                 break;
             case MonsterState.Dead:
