@@ -8,6 +8,13 @@ public class MonsterAttack_Needle : MonsterAttack
     [SerializeField] private Vector2 firePos;
     [SerializeField] private float fireSpeed;
 
+    private MonsterAI AI;
+
+    private void Start()
+    {
+        AI = GetComponent<MonsterAI>();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -18,12 +25,15 @@ public class MonsterAttack_Needle : MonsterAttack
     public override void DoAttack()
     {
         Vector2 spawnPos = (Vector2)transform.position + (IsFacingRight > 0 ? firePos : firePos * new Vector2(-1, 1));
-        Vector2 spawnSpeed = IsFacingRight > 0 ? new Vector2(fireSpeed, 0) : new Vector2(-fireSpeed, 0);
 
-        GameObject needle = Instantiate(needlePrefab, spawnPos, Quaternion.identity);
-        needle.GetComponent<Rigidbody2D>().velocity = spawnSpeed;
+        Vector2 playerPos = AI.PlayerPos;
+        Vector2 dir = playerPos - (Vector2)transform.position;
+
+        Vector2 fireVelocity = dir.normalized * fireSpeed;
+
+        GameObject needle = Instantiate(needlePrefab, spawnPos, Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg));
+        needle.GetComponent<Rigidbody2D>().velocity = fireVelocity;
         needle.GetComponent<ProjectileController>().Damage = AttackDamage;
         needle.GetComponent<ProjectileController>().AttackLayer = AttackLayer;
-        needle.transform.rotation = IsFacingRight > 0 ? Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
     }
 }

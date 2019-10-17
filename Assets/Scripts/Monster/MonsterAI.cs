@@ -20,10 +20,13 @@ public class MonsterAI : MonoBehaviour
     private GameObject healthBarValue;
     private float maxHealth;
 
+    private Vector2 playerPos = Vector2.zero;
+
     public bool IsFindHero { get { return isFindHero; } set { isFindHero = value; } }
     public bool CanAttackHero { get { return canAttackHero; } set { canAttackHero = value; } }
     public bool IsHitted { get { return isHitted; } set { isHitted = value; } }
     public bool IsDead { get { return isDead; } set { isDead = value; } }
+    public Vector2 PlayerPos { get { return playerPos; } set { playerPos = value; } }
 
     private void Awake()
     {

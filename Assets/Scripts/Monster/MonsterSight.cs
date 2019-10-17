@@ -66,6 +66,7 @@ public class MonsterSight : MonoBehaviour
             if (!rayTarget || Vector2.Distance(rayTarget.transform.position, originPos) > distance)
             {
                 AI.IsFindHero = true;
+                AI.PlayerPos = targetPos;
                 AI.CanAttackHero = false;
 
                 if (distance <= attackRange)
