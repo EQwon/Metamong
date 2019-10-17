@@ -23,12 +23,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, 0f) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(1.5f, 2f); } }
 
-    private void Awake()
-    {
-        PlayerStatus stat = GetComponent<PlayerStatus>();
-
-        damage = stat.Damage;
-    }
+    public int Damage { set { damage = value; } }
 
     private void FixedUpdate()
     {

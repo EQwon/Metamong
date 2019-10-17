@@ -9,8 +9,29 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 700f;
 
-    public int MaxHealth { get { return maxHealth; } }
-    public int Damage { get { return damage; } }
-    public float Speed { get { return speed; } }
-    public float JumpForce { get { return jumpForce; } }
+    public int MaxHealth { set { maxHealth = value; } }
+    public int Damage { set { damage = value; } }
+    public float Speed { set { speed = value; } }
+    public float JumpForce { set { jumpForce = value; } }
+
+    private PlayerInput health;
+    private PlayerMovement mover;
+    private PlayerAttack attacker;
+
+    private void Awake()
+    {
+        health = GetComponent<PlayerInput>();
+        mover = GetComponent<PlayerMovement>();
+        attacker = GetComponent<PlayerAttack>();
+
+        UpdateStatus();
+    }
+
+    public void UpdateStatus()
+    {
+        health.Health = maxHealth;
+        mover.Speed = speed;
+        mover.JumpForce = jumpForce;
+        attacker.Damage = damage;
+    }
 }

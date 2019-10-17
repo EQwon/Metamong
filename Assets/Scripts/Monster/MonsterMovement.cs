@@ -30,7 +30,7 @@ public class MonsterMovement : MonoBehaviour
     private bool m_FacingRight = true;
     const float m_MovementSmoothing = 0.05f;
     private Vector2 targetVelocity;
-    private float damp = 0.2f;
+    private float damp = 0.6f;
     private bool isWaiting = false;
     private bool isFreeze = false;
 
@@ -45,6 +45,8 @@ public class MonsterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
         Boarder();
     }
 
@@ -73,9 +75,8 @@ public class MonsterMovement : MonoBehaviour
         // patrol 범위 사이일 경우
         else
         {
-            targetVelocity = m_FacingRight ? new Vector2(speed, m_Rigidbody2D.velocity.y) : new Vector2(-speed, m_Rigidbody2D.velocity.y);
-
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+            targetVelocity.y = m_Rigidbody2D.velocity.y;
+            targetVelocity.x = m_FacingRight ? speed : -speed;
         }
     }
 
@@ -93,10 +94,14 @@ public class MonsterMovement : MonoBehaviour
         }
         else
         {
-            targetVelocity = m_FacingRight ? new Vector2(chasingSpeed, m_Rigidbody2D.velocity.y) : new Vector2(-chasingSpeed, m_Rigidbody2D.velocity.y);
-
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+            targetVelocity.y = m_Rigidbody2D.velocity.y;
+            targetVelocity.x = m_FacingRight ? chasingSpeed : -chasingSpeed;
         }
+    }
+
+    public void Attack()
+    {
+        targetVelocity = Vector2.zero;
     }
 
     public void Rush(float rushSpeed)
@@ -111,9 +116,8 @@ public class MonsterMovement : MonoBehaviour
         }
         else
         {
-            targetVelocity = m_FacingRight ? new Vector2(rushSpeed, m_Rigidbody2D.velocity.y) : new Vector2(-rushSpeed, m_Rigidbody2D.velocity.y);
-
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+            targetVelocity.y = m_Rigidbody2D.velocity.y;
+            targetVelocity.x = m_FacingRight ? rushSpeed : -rushSpeed;
         }
     }
 

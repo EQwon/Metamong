@@ -56,6 +56,7 @@ public class MonsterAI : MonoBehaviour
                 break;
             case MonsterState.Attack:
                 GetComponent<SpriteRenderer>().color = Color.red;
+                mover.Attack();
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
@@ -115,6 +116,7 @@ public class MonsterAI : MonoBehaviour
 
     private void Dead()
     {
+        Contract.instance.KillEvent();
         Destroy(gameObject);
     }
 }

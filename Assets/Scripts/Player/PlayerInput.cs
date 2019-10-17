@@ -11,11 +11,10 @@ public class PlayerInput : MonoBehaviour
     private bool jump = false;
     private bool attack = false;
 
+    public int Health { set { health = value; } }
+
     private void Awake()
     {
-        PlayerStatus stat = GetComponent<PlayerStatus>();
-
-        health = stat.MaxHealth;
         mover = GetComponent<PlayerMovement>();
         attacker = GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();

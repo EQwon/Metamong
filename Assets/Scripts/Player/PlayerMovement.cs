@@ -19,18 +19,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     const float m_MovementSmoothing = 0.05f;
 
-    [Header("Events")]
-    [Space]
+    public float Speed { set { speed = value; } }
+    public float JumpForce { set { m_JumpForce = value; } }
 
+    [Header("Events")]
     public UnityEvent OnLandEvent;
 
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-
-        PlayerStatus stat = GetComponent<PlayerStatus>();
-        speed = stat.Speed;
-        m_JumpForce = stat.JumpForce;
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
