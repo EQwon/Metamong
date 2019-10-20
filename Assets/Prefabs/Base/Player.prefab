@@ -251,3 +251,5 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 512
+  attackEffect: {fileID: 1773785975981198, guid: 5259fd51179843749a61ee57b7ec7da6,
+    type: 3}

@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     public WeaponDelay delay;
     private int damage;
     [SerializeField] private LayerMask attackLayer;
+    [SerializeField] private GameObject attackEffect;
 
     private int isFacingRight = 1;
     private bool canAttack = true;
@@ -64,6 +65,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void ApplyDamage(Collider2D[] colliders)
     {
+        Instantiate(attackEffect, attackPos, Quaternion.identity);
         foreach (Collider2D coll in colliders)
         {
             GameObject enemy = coll.gameObject;
