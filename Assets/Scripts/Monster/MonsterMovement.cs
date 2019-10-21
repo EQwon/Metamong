@@ -80,9 +80,12 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
-    public void Chasing()
+    public void Chasing(Vector2 targetPos)
     {
         if (isFreeze) return;
+
+        if (transform.position.x < targetPos.x && !m_FacingRight) Flip();
+        if (targetPos.x < transform.position.x && m_FacingRight) Flip();
 
         if (transform.position.x >= patrolEndX && m_FacingRight)
         {
@@ -99,8 +102,11 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
-    public void Attack()
+    public void Attack(Vector2 targetPos)
     {
+        if (transform.position.x < targetPos.x && !m_FacingRight) Flip();
+        if (targetPos.x < transform.position.x && m_FacingRight) Flip();
+
         targetVelocity = Vector2.zero;
     }
 

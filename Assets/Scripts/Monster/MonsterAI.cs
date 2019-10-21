@@ -52,11 +52,11 @@ public class MonsterAI : MonoBehaviour
                 break;
             case MonsterState.Chasing:
                 GetComponent<SpriteRenderer>().color = Color.yellow;
-                mover.Chasing();
+                mover.Chasing(PlayerPos);
                 break;
             case MonsterState.Attack:
                 GetComponent<SpriteRenderer>().color = Color.red;
-                mover.Attack();
+                mover.Attack(PlayerPos);
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
