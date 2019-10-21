@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterAttack_Needle : MonsterAttack
 {
+    [Header("Poison Sting")]
     [SerializeField] private GameObject needlePrefab;
     [SerializeField] private Vector2 firePos;
     [SerializeField] private float fireSpeed;
