@@ -25,7 +25,7 @@ public class MonsterSight : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.grey;
 
         Gizmos.DrawWireSphere(transform.position, viewRange);
     }

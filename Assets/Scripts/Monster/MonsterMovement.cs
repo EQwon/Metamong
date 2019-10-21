@@ -131,12 +131,12 @@ public class MonsterMovement : MonoBehaviour
     {
         if (!EditorApplication.isPlaying)
         {
-            Gizmos.color = Color.grey;
-            Gizmos.DrawLine(transform.position + new Vector3(patrolStartX, 0), transform.position + new Vector3(patrolEndX, 0));
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position + new Vector3(patrolStartX, 0.1f), transform.position + new Vector3(patrolEndX, 0.1f));
         }
         else
         {
-            Gizmos.color = Color.grey;
+            Gizmos.color = Color.yellow;
             Gizmos.DrawLine(new Vector2(patrolStartX, transform.position.y), new Vector2(patrolEndX, transform.position.y));
         }
     }
