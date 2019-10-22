@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff1e6b9d802bdb4b82caea1e77a763f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolStartX: -6
-  patrolEndX: 6
+  patrolStartX: -0.5
+  patrolEndX: 0.5
   speed: 4
   waitingTime: 0.5
   chasingSpeed: 6
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRange: 6
   attackRange: 2
-  viewAngle: 45
   targetLayer:
     serializedVersion: 2
     m_Bits: 256

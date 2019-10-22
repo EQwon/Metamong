@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] [Range(500, 1500f)] private float knockBackForce = 600f;
     [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 0.5f;
-    [SerializeField] private float dashSpeed = 20f;
+    [SerializeField] private float dashSpeed = 1000f;
     [SerializeField] private LayerMask m_WhatIsGround;
 
     private float speed;
@@ -15,10 +15,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 groundChecker { get { return new Vector2(0, -1.1f) + (Vector2)transform.position; } }
     const float k_GroundedRadius = 0.2f;
     private bool m_Grounded;
+    private bool isDashing = false;
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
     private float movementDamping = 0.05f;
+
+    private Vector3 targetVelocity = Vector3.zero;
 
     public float Speed { set { speed = value; } }
     public float JumpForce { set { m_JumpForce = value; } }
@@ -50,12 +53,25 @@ public class PlayerMovement : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
+
+        if (isDashing)
+            m_Rigidbody2D.velocity = targetVelocity;
+        else
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, 0);
     }
 
-    public void Move(float move, bool jump)
+    public void Move(float move, bool jump, bool dash)
     {
-        Vector3 targetVelocity = new Vector2(move * speed, m_Rigidbody2D.velocity.y);
-        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, movementDamping);
+        if (isDashing) return;
+
+        if (dash)
+        {
+            targetVelocity.x = m_FacingRight ? dashSpeed : -dashSpeed;
+            StartCoroutine(Dashing());
+            return;
+        }
+
+        targetVelocity = new Vector2(move * speed, m_Rigidbody2D.velocity.y);
 
         if (move > 0 && !m_FacingRight)
         {
@@ -74,10 +90,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash()
     {
-        Vector3 targetVelocity = m_Rigidbody2D.velocity;
-        targetVelocity.x = m_FacingRight ? dashSpeed : -dashSpeed;
-
-        m_Rigidbody2D.velocity = targetVelocity;
     }
 
     private void Flip()
@@ -97,5 +109,14 @@ public class PlayerMovement : MonoBehaviour
         m_Rigidbody2D.AddForce(force);
 
         yield return new WaitForSeconds(knockBackFreezeTime);
+    }
+
+    private IEnumerator Dashing()
+    {
+        isDashing = true;
+
+        yield return new WaitForSeconds(0.2f);
+
+        isDashing = false;
     }
 }

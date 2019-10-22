@@ -9,15 +9,25 @@ public class PlayerInput : MonoBehaviour
     private Animator animator;
     private float horizontalMove = 0;
     private bool jump = false;
+    private bool dash = false;
     private bool attack = false;
 
+    private int maxHealth;
+
+    public int MaxHealth { set { maxHealth = value; } }
     public int Health { set { health = value; } }
+    public float HealthRatio { get { return (float)health / maxHealth; } }
 
     private void Awake()
     {
         mover = GetComponent<PlayerMovement>();
         attacker = GetComponent<PlayerAttack>();
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        Health = maxHealth;
     }
 
     private void Update()
@@ -36,7 +46,7 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetButtonDown("Dash"))
         {
-            mover.Dash();
+            dash = true;
         }
     }
 
@@ -47,10 +57,11 @@ public class PlayerInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        mover.Move(horizontalMove, jump);
+        mover.Move(horizontalMove, jump, dash);
         attacker.Attack(horizontalMove, attack);
         jump = false;
         attack = false;
+        dash = false;
     }
 
     public void GetDamage(int amount, GameObject attacker)
