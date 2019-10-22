@@ -28,7 +28,7 @@ public class MonsterMovement : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private Vector3 m_Velocity = Vector3.zero;
     private bool m_FacingRight = true;
-    const float m_MovementSmoothing = 0.05f;
+    private float m_MovementSmoothing = 0.05f;
     private Vector2 targetVelocity;
     private float damp = 0.6f;
     private bool isWaiting = false;
@@ -129,6 +129,7 @@ public class MonsterMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        #if UNITY_EDITOR
         if (!EditorApplication.isPlaying)
         {
             Gizmos.color = Color.yellow;
@@ -139,6 +140,7 @@ public class MonsterMovement : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(new Vector2(patrolStartX, transform.position.y), new Vector2(patrolEndX, transform.position.y));
         }
+        #endif
     }
 
     private IEnumerator Waiting()

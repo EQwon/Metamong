@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditorInternal;
 
 [CustomEditor(typeof(Contract))]
@@ -49,3 +48,4 @@ public class ContractsInspector : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

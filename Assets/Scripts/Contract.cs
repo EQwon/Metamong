@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ConditionClass { Always, Kill }
 public enum ConditionType { None, Greater, Less }
-public enum ResultClass { AttackPostDelay, AttackDamage, MaxHealth, AirControl, Friction }
+public enum ResultClass { AttackPostDelay, AttackDamage, MaxHealth, AirControl, MoveDamping }
 
 [System.Serializable]
 public class SingleContract
@@ -80,6 +80,7 @@ public class Contract : MonoBehaviour
         switch (contract.resultClass)
         {
             case ResultClass.AttackPostDelay:
+                stat.AttackPostDelay = contract.resultValue;
                 break;
             case ResultClass.AttackDamage:
                 stat.Damage = (int)contract.resultValue;
@@ -89,7 +90,8 @@ public class Contract : MonoBehaviour
                 break;
             case ResultClass.AirControl:
                 break;
-            case ResultClass.Friction:
+            case ResultClass.MoveDamping:
+                stat.MovementDamping = contract.resultValue;
                 break;
         }
     }

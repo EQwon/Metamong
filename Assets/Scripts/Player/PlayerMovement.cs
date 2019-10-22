@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] [Range(500, 1500f)] private float knockBackForce = 600f;
     [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 0.5f;
+    [SerializeField] private float dashSpeed = 20f;
     [SerializeField] private LayerMask m_WhatIsGround;
 
     private float speed;
@@ -17,10 +18,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
-    const float m_MovementSmoothing = 0.05f;
+    private float movementDamping = 0.05f;
 
     public float Speed { set { speed = value; } }
     public float JumpForce { set { m_JumpForce = value; } }
+    public float MovementDamping { set { movementDamping = value; } }
 
     [Header("Events")]
     public UnityEvent OnLandEvent;
@@ -50,11 +52,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     public void Move(float move, bool jump)
     {
         Vector3 targetVelocity = new Vector2(move * speed, m_Rigidbody2D.velocity.y);
-        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, movementDamping);
 
         if (move > 0 && !m_FacingRight)
         {
@@ -69,6 +70,14 @@ public class PlayerMovement : MonoBehaviour
         {
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
+    }
+
+    public void Dash()
+    {
+        Vector3 targetVelocity = m_Rigidbody2D.velocity;
+        targetVelocity.x = m_FacingRight ? dashSpeed : -dashSpeed;
+
+        m_Rigidbody2D.velocity = targetVelocity;
     }
 
     private void Flip()

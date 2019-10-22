@@ -25,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 attackSize { get { return new Vector2(1.5f, 2f); } }
 
     public int Damage { set { damage = value; } }
+    public float AttackPostDelay { set { delay.post = value; } }
 
     private void FixedUpdate()
     {
@@ -71,10 +72,12 @@ public class PlayerAttack : MonoBehaviour
             GameObject enemy = coll.gameObject;
 
             enemy.GetComponent<MonsterAI>().GetDamage(damage, gameObject);
+            StartCoroutine(Camera.main.gameObject.GetComponent<CameraWalk>().Shaking());
         }
     }
 }
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(WeaponDelay))]
 public class DelayDrawerUIE : PropertyDrawer
 {
@@ -109,3 +112,4 @@ public class DelayDrawerUIE : PropertyDrawer
         EditorGUI.EndProperty();
     }
 }
+#endif

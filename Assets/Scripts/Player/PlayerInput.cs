@@ -34,6 +34,10 @@ public class PlayerInput : MonoBehaviour
         {
             attack = true;
         }
+        if (Input.GetButtonDown("Dash"))
+        {
+            mover.Dash();
+        }
     }
 
     public void OnLanding()

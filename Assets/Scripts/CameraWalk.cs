@@ -58,4 +58,18 @@ public class CameraWalk : MonoBehaviour
         Gizmos.DrawLine(UpperLimit, new Vector2(LowerLimit.x, UpperLimit.y));
         Gizmos.DrawLine(UpperLimit, new Vector2(UpperLimit.x, LowerLimit.y));
     }
+
+    public IEnumerator Shaking()
+    {
+        int cnt = Random.Range(5, 10);
+
+        for (int i = 0; i < cnt; i++)
+        {
+            Vector3 randomShake = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+
+            transform.position = transform.position + randomShake;
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
 }
