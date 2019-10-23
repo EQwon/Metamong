@@ -19,6 +19,8 @@ public class CameraWalk : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").gameObject;
+        
+        targetPos = (Vector2)player.transform.position;
         targetPos.z = -10f;
     }
 
