@@ -16,7 +16,15 @@ public class PlayerInput : MonoBehaviour
 
     private int maxHealth;
 
-    public int MaxHealth { set { maxHealth = value; } }
+    public int MaxHealth
+    {
+        set
+        {
+            maxHealth = value;
+            if (health > maxHealth)
+                health = maxHealth;
+        }
+    }
     public int Health { set { health = value; } }
     public float HealthRatio { get { return (float)health / maxHealth; } }
 
