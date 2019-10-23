@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
             m_Rigidbody2D.velocity = targetVelocity;
         else
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, 0);
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, movementDamping);
     }
 
     public void Move(float move, bool jump, bool dash)
