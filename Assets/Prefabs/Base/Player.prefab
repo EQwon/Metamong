@@ -168,9 +168,9 @@ MonoBehaviour:
   maxHealth: 150
   damage: 100
   attackPostDelay: 1
-  speed: 8
+  speed: 4
   movementDamping: 0.05
-  jumpForce: 850
+  jumpForce: 600
 --- !u!114 &8541901529948109588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockBackForce: 1200
   knockBackFreezeTime: 1
-  dashSpeed: 10
+  dashSpeed: 20
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 1024

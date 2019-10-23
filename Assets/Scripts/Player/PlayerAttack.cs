@@ -53,6 +53,7 @@ public class PlayerAttack : MonoBehaviour
         if (canAttack == false) yield break;
 
         canAttack = false;
+        animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(delay.pre);
 
