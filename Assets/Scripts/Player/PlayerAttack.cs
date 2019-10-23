@@ -20,12 +20,18 @@ public class PlayerAttack : MonoBehaviour
 
     private int isFacingRight = 1;
     private bool canAttack = true;
+    private Animator animator;
 
-    private Vector2 attackPos { get { return new Vector2(isFacingRight * 1.2f, 0f) + (Vector2)transform.position; } }
-    private Vector2 attackSize { get { return new Vector2(1.5f, 2f); } }
+    private Vector2 attackPos { get { return new Vector2(isFacingRight * 0.6f, 0f) + (Vector2)transform.position; } }
+    private Vector2 attackSize { get { return new Vector2(0.75f, 1f); } }
 
     public int Damage { set { damage = value; } }
     public float AttackPostDelay { set { delay.post = value; } }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void FixedUpdate()
     {

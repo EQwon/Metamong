@@ -45,6 +45,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButtonDown("Attack"))
         {
             attack = true;
+            animator.SetTrigger("Attack");
         }
         if (Input.GetButtonDown("Dash"))
         {
