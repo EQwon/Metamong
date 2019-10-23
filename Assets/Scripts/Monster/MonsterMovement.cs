@@ -52,8 +52,8 @@ public class MonsterMovement : MonoBehaviour
 
     private void Boarder()
     {
-        if (transform.position.x > patrolEndX + damp) m_Rigidbody2D.velocity = new Vector2(-2f, m_Rigidbody2D.velocity.y);
-        if (transform.position.x < patrolStartX - damp) m_Rigidbody2D.velocity = new Vector2(2f, m_Rigidbody2D.velocity.y);
+        if (transform.position.x > patrolEndX + damp) m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
+        if (transform.position.x < patrolStartX - damp) m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
     }
 
     public void Patrol()

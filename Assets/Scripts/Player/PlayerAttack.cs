@@ -22,8 +22,8 @@ public class PlayerAttack : MonoBehaviour
     private bool canAttack = true;
     private Animator animator;
 
-    private Vector2 attackPos { get { return new Vector2(isFacingRight * 0.6f, 0f) + (Vector2)transform.position; } }
-    private Vector2 attackSize { get { return new Vector2(0.75f, 1f); } }
+    private Vector2 attackPos { get { return new Vector2(isFacingRight * 1f, 0f) + (Vector2)transform.position; } }
+    private Vector2 attackSize { get { return new Vector2(1.2f, 1f); } }
 
     public int Damage { set { damage = value; } }
     public float AttackPostDelay { set { delay.post = value; } }
@@ -73,12 +73,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void ApplyDamage(Collider2D[] colliders)
     {
-        Instantiate(attackEffect, attackPos, Quaternion.identity);
         foreach (Collider2D coll in colliders)
         {
             GameObject enemy = coll.gameObject;
 
             enemy.GetComponent<MonsterAI>().GetDamage(damage, gameObject);
+            Instantiate(attackEffect, attackPos, Quaternion.identity);
             StartCoroutine(Camera.main.gameObject.GetComponent<CameraWalk>().Shaking());
         }
     }

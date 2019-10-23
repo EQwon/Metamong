@@ -67,7 +67,7 @@ public class CameraWalk : MonoBehaviour
 
         for (int i = 0; i < cnt; i++)
         {
-            Vector3 randomShake = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+            Vector3 randomShake = new Vector2(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
 
             transform.position = transform.position + randomShake;
 

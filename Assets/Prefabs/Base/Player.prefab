@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -268099563
-  m_SortingLayer: 1
+  m_SortingLayerID: 2108304397
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77e9140c7eeb8934c8c83cd8b70d5bda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,7 +117,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8541901529948109587}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e8343cd692f8bc645b6e307148d378ef, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -132,8 +132,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.8}
-  m_EdgeRadius: 0.05
+  m_Size: {x: 0.38, y: 0.88}
+  m_EdgeRadius: 0.01
 --- !u!95 &8541901529948109595
 Animator:
   serializedVersion: 3
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 150
   damage: 100
-  attackPostDelay: 1
+  attackPostDelay: 0.5
   speed: 4
   movementDamping: 0.05
   jumpForce: 700

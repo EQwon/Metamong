@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfdbd39577111244bf6da6a46626857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRange: 10
-  attackRange: 8
+  viewRange: 5
+  attackRange: 4
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
