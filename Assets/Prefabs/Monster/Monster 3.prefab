@@ -101,18 +101,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.25}
+  m_Offset: {x: 0, y: -0.17}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.44, y: 0.5}
-    oldSize: {x: 1.625, y: 2.25}
+    oldSize: {x: 0.8125, y: 1.125}
     newSize: {x: 0.35, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6}
+  m_Size: {x: 0.4, y: 0.7}
   m_EdgeRadius: 0.05
 --- !u!50 &2556204904265768748
 Rigidbody2D:
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolStartX: -0.5
   patrolEndX: 0.5
-  speed: 4
+  speed: 2
   waitingTime: 0.5
   chasingSpeed: 0
   knockBackForce: 400
@@ -216,8 +216,8 @@ MonoBehaviour:
   attackArea: {x: 0, y: 0}
   needlePrefab: {fileID: 7228884104200151665, guid: a9d4160789724944e9af6efa775649a8,
     type: 3}
-  firePos: {x: 1, y: 0.2}
-  fireSpeed: 10
+  firePos: {x: 0.5, y: 0.2}
+  fireSpeed: 5
 --- !u!114 &3793128232060023504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 7048561330929532291, guid: b8fd8718fafd4344b99bdf41ef16fa90,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7048561330929532291, guid: b8fd8718fafd4344b99bdf41ef16fa90,
         type: 3}
