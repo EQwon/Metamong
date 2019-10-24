@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private float invincibleTime = 0.8f;
 
     private PlayerMovement mover;
     private PlayerAttack attacker;
@@ -94,7 +95,7 @@ public class PlayerInput : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = Color.grey;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(invincibleTime);
 
         GetComponent<SpriteRenderer>().color = Color.white;
 

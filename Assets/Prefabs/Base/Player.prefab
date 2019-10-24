@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b34d31dfca6d842b986037cdd4509b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackForce: 1200
-  knockBackFreezeTime: 1
+  knockBackForce: 800
+  knockBackFreezeTime: 0.5
   dashSpeed: 20
   m_WhatIsGround:
     serializedVersion: 2
