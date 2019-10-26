@@ -4,13 +4,14 @@ using UnityEngine;
 
 public enum ConditionClass { Always, Kill }
 public enum ConditionType { None, Greater, Less }
-public enum ResultClass { AttackPostDelay, AttackDamage, MaxHealth, AirControl, MoveDamping }
+public enum ResultClass { None, AttackPostDelay, AttackDamage, MaxHealth, AirControl, MoveDamping }
 
 [System.Serializable]
 public class SingleContract
 {
     public int article;
     public int clause;
+    public bool isAgree = true;
     public ConditionClass conditionClass;
     public ConditionType conditionType;
     public int conditionValue;
@@ -43,6 +44,32 @@ public class Contract : MonoBehaviour
         KillContractCheck();
     }
 
+    public void ChangeContractState(int article, int clause, bool isAgree)
+    {
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            if (contracts[i].article != article) continue;
+            if (contracts[i].clause != clause) continue;
+
+            contracts[i].isAgree = isAgree;
+            return;
+        }
+    }
+
+    public bool GetContractState(int article, int clause)
+    {
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            if (contracts[i].article != article) continue;
+            if (contracts[i].clause != clause) continue;
+
+            return contracts[i].isAgree;
+        }
+
+        Debug.LogError("해당하는 계약을 찾지 못했습니다.");
+        return false;
+    }
+
     public void KillEvent()
     {
         killCnt += 1;
@@ -58,6 +85,7 @@ public class Contract : MonoBehaviour
             SingleContract contract = contracts[i];
 
             if (contract.conditionClass != ConditionClass.Kill) continue;
+            if (contract.isAgree == false) continue;
 
             switch (contract.conditionType)
             {

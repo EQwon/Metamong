@@ -98,6 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawCameraArea: 1
   leftEdge: -30
-  rightEdge: 30
+  rightEdge: 150
   upperLimit: {x: 2.5, y: 2}
   lowerLimit: {x: -2.5, y: -2}

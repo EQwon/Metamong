@@ -44,8 +44,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contracts:
+  - article: 1
+    clause: 1
+    isAgree: 1
+    conditionClass: 0
+    conditionType: 0
+    conditionValue: 0
+    resultClass: 0
+    resultValue: 0
+  - article: 1
+    clause: 2
+    isAgree: 1
+    conditionClass: 0
+    conditionType: 0
+    conditionValue: 0
+    resultClass: 0
+    resultValue: 0
+  - article: 1
+    clause: 3
+    isAgree: 1
+    conditionClass: 0
+    conditionType: 0
+    conditionValue: 0
+    resultClass: 0
+    resultValue: 0
   - article: 2
     clause: 1
+    isAgree: 1
     conditionClass: 1
     conditionType: 1
     conditionValue: 0
@@ -53,6 +78,7 @@ MonoBehaviour:
     resultValue: 150
   - article: 2
     clause: 2
+    isAgree: 1
     conditionClass: 1
     conditionType: 1
     conditionValue: 30
@@ -60,6 +86,7 @@ MonoBehaviour:
     resultValue: 100
   - article: 2
     clause: 3
+    isAgree: 1
     conditionClass: 1
     conditionType: 1
     conditionValue: 60
@@ -67,6 +94,7 @@ MonoBehaviour:
     resultValue: 70
   - article: 3
     clause: 1
+    isAgree: 1
     conditionClass: 1
     conditionType: 1
     conditionValue: 0
@@ -74,6 +102,7 @@ MonoBehaviour:
     resultValue: 100
   - article: 3
     clause: 2
+    isAgree: 1
     conditionClass: 1
     conditionType: 1
     conditionValue: 50
@@ -81,6 +110,7 @@ MonoBehaviour:
     resultValue: 50
   - article: 3
     clause: 3
+    isAgree: 1
     conditionClass: 1
     conditionType: 1
     conditionValue: 100
