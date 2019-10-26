@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private float invincibleTime = 0.8f;
 
     private PlayerMovement mover;
     private PlayerAttack attacker;
@@ -11,10 +13,19 @@ public class PlayerInput : MonoBehaviour
     private bool jump = false;
     private bool dash = false;
     private bool attack = false;
+    private bool isInvincible = false;
 
     private int maxHealth;
 
-    public int MaxHealth { set { maxHealth = value; } }
+    public int MaxHealth
+    {
+        set
+        {
+            maxHealth = value;
+            if (health > maxHealth)
+                health = maxHealth;
+        }
+    }
     public int Health { set { health = value; } }
     public float HealthRatio { get { return (float)health / maxHealth; } }
 
@@ -66,6 +77,11 @@ public class PlayerInput : MonoBehaviour
 
     public void GetDamage(int amount, GameObject attacker)
     {
+        if (isInvincible) return;
+
+        isInvincible = true;
+        StartCoroutine(Invincible());
+
         health -= amount;
 
         Vector2 dir = Vector2.zero;
@@ -73,5 +89,16 @@ public class PlayerInput : MonoBehaviour
         dir.y = 0.3f;
 
         StartCoroutine(mover.KnockBack(dir));
+    }
+
+    private IEnumerator Invincible()
+    {
+        GetComponent<SpriteRenderer>().color = Color.grey;
+
+        yield return new WaitForSeconds(invincibleTime);
+
+        GetComponent<SpriteRenderer>().color = Color.white;
+
+        isInvincible = false;
     }
 }

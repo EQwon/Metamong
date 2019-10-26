@@ -60,7 +60,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -99,5 +99,5 @@ MonoBehaviour:
   drawCameraArea: 1
   leftEdge: -30
   rightEdge: 30
-  upperLimit: {x: 5, y: 4}
-  lowerLimit: {x: -5, y: -4}
+  upperLimit: {x: 2.5, y: 2}
+  lowerLimit: {x: -2.5, y: -2}

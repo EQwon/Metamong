@@ -106,8 +106,6 @@ public class MonsterMovement : MonoBehaviour
     {
         if (transform.position.x < targetPos.x && !m_FacingRight) Flip();
         if (targetPos.x < transform.position.x && m_FacingRight) Flip();
-
-        targetVelocity = Vector2.zero;
     }
 
     public void Rush(float rushSpeed)
