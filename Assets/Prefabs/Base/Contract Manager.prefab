@@ -98,7 +98,7 @@ MonoBehaviour:
     conditionClass: 1
     conditionType: 1
     conditionValue: 0
-    resultClass: 1
+    resultClass: 3
     resultValue: 100
   - article: 3
     clause: 2
@@ -106,7 +106,7 @@ MonoBehaviour:
     conditionClass: 1
     conditionType: 1
     conditionValue: 50
-    resultClass: 1
+    resultClass: 3
     resultValue: 50
   - article: 3
     clause: 3
@@ -114,5 +114,5 @@ MonoBehaviour:
     conditionClass: 1
     conditionType: 1
     conditionValue: 100
-    resultClass: 1
+    resultClass: 3
     resultValue: 25

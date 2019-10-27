@@ -25,10 +25,11 @@ public class MonsterMovement : MonoBehaviour
     [Tooltip("플레이어의 공격에 의한 경직 시간")]
     [SerializeField] [Range(0, 3f)] private float knockBackFreezeTime = 1f;
 
+    private Animator animator;
     private Rigidbody2D m_Rigidbody2D;
-    private Vector3 m_Velocity = Vector3.zero;
-    private bool m_FacingRight = true;
-    private float m_MovementSmoothing = 0.05f;
+    private Vector3 myVelocity = Vector3.zero;
+    private bool isFacingRight = true;
+    private float movementSmoothing = 0.05f;
     private Vector2 targetVelocity;
     private float damp = 0.6f;
     private bool isWaiting = false;
@@ -39,13 +40,15 @@ public class MonsterMovement : MonoBehaviour
         patrolStartX += transform.position.x;
         patrolEndX += transform.position.x;
 
+        animator = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         targetVelocity = new Vector2(speed, m_Rigidbody2D.velocity.y);
     }
 
     private void FixedUpdate()
     {
-        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+        m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref myVelocity, movementSmoothing);
+        animator.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
     }
 
     public void Patrol()
@@ -53,13 +56,13 @@ public class MonsterMovement : MonoBehaviour
         if (isFreeze) return;
 
         // 오른쪽 끝에 도달했을 경우
-        if (transform.position.x >= patrolEndX && m_FacingRight)
+        if (transform.position.x >= patrolEndX && isFacingRight)
         {
             targetVelocity = Vector2.zero;
             StartCoroutine(Waiting());
         }
         // 왼쪽 끝에 도달했을 경우
-        else if (transform.position.x <= patrolStartX && !m_FacingRight)
+        else if (transform.position.x <= patrolStartX && !isFacingRight)
         {
             targetVelocity = Vector2.zero;
             StartCoroutine(Waiting());
@@ -68,7 +71,7 @@ public class MonsterMovement : MonoBehaviour
         else
         {
             targetVelocity.y = m_Rigidbody2D.velocity.y;
-            targetVelocity.x = m_FacingRight ? speed : -speed;
+            targetVelocity.x = isFacingRight ? speed : -speed;
         }
     }
 
@@ -76,44 +79,44 @@ public class MonsterMovement : MonoBehaviour
     {
         if (isFreeze) return;
 
-        if (transform.position.x < targetPos.x && !m_FacingRight) Flip();
-        if (targetPos.x < transform.position.x && m_FacingRight) Flip();
+        if (transform.position.x < targetPos.x && !isFacingRight) Flip();
+        if (targetPos.x < transform.position.x && isFacingRight) Flip();
 
-        if (transform.position.x >= patrolEndX && m_FacingRight)
+        if (transform.position.x >= patrolEndX && isFacingRight)
         {
             targetVelocity = Vector2.zero;
         }
-        else if (transform.position.x <= patrolStartX && !m_FacingRight)
+        else if (transform.position.x <= patrolStartX && !isFacingRight)
         {
             targetVelocity = Vector2.zero;
         }
         else
         {
             targetVelocity.y = m_Rigidbody2D.velocity.y;
-            targetVelocity.x = m_FacingRight ? chasingSpeed : -chasingSpeed;
+            targetVelocity.x = isFacingRight ? chasingSpeed : -chasingSpeed;
         }
     }
 
     public void Attack(Vector2 targetPos)
     {
-        if (transform.position.x < targetPos.x && !m_FacingRight) Flip();
-        if (targetPos.x < transform.position.x && m_FacingRight) Flip();
+        if (transform.position.x < targetPos.x && !isFacingRight) Flip();
+        if (targetPos.x < transform.position.x && isFacingRight) Flip();
     }
 
     public void Rush(float rushSpeed)
     {
-        if (transform.position.x >= patrolEndX && m_FacingRight)
+        if (transform.position.x >= patrolEndX && isFacingRight)
         {
             targetVelocity = Vector2.zero;
         }
-        else if (transform.position.x <= patrolStartX && !m_FacingRight)
+        else if (transform.position.x <= patrolStartX && !isFacingRight)
         {
             targetVelocity = Vector2.zero;
         }
         else
         {
             targetVelocity.y = m_Rigidbody2D.velocity.y;
-            targetVelocity.x = m_FacingRight ? rushSpeed : -rushSpeed;
+            targetVelocity.x = isFacingRight ? rushSpeed : -rushSpeed;
         }
     }
 
@@ -161,7 +164,7 @@ public class MonsterMovement : MonoBehaviour
 
     private void Flip()
     {
-        m_FacingRight = !m_FacingRight;
+        isFacingRight = !isFacingRight;
         GetComponent<MonsterSight>().FlipFacingDir();
         GetComponent<MonsterAttack>().FlipFacingDir();
 
