@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     private float m_JumpForce;
 
-    private Vector2 groundChecker { get { return new Vector2(0, -1.1f) + (Vector2)transform.position; } }
+    private Vector2 groundChecker { get { return new Vector2(0, -0.4f) + (Vector2)transform.position; } }
     const float k_GroundedRadius = 0.2f;
     private bool m_Grounded;
     private bool isDashing = false;

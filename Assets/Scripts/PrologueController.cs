@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PrologueController : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PrologueController : MonoBehaviour
 
         if (targetNum >= prologueImages.Count)
         {
-            // 프롤로그 끝
+            SceneManager.LoadScene(2);
             return;
         }
 
