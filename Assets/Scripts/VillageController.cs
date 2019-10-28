@@ -10,6 +10,7 @@ public class VillageController : MonoBehaviour
 
     [Header("UI Holder")]
     [SerializeField] private GameObject contractPanel;
+    [SerializeField] private GameObject contractCheckPanel;
     [SerializeField] private GameObject speechPanel;
     [SerializeField] private Text speechText;
 
@@ -22,6 +23,7 @@ public class VillageController : MonoBehaviour
         player.GetComponent<PlayerInput>().enabled = false;
         speechPanel.SetActive(true);
         contractPanel.SetActive(false);
+        contractCheckPanel.SetActive(false);
 
         ShowNowSpeech();
     }
@@ -44,5 +46,17 @@ public class VillageController : MonoBehaviour
     private void ShowNowSpeech()
     {
         speechText.text = speeches[nowNum];
+    }
+
+    public void OK()
+    {
+        player.GetComponent<PlayerInput>().enabled = true;
+        contractPanel.SetActive(false);
+        contractCheckPanel.SetActive(false);
+    }
+
+    public void Wait()
+    {
+        contractCheckPanel.SetActive(false);
     }
 }

@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     private bool dash = false;
     private bool attack = false;
     private bool isInvincible = false;
+    private GameObject nowGate = null;
 
     private int maxHealth;
 
@@ -28,6 +29,7 @@ public class PlayerInput : MonoBehaviour
     }
     public int Health { set { health = value; } }
     public float HealthRatio { get { return (float)health / maxHealth; } }
+    public GameObject NowGate { set { nowGate = value; } }
 
     private void Awake()
     {
@@ -58,6 +60,10 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButtonDown("Dash"))
         {
             dash = true;
+        }
+        if (Input.GetButtonDown("Gate"))
+        {
+            if (nowGate) nowGate.GetComponent<GateController>().EnterGate();
         }
     }
 

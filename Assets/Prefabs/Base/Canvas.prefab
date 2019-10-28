@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3681077542154341915}
   - component: {fileID: 8333279050670828406}
   - component: {fileID: 34904708557140071}
-  - component: {fileID: 8964923762038378184}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -76,36 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8964923762038378184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284082253121114024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2970985505475751388}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &284472989150375684
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +86,6 @@ GameObject:
   - component: {fileID: 26083405865691128}
   - component: {fileID: 4321532863031319306}
   - component: {fileID: 8594269541603673194}
-  - component: {fileID: 1289450860345576470}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -182,36 +150,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1289450860345576470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284472989150375684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7042747817994091223}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &490456605714708022
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +287,6 @@ GameObject:
   - component: {fileID: 3056323465962364041}
   - component: {fileID: 2788344547362015106}
   - component: {fileID: 5446912045668370570}
-  - component: {fileID: 4873097773540913969}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -414,36 +351,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4873097773540913969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859284249263998637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 452004856609567030}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1045881462172985091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +969,6 @@ GameObject:
   - component: {fileID: 7450244000498382522}
   - component: {fileID: 4445668110937450178}
   - component: {fileID: 9095506546069636952}
-  - component: {fileID: 8861048734758357165}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -1127,36 +1033,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8861048734758357165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303111762128308666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1806252145775811283}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1349392660848266465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,14 +1202,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 1
     clause: 2
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 8594269541603673194}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &2475364519025996280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,14 +1304,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 2
     clause: 1
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 7344251504004011192}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &2619550575687773175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,14 +1486,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 1
     clause: 1
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 3361194903832181164}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &2940313093581537041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1505,6 @@ GameObject:
   - component: {fileID: 6667008275538985049}
   - component: {fileID: 5924574724957868019}
   - component: {fileID: 7344251504004011192}
-  - component: {fileID: 7049763541423448485}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -1694,36 +1569,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7049763541423448485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2940313093581537041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4603969945364210732}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &3378298261660474734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,14 +1663,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   myNum:
     article: 2
     clause: 2
-  penaltyNum:
-    article: 3
-    clause: 1
+  group: []
   box: {fileID: 5446912045668370570}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &3507846565524172266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,14 +1991,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 2
     clause: 3
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 34904708557140071}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &4217966771855681485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,7 +2217,6 @@ GameObject:
   - component: {fileID: 2604340340783833413}
   - component: {fileID: 5736429838886711777}
   - component: {fileID: 3361194903832181164}
-  - component: {fileID: 8293622159040229387}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -2437,36 +2281,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8293622159040229387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4419331565480440563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 463331076277136943}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &4801702626981556010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,7 +2374,6 @@ GameObject:
   - component: {fileID: 8995472042457807295}
   - component: {fileID: 7652627310399149401}
   - component: {fileID: 2045239199462334021}
-  - component: {fileID: 1469176693197838189}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -2625,36 +2438,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1469176693197838189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5140303359474892782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3321977569324049227}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &5154546285648388182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,14 +2702,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 3
     clause: 2
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 4011358335641893151}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &5904648828665148018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,14 +3046,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 1
     clause: 3
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 6210792866463012835}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &6747335019756493861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,7 +3145,6 @@ GameObject:
   - component: {fileID: 3184601788657157181}
   - component: {fileID: 8421381993315470772}
   - component: {fileID: 6210792866463012835}
-  - component: {fileID: 8358173128445108913}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -3427,36 +3209,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8358173128445108913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7040757776223248028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 9158348006757598933}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &7585723376982049849
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,14 +3465,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   myNum:
     article: 3
     clause: 3
-  penaltyNum:
-    article: 0
-    clause: 0
+  group: []
   box: {fileID: 9095506546069636952}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &8575165249769802579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,14 +3567,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278674e2d4d53c944be9572d47f5f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   myNum:
     article: 3
     clause: 1
-  penaltyNum:
-    article: 2
-    clause: 2
+  group: []
   box: {fileID: 2045239199462334021}
+  checkImage:
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
+  - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
 --- !u!1 &8633156840829600520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,7 +3586,6 @@ GameObject:
   - component: {fileID: 5957387727143961793}
   - component: {fileID: 1108654054119489946}
   - component: {fileID: 4011358335641893151}
-  - component: {fileID: 3204749328678711809}
   m_Layer: 5
   m_Name: Check Box
   m_TagString: Untagged
@@ -3899,33 +3650,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3204749328678711809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8633156840829600520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6545672148159215912}
-          m_MethodName: CheckBox
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
