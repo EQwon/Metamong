@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  health: 70
+  health: 80
   isFindHero: 0
   canAttackHero: 0
   isHitted: 0
