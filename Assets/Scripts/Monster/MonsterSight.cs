@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonsterSight : MonoBehaviour
 {
+    [SerializeField] private bool drawSight = false;
     [SerializeField] [Range(0, 10f)] private float viewRange = 5f;
     [SerializeField] [Range(0, 10f)] private float attackRange = 2f;
     [SerializeField] private LayerMask targetLayer;
@@ -24,6 +25,8 @@ public class MonsterSight : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (drawSight == false) return;
+
         Gizmos.color = Color.grey;
 
         Gizmos.DrawWireSphere(transform.position, viewRange);

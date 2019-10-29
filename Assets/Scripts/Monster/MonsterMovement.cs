@@ -7,9 +7,9 @@ public class MonsterMovement : MonoBehaviour
 {
     [Header("Patrol")]
     [Tooltip("Patrol 왼쪽 끝")]
-    [SerializeField] private float patrolStartX;
+    [SerializeField] private float patrolLeftEnd;
     [Tooltip("Patrol 오른쪽 끝")]
-    [SerializeField] private float patrolEndX;
+    [SerializeField] private float patrolRightEnd;
     [Tooltip("Patrol 속도")]
     [SerializeField] private float speed = 4f;
     [Tooltip("Patrol 방향 전환 대기 시간")]
@@ -37,8 +37,9 @@ public class MonsterMovement : MonoBehaviour
 
     private void Awake()
     {
-        patrolStartX += transform.position.x;
-        patrolEndX += transform.position.x;
+        PatrolAreaSwap();
+        patrolLeftEnd += transform.position.x;
+        patrolRightEnd += transform.position.x;
 
         animator = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -47,6 +48,7 @@ public class MonsterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        targetVelocity.y = m_Rigidbody2D.velocity.y;
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref myVelocity, movementSmoothing);
         animator.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
     }
@@ -56,21 +58,20 @@ public class MonsterMovement : MonoBehaviour
         if (isFreeze) return;
 
         // 오른쪽 끝에 도달했을 경우
-        if (transform.position.x >= patrolEndX && isFacingRight)
+        if (transform.position.x >= patrolRightEnd && isFacingRight)
         {
-            targetVelocity = Vector2.zero;
+            targetVelocity.x = 0;
             StartCoroutine(Waiting());
         }
         // 왼쪽 끝에 도달했을 경우
-        else if (transform.position.x <= patrolStartX && !isFacingRight)
+        else if (transform.position.x <= patrolLeftEnd && !isFacingRight)
         {
-            targetVelocity = Vector2.zero;
+            targetVelocity.x = 0;
             StartCoroutine(Waiting());
         }
         // patrol 범위 사이일 경우
         else
         {
-            targetVelocity.y = m_Rigidbody2D.velocity.y;
             targetVelocity.x = isFacingRight ? speed : -speed;
         }
     }
@@ -82,17 +83,16 @@ public class MonsterMovement : MonoBehaviour
         if (transform.position.x < targetPos.x && !isFacingRight) Flip();
         if (targetPos.x < transform.position.x && isFacingRight) Flip();
 
-        if (transform.position.x >= patrolEndX && isFacingRight)
+        if (transform.position.x >= patrolRightEnd && isFacingRight)
         {
-            targetVelocity = Vector2.zero;
+            targetVelocity.x = 0;
         }
-        else if (transform.position.x <= patrolStartX && !isFacingRight)
+        else if (transform.position.x <= patrolLeftEnd && !isFacingRight)
         {
-            targetVelocity = Vector2.zero;
+            targetVelocity.x = 0;
         }
         else
         {
-            targetVelocity.y = m_Rigidbody2D.velocity.y;
             targetVelocity.x = isFacingRight ? chasingSpeed : -chasingSpeed;
         }
     }
@@ -105,17 +105,16 @@ public class MonsterMovement : MonoBehaviour
 
     public void Rush(float rushSpeed)
     {
-        if (transform.position.x >= patrolEndX && isFacingRight)
+        if (transform.position.x >= patrolRightEnd && isFacingRight)
         {
-            targetVelocity = Vector2.zero;
+            targetVelocity.x = 0;
         }
-        else if (transform.position.x <= patrolStartX && !isFacingRight)
+        else if (transform.position.x <= patrolLeftEnd && !isFacingRight)
         {
-            targetVelocity = Vector2.zero;
+            targetVelocity.x = 0;
         }
         else
         {
-            targetVelocity.y = m_Rigidbody2D.velocity.y;
             targetVelocity.x = isFacingRight ? rushSpeed : -rushSpeed;
         }
     }
@@ -126,12 +125,12 @@ public class MonsterMovement : MonoBehaviour
         if (!EditorApplication.isPlaying)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(transform.position + new Vector3(patrolStartX, 0.1f), transform.position + new Vector3(patrolEndX, 0.1f));
+            Gizmos.DrawLine(transform.position + new Vector3(patrolLeftEnd, 0.1f), transform.position + new Vector3(patrolRightEnd, 0.1f));
         }
         else
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(new Vector2(patrolStartX, transform.position.y), new Vector2(patrolEndX, transform.position.y));
+            Gizmos.DrawLine(new Vector2(patrolLeftEnd, transform.position.y), new Vector2(patrolRightEnd, transform.position.y));
         }
         #endif
     }
@@ -169,5 +168,16 @@ public class MonsterMovement : MonoBehaviour
         GetComponent<MonsterAttack>().FlipFacingDir();
 
         GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+    }
+
+    private void PatrolAreaSwap()
+    {
+        // patrolLeftEnd 가 왼쪽 끝, patrolRightEnd 가 오른쪽 끝임을 보장.
+        if (patrolLeftEnd > patrolRightEnd)
+        {
+            float temp = patrolRightEnd;
+            patrolRightEnd = patrolLeftEnd;
+            patrolLeftEnd = temp;
+        }
     }
 }
