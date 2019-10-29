@@ -85,6 +85,12 @@ public class PlayerInput : MonoBehaviour
         jump = false;
         attack = false;
         dash = false;
+
+        if (health <= 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90f);
+            ui.Pause();
+        }
     }
 
     public void GetDamage(int amount, GameObject attacker)
@@ -100,11 +106,6 @@ public class PlayerInput : MonoBehaviour
         dir.x = transform.position.x > attacker.transform.position.x ? 0.87f : -0.87f;
         dir.y = 0.3f;
 
-        if (health <= 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 90f);
-            this.enabled = false;
-        }
         StartCoroutine(mover.KnockBack(dir));
     }
 
