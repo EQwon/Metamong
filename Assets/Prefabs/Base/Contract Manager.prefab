@@ -67,7 +67,7 @@ MonoBehaviour:
     conditionType: 1
     conditionValue: 0
     resultClass: 1
-    resultValue: 0.6
+    resultValue: 0.3
   - article: 2
     clause: 1
     isAgree: 1
@@ -132,6 +132,14 @@ MonoBehaviour:
     conditionValue: 0
     resultClass: 0
     resultValue: 150
+  - article: 3
+    clause: 6
+    isAgree: 1
+    conditionClass: 1
+    conditionType: 1
+    conditionValue: 0
+    resultClass: 2
+    resultValue: 50
   - article: 4
     clause: 1
     isAgree: 1
@@ -176,18 +184,10 @@ MonoBehaviour:
     clause: 6
     isAgree: 1
     conditionClass: 1
-    conditionType: 0
-    conditionValue: 0
-    resultClass: 0
-    resultValue: 0
-  - article: 4
-    clause: 7
-    isAgree: 1
-    conditionClass: 1
     conditionType: 1
     conditionValue: 0
-    resultClass: 5
-    resultValue: 10
+    resultClass: 1
+    resultValue: 2
   - article: 4
     clause: 7
     isAgree: 1

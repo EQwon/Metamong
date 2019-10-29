@@ -66,7 +66,7 @@ public class Contract : MonoBehaviour
             return contracts[i].isAgree;
         }
 
-        Debug.LogError("해당하는 계약을 찾지 못했습니다.");
+        Debug.LogError(article + "조 " + clause + "항에 해당하는 계약을 찾지 못했습니다.");
         return false;
     }
 
