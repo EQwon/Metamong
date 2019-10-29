@@ -15,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     private bool attack = false;
     private bool isInvincible = false;
     private GameObject nowGate = null;
+    private UIManager ui;
 
     private int maxHealth;
 
@@ -30,6 +31,7 @@ public class PlayerInput : MonoBehaviour
     public int Health { set { health = value; } }
     public float HealthRatio { get { return (float)health / maxHealth; } }
     public GameObject NowGate { set { nowGate = value; } }
+    public UIManager UI { set { ui = value; } }
 
     private void Awake()
     {
@@ -65,6 +67,10 @@ public class PlayerInput : MonoBehaviour
         {
             if (nowGate) nowGate.GetComponent<GateController>().EnterGate();
         }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            ui.Pause();
+        }
     }
 
     public void OnLanding()
@@ -79,6 +85,12 @@ public class PlayerInput : MonoBehaviour
         jump = false;
         attack = false;
         dash = false;
+
+        if (health <= 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90f);
+            ui.Pause();
+        }
     }
 
     public void GetDamage(int amount, GameObject attacker)
@@ -91,7 +103,7 @@ public class PlayerInput : MonoBehaviour
         health -= amount;
 
         Vector2 dir = Vector2.zero;
-        dir.x = transform.position.x > attacker.transform.position.x ? 1 : -1;
+        dir.x = transform.position.x > attacker.transform.position.x ? 0.87f : -0.87f;
         dir.y = 0.3f;
 
         StartCoroutine(mover.KnockBack(dir));

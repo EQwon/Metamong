@@ -24827,35 +24827,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8083479677558519871, guid: b71e21c7e83d4ec409e8c00303b8badb,
-        type: 3}
-      propertyPath: damage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083479677558519871, guid: b71e21c7e83d4ec409e8c00303b8badb,
-        type: 3}
-      propertyPath: speed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8083479677558519871, guid: b71e21c7e83d4ec409e8c00303b8badb,
-        type: 3}
-      propertyPath: jumpForce
-      value: 680
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541901529948109586, guid: b71e21c7e83d4ec409e8c00303b8badb,
-        type: 3}
-      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541901529948109586, guid: b71e21c7e83d4ec409e8c00303b8badb,
-        type: 3}
-      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541901529948109586, guid: b71e21c7e83d4ec409e8c00303b8badb,
-        type: 3}
-      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71e21c7e83d4ec409e8c00303b8badb, type: 3}
