@@ -75,7 +75,7 @@ MonoBehaviour:
     conditionType: 1
     conditionValue: 0
     resultClass: 3
-    resultValue: 100
+    resultValue: 150
   - article: 2
     clause: 2
     isAgree: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
     conditionType: 1
     conditionValue: 30
     resultClass: 3
-    resultValue: 50
+    resultValue: 100
   - article: 2
     clause: 3
     isAgree: 1
@@ -91,7 +91,7 @@ MonoBehaviour:
     conditionType: 1
     conditionValue: 60
     resultClass: 3
-    resultValue: 25
+    resultValue: 70
   - article: 3
     clause: 1
     isAgree: 1

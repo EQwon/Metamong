@@ -19,15 +19,10 @@ public class ContractController : MonoBehaviour
     [SerializeField] private Image box;
     [SerializeField] private List<Sprite> checkImage;
 
-    private void Start()
-    {
-        Agree();
-    }
-
     private void Update()
     {
-        if (Contract.instance.GetContractState(myNum.article, myNum.clause)) box.sprite = checkImage[0];
-        else box.sprite = checkImage[1];
+        if (Contract.instance.GetContractState(myNum.article, myNum.clause)) box.sprite = checkImage[1];
+        else box.sprite = checkImage[0];
     }
 
     public void CheckBox()

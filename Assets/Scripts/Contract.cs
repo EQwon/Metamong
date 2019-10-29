@@ -11,7 +11,7 @@ public class SingleContract
 {
     public int article;
     public int clause;
-    public bool isAgree = true;
+    public bool isAgree = false;
     public ConditionClass conditionClass;
     public ConditionType conditionType;
     public int conditionValue;
@@ -40,8 +40,15 @@ public class Contract : MonoBehaviour
     private void Start()
     {
         stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
+        Initialize();
+    }
 
-        KillContractCheck();
+    private void Initialize()
+    {
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            contracts[i].isAgree = false;
+        }
     }
 
     public void ChangeContractState(int article, int clause, bool isAgree)
@@ -52,6 +59,7 @@ public class Contract : MonoBehaviour
             if (contracts[i].clause != clause) continue;
 
             contracts[i].isAgree = isAgree;
+            KillContractCheck();
             return;
         }
     }

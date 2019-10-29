@@ -33,6 +33,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void UpdateStatus()
     {
+        Debug.Log("스탯 업데이트");
         health.MaxHealth = maxHealth;
         mover.Speed = speed;
         mover.MovementDamping = movementDamping;
