@@ -185,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff1e6b9d802bdb4b82caea1e77a763f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolStartX: -3.5
-  patrolEndX: 3.5
+  patrolLeftEnd: -1
+  patrolRightEnd: 1
   speed: 2
   waitingTime: 0.5
   chasingSpeed: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfdbd39577111244bf6da6a46626857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drawSight: 0
   viewRange: 4
   attackRange: 4
   targetLayer:
