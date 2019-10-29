@@ -165,12 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fed67ce49ca4a740a28e98511092cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  damage: 1
+  maxHealth: 150
+  damage: 100
   attackPostDelay: 0.5
-  speed: 1
+  speed: 6
   movementDamping: 0.05
-  jumpForce: 680
+  jumpForce: 830
 --- !u!114 &8541901529948109588
 MonoBehaviour:
   m_ObjectHideFlags: 0
