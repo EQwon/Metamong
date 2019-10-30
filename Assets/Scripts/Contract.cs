@@ -88,6 +88,8 @@ public class Contract : MonoBehaviour
 
     private void KillContractCheck()
     {
+        stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
+
         for (int i = 0; i < contracts.Count; i++)
         {
             SingleContract contract = contracts[i];
