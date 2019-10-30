@@ -10,6 +10,7 @@ public class MonsterAttack : MonoBehaviour
     [SerializeField] private Vector2 attackAreaPos;
     [SerializeField] private Vector2 attackArea;
 
+    private Animator animator;
     private int isFacingRight = 1;
     private bool canAttack = true;
     private bool doingAttack = false;
@@ -19,6 +20,11 @@ public class MonsterAttack : MonoBehaviour
     public int IsFacingRight { get { return isFacingRight; } }
     public int AttackDamage { get { return attackDamage; } }
     public LayerMask AttackLayer { get { return attackLayer; } }
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void FixedUpdate()
     {
@@ -47,6 +53,7 @@ public class MonsterAttack : MonoBehaviour
         if (canAttack == false) yield break;
 
         canAttack = false;
+        animator.SetBool("Attack", true);
 
         yield return new WaitForSeconds(delay.pre);
 
@@ -55,6 +62,7 @@ public class MonsterAttack : MonoBehaviour
         yield return new WaitForSeconds(delay.attack);
 
         doingAttack = false;
+        animator.SetBool("Attack", false);
 
         yield return new WaitForSeconds(delay.post);
 
