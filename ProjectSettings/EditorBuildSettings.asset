@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Village.unity
     guid: 68d520db0ea627a44bb3197ae5743223
   - enabled: 1
-    path: Assets/Scenes/Chapter1_2.unity
+    path: Assets/Scenes/Chapter1_1.unity
     guid: 645a64c1d66c1974595284e2154239f5
   - enabled: 1
-    path: Assets/Scenes/Chapter1_1.unity
+    path: Assets/Scenes/Chapter1_2.unity
     guid: 074bfcf9de51e6540ab4c644462b41b5
   - enabled: 1
     path: Assets/Scenes/Chapter1_4.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter1_5.unity
     guid: 5d5401ae7a49e6d40b7d09dc71baec87
+  - enabled: 1
+    path: Assets/Scenes/Chapter1_3.unity
+    guid: 8411e5235feb95a4eb024f451c2c8019
   m_configObjects: {}
