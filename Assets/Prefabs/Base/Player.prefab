@@ -170,7 +170,7 @@ MonoBehaviour:
   attackPostDelay: 0.5
   speed: 6
   movementDamping: 0.05
-  jumpForce: 830
+  jumpForce: 870
 --- !u!114 &8541901529948109588
 MonoBehaviour:
   m_ObjectHideFlags: 0
