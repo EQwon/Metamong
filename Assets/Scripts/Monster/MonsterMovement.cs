@@ -89,8 +89,11 @@ public class MonsterMovement : MonoBehaviour
         Move(chasingSpeed);
     }
 
-    public void StopForAttack()
+    public virtual void Attacking(GameObject target)
     {
+        if (target.transform.position.x > transform.position.x && isFacingRight == false) Flip();
+        if (target.transform.position.x < transform.position.x && isFacingRight == true) Flip();
+
         Move(0);
     }
 

@@ -6,6 +6,7 @@ public class MonsterSight : MonoBehaviour
 {
     [SerializeField] private bool drawSight = false;
     [SerializeField] [Range(0, 10f)] private float viewRange = 5f;
+    [SerializeField] [Range(0, 10f)] private float attackRange;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private LayerMask obstacleLayer;
 
@@ -33,6 +34,8 @@ public class MonsterSight : MonoBehaviour
 
     private void FindTarget()
     {
+        AI.CanAttackHero = false;
+
         Vector2 originPos = transform.position;
         Collider2D[] hittedTargets = Physics2D.OverlapCircleAll(originPos, Mathf.Abs(viewRange), targetLayer);
 
@@ -55,7 +58,11 @@ public class MonsterSight : MonoBehaviour
                 AI.Player = hitTarget.gameObject;
 
                 Debug.DrawLine(originPos, targetPos, Color.red);
-                enabled = false;
+
+                if (distance <= attackRange)
+                {
+                    AI.CanAttackHero = true;
+                }
                 return;
             }
         }

@@ -6,14 +6,12 @@ public class MonsterAttack : MonoBehaviour
     [Header("Attack")]
     [SerializeField] private WeaponDelay delay;
     [SerializeField] private int attackDamage = 5;
-    [SerializeField] [Range(0, 10f)] private float attackRange;
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private Vector2 attackAreaPos;
     [SerializeField] private Vector2 attackArea;
 
     protected MonsterAI AI;
-    protected MonsterMovement mover;
     private Animator animator;
     private int isFacingRight = 1;
     private bool canAttack = true;
@@ -27,15 +25,12 @@ public class MonsterAttack : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         AI = GetComponent<MonsterAI>();
-        mover = GetComponent<MonsterMovement>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-        Approach();
-
         if (doingAttack)
         {
             DoAttack();
@@ -61,8 +56,8 @@ public class MonsterAttack : MonoBehaviour
         if (canAttack == false) yield break;
 
         canAttack = false;
+        AI.FreezeState = true;
         animator.SetBool("Attack", true);
-        mover.StopForAttack();
 
         yield return new WaitForSeconds(delay.pre);
 
@@ -75,8 +70,8 @@ public class MonsterAttack : MonoBehaviour
 
         yield return new WaitForSeconds(delay.post);
 
+        AI.FreezeState = false;
         canAttack = true;
-        AI.CanAttackHero = false;
     }
 
     private void OnDrawGizmos()
@@ -94,32 +89,5 @@ public class MonsterAttack : MonoBehaviour
     public void FlipFacingDir()
     {
         isFacingRight *= -1;
-    }
-
-    private void Approach()
-    {
-        Vector2 originPos = transform.position;
-        Collider2D[] hittedTargets = Physics2D.OverlapCircleAll(originPos, Mathf.Abs(attackRange), attackLayer);
-
-        if (hittedTargets.Length == 0) return;
-
-        foreach (Collider2D hitTarget in hittedTargets)
-        {
-            Vector2 targetPos = hitTarget.transform.position;
-            Vector2 dir = targetPos - originPos;
-            float distance = Mathf.Abs(dir.magnitude);                      // 현재 몬스터와 용사의 거리
-
-            if (distance > Mathf.Abs(attackRange)) continue;                  // 거리가 멀면 넘긴다.
-
-            RaycastHit2D rayTarget = Physics2D.Raycast(originPos, dir, Mathf.Abs(attackRange), obstacleLayer);
-
-            // '장애물이 존재하지 않'거나 '장애물이 존재해도 타겟 뒤에 있으면'
-            if (!rayTarget || Vector2.Distance(rayTarget.transform.position, originPos) > distance)
-            {
-                AI.CanAttackHero = true;
-
-                return;
-            }
-        }
     }
 }

@@ -19,13 +19,15 @@ public class MonsterAI : MonoBehaviour
     private GameObject healthBar;
     private GameObject healthBarValue;
     private float maxHealth;
+    private bool freezeState = false;
 
     private GameObject player;
-
+    
     public bool IsFindHero { set { isFindHero = value; } }
     public bool CanAttackHero { set { canAttackHero = value; } }
     public bool IsHitted { get { return isHitted; } set { isHitted = value; } }
     public bool IsDead { get { return isDead; } set { isDead = value; } }
+    public bool FreezeState { set { freezeState = value; } }
     public GameObject Player { get { return player; } set { player = value; } }
 
     private void Awake()
@@ -56,6 +58,7 @@ public class MonsterAI : MonoBehaviour
                 break;
             case MonsterState.Attack:
                 GetComponent<SpriteRenderer>().color = Color.red;
+                mover.Attacking(player);
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
@@ -75,6 +78,8 @@ public class MonsterAI : MonoBehaviour
             state = MonsterState.Dead;
             return;
         }
+
+        if (freezeState) return;
 
         if (IsHitted)
         {

@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawSight: 0
   viewRange: 3
+  attackRange: 1.5
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -229,15 +230,14 @@ MonoBehaviour:
     attack: 0
     post: 1
   attackDamage: 5
-  attackRange: 1
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 1024
-  attackAreaPos: {x: 0.7, y: -0.2}
-  attackArea: {x: 0.8, y: 0.8}
+  attackAreaPos: {x: 0.5, y: -0.2}
+  attackArea: {x: 1.4, y: 0.8}
 --- !u!114 &5786431029111091968
 MonoBehaviour:
   m_ObjectHideFlags: 0

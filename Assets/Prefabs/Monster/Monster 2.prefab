@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawSight: 0
   viewRange: 8
+  attackRange: 6
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -229,7 +230,6 @@ MonoBehaviour:
     attack: 1
     post: 1
   attackDamage: 10
-  attackRange: 8
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
