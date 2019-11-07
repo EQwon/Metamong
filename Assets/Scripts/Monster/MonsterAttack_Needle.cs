@@ -9,13 +9,6 @@ public class MonsterAttack_Needle : MonsterAttack
     [SerializeField] private Vector2 firePos;
     [SerializeField] private float fireSpeed;
 
-    private MonsterAI AI;
-
-    private void Start()
-    {
-        AI = GetComponent<MonsterAI>();
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

@@ -12,8 +12,8 @@ public class MonsterAttack : MonoBehaviour
     [SerializeField] private Vector2 attackAreaPos;
     [SerializeField] private Vector2 attackArea;
 
-    private MonsterAI AI;
-    private MonsterMovement mover;
+    protected MonsterAI AI;
+    protected MonsterMovement mover;
     private Animator animator;
     private int isFacingRight = 1;
     private bool canAttack = true;
