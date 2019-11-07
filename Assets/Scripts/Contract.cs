@@ -29,6 +29,8 @@ public class Contract : MonoBehaviour
     private PlayerStatus stat;
     private int killCnt = 0;
 
+    public int KillCnt { get { return killCnt; } }
+
     private void Awake()
     {
         if (instance == null) instance = this;

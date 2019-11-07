@@ -9,13 +9,6 @@ public class MonsterAttack_Needle : MonsterAttack
     [SerializeField] private Vector2 firePos;
     [SerializeField] private float fireSpeed;
 
-    private MonsterAI AI;
-
-    private void Start()
-    {
-        AI = GetComponent<MonsterAI>();
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -27,7 +20,7 @@ public class MonsterAttack_Needle : MonsterAttack
     {
         Vector2 spawnPos = (Vector2)transform.position + (IsFacingRight > 0 ? firePos : firePos * new Vector2(-1, 1));
 
-        Vector2 playerPos = AI.PlayerPos;
+        Vector2 playerPos = AI.Player.transform.position;
         Vector2 dir = playerPos - (Vector2)transform.position;
 
         Vector2 fireVelocity = dir.normalized * fireSpeed;

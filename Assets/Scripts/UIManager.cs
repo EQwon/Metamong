@@ -6,24 +6,47 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Health Bar")]
     [SerializeField] private RectTransform healthBar;
+    [SerializeField] private Text healthValue;
+
+    [Header("Info")]
+    [SerializeField] private Text killCount;
+
+    [Header("Pause")]
     [SerializeField] private GameObject pausePanel;
 
     private GameObject player;
+    private PlayerInput input;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerInput>().UI = this;
+        input = player.GetComponent<PlayerInput>();
+        input.UI = this;
 
         pausePanel.SetActive(false);
     }
 
     private void Update()
     {
+        AdjustingHealthBar();
+        ShowKillCount();
+    }
+
+    private void AdjustingHealthBar()
+    {
         Vector3 targetScale = Vector3.one;
-        targetScale.x = player.GetComponent<PlayerInput>().HealthRatio;
+        float ratio = (float)input.Health / input.MaxHealth;
+        targetScale.x = ratio;
         healthBar.localScale = targetScale;
+
+        healthValue.text = input.Health + " / " + input.MaxHealth;
+    }
+
+    private void ShowKillCount()
+    {
+        killCount.text = Contract.instance.KillCnt.ToString();
     }
 
     public void MoveToTitle()

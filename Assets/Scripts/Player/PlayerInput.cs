@@ -21,6 +21,7 @@ public class PlayerInput : MonoBehaviour
 
     public int MaxHealth
     {
+        get { return maxHealth; }
         set
         {
             maxHealth = value;
@@ -28,8 +29,7 @@ public class PlayerInput : MonoBehaviour
                 health = maxHealth;
         }
     }
-    public int Health { set { health = value; } }
-    public float HealthRatio { get { return (float)health / maxHealth; } }
+    public int Health { get { return health; } set { health = value; } }
     public GameObject NowGate { set { nowGate = value; } }
     public UIManager UI { set { ui = value; } }
 

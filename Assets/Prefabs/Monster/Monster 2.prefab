@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawSight: 0
-  viewRange: 5
-  attackRange: 4
+  viewRange: 8
+  attackRange: 6
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -227,15 +227,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay:
     pre: 0.2
-    attack: 0.5
+    attack: 1
     post: 1
   attackDamage: 10
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   attackAreaPos: {x: 0.4, y: -0.15}
   attackArea: {x: 0.25, y: 1}
-  rushSpeed: 4
+  rushSpeed: 8
 --- !u!114 &4893162543472268072
 MonoBehaviour:
   m_ObjectHideFlags: 0
