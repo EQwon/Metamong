@@ -46,8 +46,9 @@ public class MonsterMovement : MonoBehaviour
         targetVelocity = new Vector2(speed, m_Rigidbody2D.velocity.y);
     }
 
-    private void FixedUpdate()
+    private void Move(float nowSpeed)
     {
+        targetVelocity.x = isFacingRight ? nowSpeed : -nowSpeed;
         targetVelocity.y = m_Rigidbody2D.velocity.y;
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref myVelocity, movementSmoothing);
         animator.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
@@ -56,67 +57,46 @@ public class MonsterMovement : MonoBehaviour
     public void Patrol()
     {
         if (isFreeze) return;
-
+        
         // 오른쪽 끝에 도달했을 경우
         if (transform.position.x >= patrolRightEnd && isFacingRight)
         {
-            targetVelocity.x = 0;
+            Move(0);
             StartCoroutine(Waiting());
         }
         // 왼쪽 끝에 도달했을 경우
         else if (transform.position.x <= patrolLeftEnd && !isFacingRight)
         {
-            targetVelocity.x = 0;
+            Move(0);
             StartCoroutine(Waiting());
         }
         // patrol 범위 사이일 경우
         else
         {
-            targetVelocity.x = isFacingRight ? speed : -speed;
+            Move(speed);
         }
     }
 
-    public void Chasing(Vector2 targetPos)
+    public void Chasing(GameObject target)
     {
         if (isFreeze) return;
 
+        Vector2 targetPos = target.transform.position;
+
         if (transform.position.x < targetPos.x && !isFacingRight) Flip();
         if (targetPos.x < transform.position.x && isFacingRight) Flip();
 
-        if (transform.position.x >= patrolRightEnd && isFacingRight)
-        {
-            targetVelocity.x = 0;
-        }
-        else if (transform.position.x <= patrolLeftEnd && !isFacingRight)
-        {
-            targetVelocity.x = 0;
-        }
-        else
-        {
-            targetVelocity.x = isFacingRight ? chasingSpeed : -chasingSpeed;
-        }
+        Move(chasingSpeed);
     }
 
-    public void Attack(Vector2 targetPos)
+    public void StopForAttack()
     {
-        if (transform.position.x < targetPos.x && !isFacingRight) Flip();
-        if (targetPos.x < transform.position.x && isFacingRight) Flip();
+        Move(0);
     }
 
     public void Rush(float rushSpeed)
     {
-        if (transform.position.x >= patrolRightEnd && isFacingRight)
-        {
-            targetVelocity.x = 0;
-        }
-        else if (transform.position.x <= patrolLeftEnd && !isFacingRight)
-        {
-            targetVelocity.x = 0;
-        }
-        else
-        {
-            targetVelocity.x = isFacingRight ? rushSpeed : -rushSpeed;
-        }
+        Move(rushSpeed);
     }
 
     private void OnDrawGizmos()

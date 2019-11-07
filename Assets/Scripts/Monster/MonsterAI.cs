@@ -20,13 +20,13 @@ public class MonsterAI : MonoBehaviour
     private GameObject healthBarValue;
     private float maxHealth;
 
-    private Vector2 playerPos = Vector2.zero;
+    private GameObject player;
 
-    public bool IsFindHero { get { return isFindHero; } set { isFindHero = value; } }
-    public bool CanAttackHero { get { return canAttackHero; } set { canAttackHero = value; } }
+    public bool IsFindHero { set { isFindHero = value; } }
+    public bool CanAttackHero { set { canAttackHero = value; } }
     public bool IsHitted { get { return isHitted; } set { isHitted = value; } }
     public bool IsDead { get { return isDead; } set { isDead = value; } }
-    public Vector2 PlayerPos { get { return playerPos; } set { playerPos = value; } }
+    public GameObject Player { get { return player; } set { player = value; } }
 
     private void Awake()
     {
@@ -52,11 +52,10 @@ public class MonsterAI : MonoBehaviour
                 break;
             case MonsterState.Chasing:
                 GetComponent<SpriteRenderer>().color = Color.yellow;
-                mover.Chasing(PlayerPos);
+                mover.Chasing(player);
                 break;
             case MonsterState.Attack:
                 GetComponent<SpriteRenderer>().color = Color.red;
-                mover.Attack(PlayerPos);
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
@@ -83,11 +82,11 @@ public class MonsterAI : MonoBehaviour
             return;
         }
 
-        if (IsFindHero)
+        if (isFindHero)
         {
             state = MonsterState.Chasing;
 
-            if (CanAttackHero)
+            if (canAttackHero)
             {
                 state = MonsterState.Attack;
                 return;
