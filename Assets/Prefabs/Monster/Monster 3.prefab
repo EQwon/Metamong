@@ -189,7 +189,7 @@ MonoBehaviour:
   patrolRightEnd: 1
   speed: 2
   waitingTime: 0.5
-  chasingSpeed: 0
+  chasingSpeed: 2
   knockBackForce: 400
   knockBackFreezeTime: 1
 --- !u!114 &6183502279987701014
@@ -205,8 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawSight: 0
-  viewRange: 4
-  attackRange: 4
+  viewRange: 5
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -230,9 +229,13 @@ MonoBehaviour:
     attack: 0
     post: 1
   attackDamage: 10
+  attackRange: 4
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   attackAreaPos: {x: 0, y: 0}
   attackArea: {x: 0, y: 0}
   needlePrefab: {fileID: 7228884104200151665, guid: a9d4160789724944e9af6efa775649a8,

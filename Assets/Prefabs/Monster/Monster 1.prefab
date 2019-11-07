@@ -98,7 +98,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3468727701352014604}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e8343cd692f8bc645b6e307148d378ef, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -206,7 +206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawSight: 0
   viewRange: 3
-  attackRange: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -230,9 +229,13 @@ MonoBehaviour:
     attack: 0
     post: 1
   attackDamage: 5
+  attackRange: 1
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   attackAreaPos: {x: 0.7, y: -0.2}
   attackArea: {x: 0.8, y: 0.8}
 --- !u!114 &5786431029111091968
