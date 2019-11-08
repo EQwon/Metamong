@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public enum ConditionClass { Always, Kill }
 public enum ConditionType { None, Greater, Less }
 public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping }
 
+[System.Serializable]
 public class SimpleContract
 {
     public int article;
@@ -40,6 +42,7 @@ public class SingleContract
     public ResultClass ResultClass { get { return resultClass; } }
     public float ResultValue { get { return resultValue; } }
     public string ContractText { get { return contractText; } }
+    public List<SimpleContract> RelatedContracts { get { return relatedContracts; } }
 
     public SingleContract(int article, int clause, ConditionClass conditionClass,
                     ConditionType conditionType, int conditionValue, ResultClass resultClass,
@@ -170,3 +173,30 @@ public class Contract : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(SimpleContract))]
+public class ContractDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        EditorGUI.BeginProperty(position, label, property);
+
+        position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+
+        var indent = EditorGUI.indentLevel;
+        EditorGUI.indentLevel = 0;
+
+        // Draw fields - passs GUIContent.none to each so they are drawn without labels
+        EditorGUI.PropertyField(new Rect(position.x, position.y, 30, position.height), property.FindPropertyRelative("article"), GUIContent.none);
+        EditorGUI.LabelField(new Rect(position.x + 30, position.y, 15, position.height), "조");
+        EditorGUI.PropertyField(new Rect(position.x + 45, position.y, 30, position.height), property.FindPropertyRelative("clause"), GUIContent.none);
+        EditorGUI.LabelField(new Rect(position.x + 75, position.y, 15, position.height), "항");
+
+        // Set indent back to what it was
+        EditorGUI.indentLevel = indent;
+
+        EditorGUI.EndProperty();
+    }
+}
+#endif
