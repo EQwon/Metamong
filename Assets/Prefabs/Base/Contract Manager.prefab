@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5906353527776086957}
   - component: {fileID: 5906353527776086956}
+  - component: {fileID: 4681482781308230738}
   m_Layer: 0
   m_Name: Contract Manager
   m_TagString: Untagged
@@ -43,156 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56422908b22acf743a48f3d01806e33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contracts:
-  - article: 1
-    clause: 1
-    isAgree: 1
-    conditionClass: 0
-    conditionType: 0
-    conditionValue: 0
-    resultClass: 0
-    resultValue: 0
-  - article: 1
-    clause: 2
-    isAgree: 1
-    conditionClass: 0
-    conditionType: 0
-    conditionValue: 0
-    resultClass: 0
-    resultValue: 0
-  - article: 1
-    clause: 3
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 1
-    resultValue: 0.3
-  - article: 2
-    clause: 1
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 3
-    resultValue: 150
-  - article: 2
-    clause: 2
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 30
-    resultClass: 3
-    resultValue: 100
-  - article: 2
-    clause: 3
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 80
-    resultClass: 3
-    resultValue: 70
-  - article: 3
-    clause: 1
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 2
-    resultValue: 100
-  - article: 3
-    clause: 2
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 50
-    resultClass: 2
-    resultValue: 60
-  - article: 3
-    clause: 3
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 100
-    resultClass: 2
-    resultValue: 25
-  - article: 3
-    clause: 4
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 0
-    conditionValue: 0
-    resultClass: 0
-    resultValue: 0
-  - article: 3
-    clause: 5
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 2
-    resultValue: 100
-  - article: 3
-    clause: 6
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 2
-    resultValue: 40
-  - article: 4
-    clause: 1
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 4
-    resultValue: 6
-  - article: 4
-    clause: 2
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 60
-    resultClass: 4
-    resultValue: 5
-  - article: 4
-    clause: 3
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 105
-    resultClass: 4
-    resultValue: 4
-  - article: 4
-    clause: 4
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 0
-    conditionValue: 0
-    resultClass: 0
-    resultValue: 0
-  - article: 4
-    clause: 5
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 4
-    resultValue: 18
-  - article: 4
-    clause: 6
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 1
-    resultValue: 0.5
-  - article: 4
-    clause: 7
-    isAgree: 1
-    conditionClass: 1
-    conditionType: 1
-    conditionValue: 0
-    resultClass: 5
-    resultValue: 8
+  contracts: []
+--- !u!114 &4681482781308230738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5906353527776086959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ba473d90b238f4a992061ea01885c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contractAsset: {fileID: 4900000, guid: b5560287bb181624f8d00867f1a99372, type: 3}

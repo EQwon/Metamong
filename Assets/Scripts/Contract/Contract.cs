@@ -1,0 +1,172 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum ConditionClass { Always, Kill }
+public enum ConditionType { None, Greater, Less }
+public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping }
+
+public class SimpleContract
+{
+    public int article;
+    public int clause;
+
+    public SimpleContract(int article, int clause)
+    {
+        this.article = article;
+        this.clause = clause;
+    }
+}
+
+[System.Serializable]
+public class SingleContract
+{
+    [SerializeField] private int article;
+    [SerializeField] private int clause;
+    public bool isAgree;
+    [SerializeField] private ConditionClass conditionClass;
+    [SerializeField] private ConditionType conditionType;
+    [SerializeField] private int conditionValue;
+    [SerializeField] private ResultClass resultClass;
+    [SerializeField] private float resultValue;
+    private string contractText;
+    private List<SimpleContract> relatedContracts;
+
+    public int Article { get { return article; } }
+    public int Clause { get { return clause; } }
+    public ConditionClass ConditionClass { get { return conditionClass; } }
+    public ConditionType ConditionType { get { return conditionType; } }
+    public int ConditionValue { get { return conditionValue; } }
+    public ResultClass ResultClass { get { return resultClass; } }
+    public float ResultValue { get { return resultValue; } }
+    public string ContractText { get { return contractText; } }
+
+    public SingleContract(int article, int clause, ConditionClass conditionClass,
+                    ConditionType conditionType, int conditionValue, ResultClass resultClass,
+                    float resultValue, string contractText, List<SimpleContract> relatedContracts)
+    {
+        this.article = article;
+        this.clause = clause;
+        isAgree = true;
+        this.conditionClass = conditionClass;
+        this.conditionType = conditionType;
+        this.conditionValue = conditionValue;
+        this.resultClass = resultClass;
+        this.resultValue = resultValue;
+        this.contractText = contractText;
+        this.relatedContracts = relatedContracts;
+    }
+}
+
+[System.Serializable]
+public class Contract : MonoBehaviour
+{
+    public static Contract instance;
+
+    public List<SingleContract> contracts;
+
+    private PlayerStatus stat;
+    private int killCnt = 0;
+
+    public int KillCnt { get { return killCnt; } }
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+
+        contracts = new List<SingleContract>();
+        contracts = GetComponent<ContractHolder>().ParseContract();
+    }
+
+    private void Start()
+    {
+        stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
+    }
+
+    public void ChangeContractState(int article, int clause, bool isAgree)
+    {
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            if (contracts[i].Article != article) continue;
+            if (contracts[i].Clause != clause) continue;
+
+            contracts[i].isAgree = isAgree;
+            KillContractCheck();
+            return;
+        }
+    }
+
+    public bool GetContractState(int article, int clause)
+    {
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            if (contracts[i].Article != article) continue;
+            if (contracts[i].Clause != clause) continue;
+
+            return contracts[i].isAgree;
+        }
+
+        Debug.LogError(article + "조 " + clause + "항에 해당하는 계약을 찾지 못했습니다.");
+        return false;
+    }
+
+    public void KillEvent()
+    {
+        killCnt += 1;
+        Debug.Log("현재 킬 카운트는 " + killCnt + "입니다.");
+
+        KillContractCheck();
+    }
+
+    private void KillContractCheck()
+    {
+        stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
+
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            SingleContract contract = contracts[i];
+
+            if (contract.ConditionClass != ConditionClass.Kill) continue;
+            if (contract.isAgree == false) continue;
+
+            switch (contract.ConditionType)
+            {
+                case ConditionType.Less:
+                    if (killCnt < contract.ConditionValue) ActivateResult(i);
+                    break;
+                case ConditionType.Greater:
+                    if (killCnt >= contract.ConditionValue) ActivateResult(i);
+                    break;
+            }
+        }
+
+        stat.UpdateStatus();
+    }
+
+    private void ActivateResult(int i)
+    {
+        SingleContract contract = contracts[i];
+
+        switch (contract.ResultClass)
+        {
+            case ResultClass.AttackSpeed:
+                stat.AttackPostDelay = contract.ResultValue;
+                break;
+            case ResultClass.AttackDamage:
+                stat.Damage = (int)contract.ResultValue;
+                break;
+            case ResultClass.MaxHealth:
+                stat.MaxHealth = (int)contract.ResultValue;
+                break;
+            case ResultClass.Speed:
+                stat.Speed = contract.ResultValue;
+                break;
+            case ResultClass.MoveDamping:
+                stat.MovementDamping = contract.ResultValue;
+                break;
+        }
+    }
+}
