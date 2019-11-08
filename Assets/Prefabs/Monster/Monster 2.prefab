@@ -189,7 +189,7 @@ MonoBehaviour:
   patrolRightEnd: 1
   speed: 2
   waitingTime: 0.5
-  chasingSpeed: 3
+  chasingSpeed: 4
   knockBackForce: 400
   knockBackFreezeTime: 1
 --- !u!114 &6183502279987701014
@@ -222,14 +222,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3468727701352014604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b3d7d87f72a0f4fbf61486368c2cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f5479eef585d0e49b436e11e298f61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delay:
-    pre: 0.2
+    pre: 0.6
     attack: 1
     post: 1
   attackDamage: 10
+  attackSpeed: 8
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -238,7 +239,6 @@ MonoBehaviour:
     m_Bits: 1024
   attackAreaPos: {x: 0.4, y: -0.15}
   attackArea: {x: 0.25, y: 1}
-  rushSpeed: 8
 --- !u!114 &4893162543472268072
 MonoBehaviour:
   m_ObjectHideFlags: 0

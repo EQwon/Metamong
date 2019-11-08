@@ -18,6 +18,7 @@ public class MonsterAttack_Needle : MonsterAttack
 
     public override void DoAttack()
     {
+        mover.FacingTarget(AI.Player);
         Vector2 spawnPos = (Vector2)transform.position + (IsFacingRight > 0 ? firePos : firePos * new Vector2(-1, 1));
 
         Vector2 playerPos = AI.Player.transform.position;

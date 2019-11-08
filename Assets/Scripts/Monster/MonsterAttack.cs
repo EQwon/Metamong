@@ -1,21 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+public enum AttackState { None, Pre, Attack, Post }
+
 public class MonsterAttack : MonoBehaviour
 {
     [Header("Attack")]
     [SerializeField] private WeaponDelay delay;
     [SerializeField] private int attackDamage = 5;
+    [SerializeField] private float attackSpeed = 0f;
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private Vector2 attackAreaPos;
     [SerializeField] private Vector2 attackArea;
 
     protected MonsterAI AI;
+    protected MonsterMovement mover;
     private Animator animator;
     private int isFacingRight = 1;
     private bool canAttack = true;
     private bool doingAttack = false;
+    private AttackState attackState = AttackState.None;
 
     private Vector2 attackPos { get { return new Vector2(isFacingRight * attackAreaPos.x, attackAreaPos.y) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(attackArea.x, attackArea.y); } }
@@ -26,14 +31,31 @@ public class MonsterAttack : MonoBehaviour
     private void Awake()
     {
         AI = GetComponent<MonsterAI>();
+        mover = GetComponent<MonsterMovement>();
         animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-        if (doingAttack)
+        switch (attackState)
         {
-            DoAttack();
+            case AttackState.Pre:
+                mover.FacingTarget(AI.Player);
+                mover.Move(0);
+                AI.FreezeState = true;
+                animator.SetBool("Attack", true);
+                break;
+            case AttackState.Attack:
+                mover.Move(attackSpeed);
+                DoAttack();
+                break;
+            case AttackState.Post:
+                mover.Move(0);
+                animator.SetBool("Attack", false);
+                break;
+            default:
+                AI.FreezeState = false;
+                break;
         }
     }
 
@@ -53,25 +75,21 @@ public class MonsterAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        if (canAttack == false) yield break;
+        if (attackState != AttackState.None) yield break;
 
-        canAttack = false;
-        AI.FreezeState = true;
-        animator.SetBool("Attack", true);
+        attackState = AttackState.Pre;
 
         yield return new WaitForSeconds(delay.pre);
 
-        doingAttack = true;
+        attackState = AttackState.Attack;
 
         yield return new WaitForSeconds(delay.attack);
 
-        doingAttack = false;
-        animator.SetBool("Attack", false);
+        attackState = AttackState.Post;
 
         yield return new WaitForSeconds(delay.post);
 
-        AI.FreezeState = false;
-        canAttack = true;
+        attackState = AttackState.None;
     }
 
     private void OnDrawGizmos()

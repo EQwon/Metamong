@@ -46,7 +46,7 @@ public class MonsterMovement : MonoBehaviour
         targetVelocity = new Vector2(speed, m_Rigidbody2D.velocity.y);
     }
 
-    private void Move(float nowSpeed)
+    public void Move(float nowSpeed)
     {
         targetVelocity.x = isFacingRight ? nowSpeed : -nowSpeed;
         targetVelocity.y = m_Rigidbody2D.velocity.y;
@@ -83,23 +83,16 @@ public class MonsterMovement : MonoBehaviour
 
         Vector2 targetPos = target.transform.position;
 
-        if (transform.position.x < targetPos.x && !isFacingRight) Flip();
-        if (targetPos.x < transform.position.x && isFacingRight) Flip();
+        FacingTarget(target);
 
         Move(chasingSpeed);
     }
 
-    public virtual void Attacking(GameObject target)
+    public void FacingTarget(GameObject target)
     {
-        if (target.transform.position.x > transform.position.x && isFacingRight == false) Flip();
-        if (target.transform.position.x < transform.position.x && isFacingRight == true) Flip();
-
-        Move(0);
-    }
-
-    public void Rush(float rushSpeed)
-    {
-        Move(rushSpeed);
+        Vector3 targetPos = target.transform.position;
+        if (transform.position.x < targetPos.x && !isFacingRight) Flip();
+        if (targetPos.x < transform.position.x && isFacingRight) Flip();
     }
 
     private void OnDrawGizmos()

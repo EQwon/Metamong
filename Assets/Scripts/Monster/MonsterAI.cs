@@ -58,7 +58,6 @@ public class MonsterAI : MonoBehaviour
                 break;
             case MonsterState.Attack:
                 GetComponent<SpriteRenderer>().color = Color.red;
-                mover.Attacking(player);
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
