@@ -50,7 +50,7 @@ public class SingleContract
     {
         this.article = article;
         this.clause = clause;
-        isAgree = true;
+        isAgree = false;
         this.conditionClass = conditionClass;
         this.conditionType = conditionType;
         this.conditionValue = conditionValue;

@@ -294,8 +294,8 @@ MonoBehaviour:
   relatedContracts: []
   box: {fileID: 6939482727405313484}
   checkImage:
-  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
   - {fileID: 21300000, guid: cff966475ca22f841be96633af80ae08, type: 3}
+  - {fileID: 21300000, guid: 88cc38680a7f5ee4c8c2787067e17f0d, type: 3}
 --- !u!1 &9176471074483649280
 GameObject:
   m_ObjectHideFlags: 0
