@@ -89,6 +89,20 @@ public class Contract : MonoBehaviour
         stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
     }
 
+    public SingleContract GetContract(int article, int clause)
+    {
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            if (contracts[i].Article != article) continue;
+            if (contracts[i].Clause != clause) continue;
+
+            return contracts[i];
+        }
+
+        Debug.LogError(article + "조 " + clause + "항에 해당하는 계약을 찾지 못했습니다.");
+        return null;
+    }
+
     public void ChangeContractState(int article, int clause, bool isAgree)
     {
         for (int i = 0; i < contracts.Count; i++)

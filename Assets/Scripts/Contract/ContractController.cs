@@ -51,4 +51,15 @@ public class ContractController : MonoBehaviour
             Contract.instance.ChangeContractState(groupNum.article, groupNum.clause, false);
         }
     }
+
+    public void ShowPopUp()
+    {
+        bool willAgree = !Contract.instance.GetContractState(myNum.article, myNum.clause);
+        UIManager.instance.ShowPopUp(willAgree, relatedContracts);
+    }
+
+    public void HidePopUp()
+    {
+        UIManager.instance.HidePopUp();
+    }
 }
