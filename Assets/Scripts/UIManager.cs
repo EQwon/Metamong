@@ -14,8 +14,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Contract")]
     [SerializeField] private GameObject popUp;
-    [SerializeField] private Text warningText1;
-    [SerializeField] private Text warningText2;
+    [SerializeField] private Text warningText;
     [SerializeField] private Text relatedContractsText;
 
     [Header("Info")]
@@ -64,29 +63,27 @@ public class UIManager : MonoBehaviour
         if (contracts.Count == 0) return;
         popUp.SetActive(true);
 
-        string state = willAgree ? "[동의]" : "[거절]";
-        string text1 = "이 조항에 " + state + "할 시";
-        string text2 = "";
+        string state = willAgree ? "<color=#ff0000ff>[동의]</color>" : "<color=#0000ffff>[거절]</color>";
+        string text = "이 조항에 " + state + "할 시 ";
         string relateContracts = "\n";
 
         for (int i = 0; i < contracts.Count; i++)
         {
             SingleContract contract = Contract.instance.GetContract(contracts[i].article, contracts[i].clause); ;
-            text2 += contract.Article + "조 " + contract.Clause + "항";
+            text += contract.Article + "조 " + contract.Clause + "항";
 
             relateContracts += contract.Article + "조 " + contract.Clause + "항\n";
             relateContracts += "- " + contract.ContractText;
 
             if (i != contracts.Count - 1)
             {
-                text2 += ", ";
+                text += ", ";
                 relateContracts += "\n";
             }
         }
-        text2 += "에 " + state + "하는 것으로 간주합니다.";
+        text += "에 " + state + "하는 것으로 간주합니다.";
 
-        warningText1.text = text1;
-        warningText2.text = text2;
+        warningText.text = text;
         relatedContractsText.text = relateContracts;
     }
 
