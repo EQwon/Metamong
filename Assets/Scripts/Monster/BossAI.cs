@@ -26,11 +26,11 @@ public class BossAI : MonoBehaviour
         Gizmos.color = Color.blue;
         for (int i = 0; i < summonPos.Count; i++)
         {
-            Gizmos.DrawSphere(summonPos[i], 0.5f);
+            Gizmos.DrawSphere(summonPos[i] + (Vector2)transform.position, 0.3f);
         }
 
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(rainingPos, 0.5f);
+        Gizmos.DrawSphere(rainingPos + (Vector2)transform.position, 0.3f);
     }
 
     private IEnumerator NextPattern()
@@ -52,7 +52,7 @@ public class BossAI : MonoBehaviour
     private IEnumerator Rain()
     {
         // 비를 내리게 하는 오브젝트를 생성
-        Instantiate(rainingCircle, rainingPos, Quaternion.identity);
+        Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(8f);
 
@@ -64,7 +64,7 @@ public class BossAI : MonoBehaviour
         // 지정한 위치에 소환진을 생성
         for (int i = 0; i < summonPos.Count; i++)
         {
-            GameObject summoning = Instantiate(summoningCircle, summonPos[i], Quaternion.identity);
+            GameObject summoning = Instantiate(summoningCircle, summonPos[i] + (Vector2)transform.position, Quaternion.identity);
             switch (i)
             {
                 case 0:
@@ -87,7 +87,7 @@ public class BossAI : MonoBehaviour
         // 지정한 위치에 소환진을 생성
         for (int i = 0; i < summonPos.Count; i++)
         {
-            GameObject summoning = Instantiate(summoningCircle, summonPos[i], Quaternion.identity);
+            GameObject summoning = Instantiate(summoningCircle, summonPos[i] + (Vector2)transform.position, Quaternion.identity);
             switch (i)
             {
                 case 0:

@@ -90,6 +90,7 @@ public class MonsterAttack : MonoBehaviour
         yield return new WaitForSeconds(delay.post);
 
         attackState = AttackState.None;
+        AI.FreezeState = false;
     }
 
     private void OnDrawGizmos()
