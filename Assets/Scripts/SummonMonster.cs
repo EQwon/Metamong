@@ -7,6 +7,8 @@ public class SummonMonster : MonoBehaviour
     [SerializeField] private List<GameObject> monsterPrefabs;
     [SerializeField] [Range(0, 2)] private int monsterType;
 
+    public int MonsterType { set { monsterType = value; } }
+
     private void Start()
     {
         StartCoroutine(Summon());
