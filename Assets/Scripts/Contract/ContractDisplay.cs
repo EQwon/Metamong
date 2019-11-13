@@ -11,13 +11,18 @@ public class ContractDisplay : MonoBehaviour
     {
         List<SingleContract> contracts = Contract.instance.contracts;
 
-        GetComponent<RectTransform>().sizeDelta += new Vector2(0, contracts.Count * 100);
+        int validCnt = 0;
 
         for (int i = 0; i < contracts.Count; i++)
         {
+            if (contracts[i].Article == 0) continue;
+
             GameObject clause = CreateClause(contracts[i]);
-            clause.GetComponent<RectTransform>().localPosition -= new Vector3(0, 50 + i * 100, 0);
+            clause.GetComponent<RectTransform>().localPosition -= new Vector3(0, 50 + validCnt * 100, 0);
+            validCnt += 1;
         }
+
+        GetComponent<RectTransform>().sizeDelta += new Vector2(0, validCnt * 100);
     }
 
     private GameObject CreateClause(SingleContract contract)
