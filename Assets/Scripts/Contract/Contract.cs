@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public enum ConditionClass { Always, Kill }
+public enum ConditionClass { Always, Kill, PlayTime, JumpCnt, AttackCnt }
 public enum ConditionType { None, Greater, Less }
-public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping }
+public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping, JumpForce, InvincibleTime, KnockBackForce }
 
 [System.Serializable]
 public class SimpleContract
@@ -137,6 +137,17 @@ public class Contract : MonoBehaviour
 
         KillContractCheck();
     }
+
+    public void PlayTimeEvent()
+    {
+
+    }
+
+    public void JumpEvent()
+    { }
+
+    public void AttackEvent()
+    { }
 
     private void KillContractCheck()
     {
