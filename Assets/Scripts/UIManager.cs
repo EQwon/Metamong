@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
         if (contracts.Count == 0) return;
         popUp.SetActive(true);
 
-        string state = willAgree ? "<color=#ff0000ff>[동의]</color>" : "<color=#0000ffff>[거절]</color>";
+        string state = willAgree ? "<color=#0000ffff>[동의]</color>" : "<color=#ff0000ff>[거절]</color>";
         string text = "이 조항에 " + state + "할 시 ";
         string relateContracts = "\n";
 
