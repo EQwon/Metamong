@@ -13291,6 +13291,11 @@ PrefabInstance:
       propertyPath: attackPostDelay
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8541901529948109588, guid: b71e21c7e83d4ec409e8c00303b8badb,
+        type: 3}
+      propertyPath: invincibleTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8541901529948109594, guid: b71e21c7e83d4ec409e8c00303b8badb,
         type: 3}
       propertyPath: delay.pre

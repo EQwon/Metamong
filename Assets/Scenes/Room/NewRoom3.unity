@@ -16530,5 +16530,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8083479677558519871, guid: b71e21c7e83d4ec409e8c00303b8badb,
+        type: 3}
+      propertyPath: movementDamping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71e21c7e83d4ec409e8c00303b8badb, type: 3}
