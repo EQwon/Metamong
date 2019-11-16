@@ -15,7 +15,8 @@ public class PlayerInput : MonoBehaviour
     private bool attack = false;
     private bool isInvincible = false;
     private GameObject nowGate = null;
-    private UIManager ui;
+    private GameObject warningSign = null;
+    private GameObject oldMan = null;
 
     private int maxHealth;
 
@@ -31,7 +32,8 @@ public class PlayerInput : MonoBehaviour
     }
     public int Health { get { return health; } set { health = value; } }
     public GameObject NowGate { set { nowGate = value; } }
-    public UIManager UI { set { ui = value; } }
+    public GameObject WarningSign { set { warningSign = value; } }
+    public GameObject OldMan { set { oldMan = value; } }
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class PlayerInput : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        UIManager.instance.AdjustingHealthBar(Health, MaxHealth);
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -63,13 +66,15 @@ public class PlayerInput : MonoBehaviour
         {
             dash = true;
         }
-        if (Input.GetButtonDown("Gate"))
+        if (Input.GetButtonDown("Action"))
         {
             if (nowGate) nowGate.GetComponent<GateController>().EnterGate();
+            if (warningSign) warningSign.GetComponent<WarningSignController>().ShowWarningPanel();
+            if (oldMan) oldMan.GetComponent<OldManController>().StartContract();
         }
         if (Input.GetButtonDown("Cancel"))
         {
-            ui.Pause();
+            UIManager.instance.Pause();
         }
     }
 
@@ -89,7 +94,7 @@ public class PlayerInput : MonoBehaviour
         if (health <= 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 90f);
-            ui.Pause();
+            UIManager.instance.Pause();
         }
     }
 

@@ -26,6 +26,8 @@ public class ContractController : MonoBehaviour
 
     public void CheckBox()
     {
+        if (UIManager.instance.CanChangeContract == false) return;
+
         if (Contract.instance.GetContractState(myNum.article, myNum.clause)) Disagree();
         else Agree();
     }

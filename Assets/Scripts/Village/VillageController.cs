@@ -6,25 +6,25 @@ using UnityEngine.UI;
 public class VillageController : MonoBehaviour
 {
     [Header("Resources Holder")]
-    [SerializeField] private List<string> speeches;
+    [SerializeField] private TextAsset speechAsset;
 
     [Header("UI Holder")]
-    [SerializeField] private GameObject contractPanel;
-    [SerializeField] private GameObject contractCheckPanel;
     [SerializeField] private GameObject speechPanel;
     [SerializeField] private Text speechText;
 
+    private List<string> speeches;
     private GameObject player;
     private int nowNum = 0;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerInput>().enabled = false;
-        speechPanel.SetActive(true);
-        contractPanel.SetActive(false);
-        contractCheckPanel.SetActive(false);
+        speeches = Parser.SpeechParse(speechAsset);
+        speechPanel.SetActive(false);
+    }
 
+    public void ShowSpeech()
+    {
+        speechPanel.SetActive(true);
         ShowNowSpeech();
     }
 
@@ -35,7 +35,10 @@ public class VillageController : MonoBehaviour
         if (targetNum >= speeches.Count)
         {
             speechPanel.SetActive(false);
-            contractPanel.SetActive(true);
+            UIManager.instance.OpenContract();
+            UIManager.instance.CanChangeContract = true;
+
+            nowNum = 0;
             return;
         }
 
@@ -46,17 +49,5 @@ public class VillageController : MonoBehaviour
     private void ShowNowSpeech()
     {
         speechText.text = speeches[nowNum];
-    }
-
-    public void OK()
-    {
-        player.GetComponent<PlayerInput>().enabled = true;
-        contractPanel.SetActive(false);
-        contractCheckPanel.SetActive(false);
-    }
-
-    public void Wait()
-    {
-        contractCheckPanel.SetActive(false);
     }
 }

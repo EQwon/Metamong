@@ -13,9 +13,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text healthValue;
 
     [Header("Contract")]
+    [SerializeField] private GameObject contractPanel;
+    [SerializeField] private GameObject contractConfirmPanel;
     [SerializeField] private GameObject popUp;
     [SerializeField] private Text warningText;
     [SerializeField] private Text relatedContractsText;
+    [SerializeField] private bool canChangeContract = false;
 
     [Header("Info")]
     [SerializeField] private Text killCount;
@@ -23,8 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private GameObject pausePanel;
 
-    private GameObject player;
-    private PlayerInput input;
+    public bool CanChangeContract { get { return canChangeContract; } set { canChangeContract = value; } }
 
     private void Awake()
     {
@@ -34,28 +36,43 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        input = player.GetComponent<PlayerInput>();
-        input.UI = this;
-
+        contractPanel.SetActive(false);
+        contractConfirmPanel.SetActive(false);
         popUp.SetActive(false);
         pausePanel.SetActive(false);
     }
 
     private void Update()
     {
-        AdjustingHealthBar();
         ShowKillCount();
     }
 
-    private void AdjustingHealthBar()
+    public void AdjustingHealthBar(int health, int maxHealth)
     {
         Vector3 targetScale = Vector3.one;
-        float ratio = (float)input.Health / input.MaxHealth;
+        float ratio = (float)health / maxHealth;
         targetScale.x = ratio;
         healthBar.localScale = targetScale;
 
-        healthValue.text = input.Health + " / " + input.MaxHealth;
+        healthValue.text = health + " / " + maxHealth;
+    }
+
+    public void OpenContract()
+    {
+        contractPanel.SetActive(true);
+    }
+
+    public void CloseContract()
+    {
+        if (canChangeContract)
+        {
+            contractConfirmPanel.SetActive(true);
+        }
+        else
+        {
+            contractPanel.SetActive(false);
+            contractConfirmPanel.SetActive(false);
+        }
     }
 
     public void ShowPopUp(bool willAgree, List<SimpleContract> contracts)

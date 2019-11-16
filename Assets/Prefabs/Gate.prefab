@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3468727701352014606}
   - component: {fileID: 8228484895002091815}
   - component: {fileID: 6973123203893001859}
+  - component: {fileID: 4066443431470808462}
   m_Layer: 11
   m_Name: Gate
   m_TagString: Untagged
@@ -121,8 +122,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3258af6b22c6a2448cc608114349ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 8147969826581438132}
   sceneNum: 3
+--- !u!114 &4066443431470808462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468727701352014604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393428dc8ef83a64390c71dfc87c29d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guide: {fileID: 8147969826581438132}
 --- !u!1 &8147969826581438132
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8147969826581438132}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 3468727701352014593}

@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GateController : MonoBehaviour
+public class OldManController : MonoBehaviour
 {
-    [SerializeField] private int sceneNum;
+    [SerializeField] private VillageController controller;
 
-    public void EnterGate()
+    public void StartContract()
     {
-        SceneManager.LoadScene(sceneNum);
+        controller.ShowSpeech();
     }
-    
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "Player")
         {
-            coll.GetComponent<PlayerInput>().NowGate = gameObject;
+            coll.gameObject.GetComponent<PlayerInput>().OldMan = gameObject;
         }
     }
 
@@ -24,7 +23,7 @@ public class GateController : MonoBehaviour
     {
         if (coll.tag == "Player")
         {
-            coll.GetComponent<PlayerInput>().NowGate = null;
+            coll.gameObject.GetComponent<PlayerInput>().OldMan = null;
         }
     }
 }
