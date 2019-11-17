@@ -39,6 +39,7 @@ public class ContractHolder : MonoBehaviour
             }
 
             SingleContract contract = new SingleContract(article, clause, conditionClass, conditionType, conditionValue, resultClass, resultValue, contractText, relatedContracts);
+            if (contract.Article == 0) contract.isAgree = true;
             ret.Add(contract);
         }
 

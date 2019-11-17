@@ -35,6 +35,11 @@ public class PlayerStatus : MonoBehaviour
         UpdateStatus();
     }
 
+    private void Start()
+    {
+        Contract.instance.KillContractCheck();
+    }
+
     public void UpdateStatus()
     {
         Debug.Log("스탯 업데이트");

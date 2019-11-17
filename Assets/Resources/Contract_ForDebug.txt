@@ -1,0 +1,9 @@
+﻿조	항	조건 클래스	조건 타입	조건 값	결과 클래스	결과 값	설명 텍스트	연결 조항	연결 조항	연결 조항	연결 조항
+0	1	Kill	Greater	0	MaxHealth	80	기본체력 관련 약관 체크 안하면 체력 1
+0	2	Kill	Greater	0	AttackDamage	50	기본공격력 관련 약관 체크 안하면 공격력 1
+0	3	Kill	Greater	0	AttackSpeed	1	무기의 사용 권한 관련 약관 체크 안하면 공격불가
+0	4	Kill	Greater	0	Speed	6	기본이동속도 관련 약관 체크 안하면 이동속도 1	
+0	5	Kill	Greater	0	JumpForce	680	기본점프 관련 약관 체크 안하면 점프력 1
+0	6	Kill	Greater	0	InvincibleTime	0.8	기본 무적시간입니다.
+0	7	Kill	Greater	0	KnockBackForce	800	기본 넉백 사거리입니다.
+0	8	Kill	Greater	0	MoveDamping	0.05	기본 바닥 마찰력입니다.

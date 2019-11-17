@@ -1,8 +1,28 @@
-﻿조	항	조건 클래스	조건 타입	조건 값	결과 클래스	결과 값	설명 텍스트	연결 조항	연결 조항
-0	1	Kill	Greater	0	AttackSpeed	1	예시 1	1	
-0	2	Kill	Greater	0	MaxHealth	150	150의 체력으로 시작		
-1	1	Kill	Greater	1	MaxHealth	120	영혼을 [1]개 이상 모았을 경우 최대 체력이 120이 됩니다.	12	
-1	2	Kill	Greater	2	MaxHealth	100	영혼을 [2]개 이상 모았을 경우 최대 체력이 120이 됩니다.		
-1	3	Kill	Greater	3	MaxHealth	50	영혼을 [3]개 이상 모았을 경우 최대 체력이 120이 됩니다.	12
-1	4	Kill	Greater	4	MaxHealth	30	하하하
-2	1	Kill	Greater	5	MaxHealth	20	흑흑흑
+﻿조	항	조건 클래스	조건 타입	조건 값	결과 클래스	결과 값	설명 텍스트	연결 조항	연결 조항	연결 조항	연결 조항
+0	1	Kill	Greater	0	MaxHealth	1	기본체력 관련 약관 체크 안하면 체력 1
+0	2	Kill	Greater	0	AttackDamage	1	기본공격력 관련 약관 체크 안하면 공격력 1
+0	3	Kill	Greater	0	AttackSpeed	10000	무기의 사용 권한 관련 약관 체크 안하면 공격불가
+0	4	Kill	Greater	0	Speed	1	기본이동속도 관련 약관 체크 안하면 이동속도 1	
+0	5	Kill	Greater	0	JumpForce	1	기본점프 관련 약관 체크 안하면 점프력 1
+0	6	Kill	Greater	0	InvincibleTime	0.8	기본 무적시간입니다.
+0	7	Kill	Greater	0	KnockBackForce	800	기본 넉백 사거리입니다.
+0	8	Kill	Greater	0	MoveDamping	0.05	기본 바닥 마찰력입니다.
+1	1	Kill	Greater	0	AttackDamage	1	이 무기는 던전을 완료할 때까지 내려놓을 수 없습니다.	12
+1	2	Kill	Greater	0	AttackSpeed	10	이 무기의 사용권한을 얻습니다	11
+1	3	Kill	Greater	0	MoveDamping	1	모든 바닥이 얼음바닥의 성질을 가지게 됩니다.	36
+2	1	Kill	Greater	0	MaxHealth	150	검의 주인은 [150]의 체력을 가지고 시작합니다.	22	23
+2	2	Kill	Greater	40	MaxHealth	100	검이 [40]마리의 적을 처치할 시 검의 주인의 체력은 [100]으로 줄어듭니다.	21	23
+2	3	Kill	Greater	80	MaxHealth	50	검이 [80]마리의 적을 처치할 시 검의 주인의 체력은 [50]으로 줄어듭니다.	21	22
+2	4	Kill	Greater	0	KnockBackForce	1600	검의 주인이 받는 넉백 사거리가 늘어납니다	25
+2	5	Kill	Greater	0	InvincibleTime	1.6	검의 주인이 갖는 무적시간이 증가합니다.	24
+3	1	Kill	Greater	0	AttackDamage	100	검의 주인은 [100]의 힘을 가지고 시작합니다.	32	33
+3	2	Kill	Greater	0	AttackDamage	70	검이 [50]마리의 적을 처치할 시 검의 힘은 [70]으로 줄어듭니다.	31	33
+3	3	Kill	Greater	0	AttackDamage	40	검이 [100]마리의 적을 처치할 시 검의 힘은 [40]으로 줄어듭니다.	31	32
+3	4	Kill	Greater	0	AttackSpeed	0.6	검의 주인은 초당 [0.6]의 공격속도를 가지고 시작합니다.	44
+3	5	Kill	Greater	0	AttackDamage	50	검의 힘이 [50]이 됩니다	45
+3	6	Kill	Greater	0	AttackSpeed	16	검의 주인의 초당 [3]의 공격속도를 가지게 됩니다	13
+4	1	Kill	Greater	0	Speed	6	검의 주인은 [6]의 속도를 가지고 시작합니다.	42	43
+4	2	Kill	Greater	60	Speed	5	검이 [60]마리의 적을 처치할 시 주인의 속도는 [5]로 제한됩니다.	41	43
+4	3	Kill	Greater	120	Speed	4	검이 [120]마리의 적을 처치할 시 주인의 속도는 [4]로 줄어듭니다.	41	42
+4	4	Kill	Greater	0	JumpForce	3	검의 주인은 [3]의 점프력을 가지고 시작합니다.	34
+4	5	Kill	Greater	0	Speed	12	검의 주인은 [12]이 됩니다.	35
