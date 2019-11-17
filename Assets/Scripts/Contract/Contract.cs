@@ -138,7 +138,7 @@ public class Contract : MonoBehaviour
         KillContractCheck();
     }
 
-    private void KillContractCheck()
+    public void KillContractCheck()
     {
         stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
 
