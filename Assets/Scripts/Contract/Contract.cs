@@ -138,17 +138,6 @@ public class Contract : MonoBehaviour
         KillContractCheck();
     }
 
-    public void PlayTimeEvent()
-    {
-
-    }
-
-    public void JumpEvent()
-    { }
-
-    public void AttackEvent()
-    { }
-
     private void KillContractCheck()
     {
         stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
@@ -194,6 +183,18 @@ public class Contract : MonoBehaviour
                 break;
             case ResultClass.MoveDamping:
                 stat.MovementDamping = contract.ResultValue;
+                break;
+            case ResultClass.JumpForce:
+                stat.JumpForce = contract.ResultValue;
+                break;
+            case ResultClass.InvincibleTime:
+                stat.InvincibleTime = contract.ResultValue;
+                break;
+            case ResultClass.KnockBackForce:
+                stat.KnockBackForce = contract.ResultValue;
+                break;
+            default:
+                Debug.LogError("해당하는 결과 클래스를 찾지 못했습니다.");
                 break;
         }
     }

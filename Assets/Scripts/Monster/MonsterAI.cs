@@ -7,7 +7,7 @@ public enum MonsterState { Patrol, Chasing, Attack, Hitted, Dead };
 public class MonsterAI : MonoBehaviour
 {
     [SerializeField] private MonsterState state;
-    [SerializeField] private int health = 100;
+    [SerializeField] protected int health = 100;
     [SerializeField] private bool isFindHero = false;
     [SerializeField] private bool canAttackHero = false;
     [SerializeField] private bool isHitted = false;

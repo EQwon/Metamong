@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2855763477960774311}
   m_Layer: 9
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattern: 0
+  health: 500
   rainingCircle: {fileID: 1740228252334251920, guid: ae2a848d61855d441868f8f6fe59bed1,
     type: 3}
   rainingPos: {x: 0, y: 3}

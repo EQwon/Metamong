@@ -10,6 +10,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float movementDamping = 0.05f;
     [SerializeField] private float jumpForce = 700f;
+    [SerializeField] private float invincibleTime;
+    [SerializeField] private float knockBackForce;
 
     public int MaxHealth { set { maxHealth = value; } }
     public int Damage { set { damage = value; } }
@@ -17,14 +19,16 @@ public class PlayerStatus : MonoBehaviour
     public float Speed { set { speed = value; } }
     public float MovementDamping { set { movementDamping = value; } }
     public float JumpForce { set { jumpForce = value; } }
+    public float InvincibleTime { set { invincibleTime = value; } }
+    public float KnockBackForce { set { knockBackForce = value; } }
 
-    private PlayerInput health;
+    private PlayerInput input;
     private PlayerMovement mover;
     private PlayerAttack attacker;
 
     private void Awake()
     {
-        health = GetComponent<PlayerInput>();
+        input = GetComponent<PlayerInput>();
         mover = GetComponent<PlayerMovement>();
         attacker = GetComponent<PlayerAttack>();
 
@@ -34,11 +38,13 @@ public class PlayerStatus : MonoBehaviour
     public void UpdateStatus()
     {
         Debug.Log("스탯 업데이트");
-        health.MaxHealth = maxHealth;
+        input.MaxHealth = maxHealth;
+        attacker.Damage = damage;
+        attacker.AttackPostDelay = attackPostDelay;
         mover.Speed = speed;
         mover.MovementDamping = movementDamping;
         mover.JumpForce = jumpForce;
-        attacker.Damage = damage;
-        attacker.AttackPostDelay = attackPostDelay;
+        input.InvincibleTime = invincibleTime;
+        mover.KnockBackForce = knockBackForce;
     }
 }

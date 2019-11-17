@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed { set { speed = value; } }
     public float JumpForce { set { m_JumpForce = value; } }
     public float MovementDamping { set { movementDamping = value; } }
+    public float KnockBackForce { set { knockBackForce = value; } }
 
     [Header("Events")]
     public UnityEvent OnLandEvent;

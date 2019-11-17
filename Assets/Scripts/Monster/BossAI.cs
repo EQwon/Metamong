@@ -8,6 +8,9 @@ public class BossAI : MonoBehaviour
 {
     [SerializeField] private PatternType pattern;
 
+    [Header("Boss Status")]
+    [SerializeField] private int health;
+
     [Header("Raining Pattern")]
     [SerializeField] private GameObject rainingCircle;
     [SerializeField] private Vector2 rainingPos;
@@ -19,6 +22,12 @@ public class BossAI : MonoBehaviour
     private void Start()
     {
         StartCoroutine(NextPattern());
+    }
+
+    public void GetDamage(int amount)
+    {
+        health -= amount;
+        StartCoroutine(HitEffect());
     }
 
     private void OnDrawGizmos()
@@ -108,5 +117,16 @@ public class BossAI : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         StartCoroutine(NextPattern());
+    }
+
+    private IEnumerator HitEffect()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        sr.color = Color.red;
+
+        yield return new WaitForSeconds(0.05f);
+
+        sr.color = Color.white;
     }
 }

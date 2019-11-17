@@ -77,7 +77,8 @@ public class PlayerAttack : MonoBehaviour
         {
             GameObject enemy = coll.gameObject;
 
-            enemy.GetComponent<MonsterAI>().GetDamage(damage, gameObject);
+            if (enemy.tag == "Boss") enemy.GetComponent<BossAI>().GetDamage(damage);
+            else enemy.GetComponent<MonsterAI>().GetDamage(damage, gameObject);
             Instantiate(attackEffect, attackPos, Quaternion.identity);
             StartCoroutine(Camera.main.gameObject.GetComponent<CameraWalk>().Shaking());
         }

@@ -31,6 +31,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
     public int Health { get { return health; } set { health = value; } }
+    public float InvincibleTime { set { invincibleTime = value; } }
     public GameObject NowGate { set { nowGate = value; } }
     public GameObject WarningSign { set { warningSign = value; } }
     public GameObject OldMan { set { oldMan = value; } }
