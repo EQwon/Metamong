@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [Header("Health Bar")]
-    [SerializeField] private RectTransform healthBar;
+    [SerializeField] private Image healthBar;
     [SerializeField] private Text healthValue;
 
     [Header("Contract")]
@@ -23,8 +23,8 @@ public class UIManager : MonoBehaviour
     [Header("Info")]
     [SerializeField] private Text killCount;
 
-    [Header("Pause")]
-    [SerializeField] private GameObject pausePanel;
+    [Header("Menu")]
+    [SerializeField] private GameObject menuPanel;
 
     public bool CanChangeContract { get { return canChangeContract; } set { canChangeContract = value; } }
 
@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
         contractPanel.SetActive(false);
         contractConfirmPanel.SetActive(false);
         popUp.SetActive(false);
-        pausePanel.SetActive(false);
+        menuPanel.SetActive(false);
     }
 
     private void Update()
@@ -49,10 +49,8 @@ public class UIManager : MonoBehaviour
 
     public void AdjustingHealthBar(int health, int maxHealth)
     {
-        Vector3 targetScale = Vector3.one;
         float ratio = (float)health / maxHealth;
-        targetScale.x = ratio;
-        healthBar.localScale = targetScale;
+        healthBar.fillAmount = ratio;
 
         healthValue.text = health + " / " + maxHealth;
     }
@@ -121,6 +119,6 @@ public class UIManager : MonoBehaviour
 
     public void Pause()
     {
-        pausePanel.SetActive(true);
+        menuPanel.SetActive(true);
     }
 }
