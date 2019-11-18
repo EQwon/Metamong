@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 2855763477960774311, guid: c158835cf46f8b44c80d5eac10eb369b,
         type: 3}
       propertyPath: rainingPos.y
-      value: 4.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2855763477960774311, guid: c158835cf46f8b44c80d5eac10eb369b,
         type: 3}
@@ -18204,6 +18204,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4681482781308230738, guid: c8d8b54f76be2c647984172b592d21ba,
+        type: 3}
+      propertyPath: contractAsset
+      value: 
+      objectReference: {fileID: 4900000, guid: 69703ba18c9bee0449e5a337963585e1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d8b54f76be2c647984172b592d21ba, type: 3}
 --- !u!1001 &8425322454933049689
