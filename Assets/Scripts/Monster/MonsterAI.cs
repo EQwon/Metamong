@@ -106,14 +106,13 @@ public class MonsterAI : MonoBehaviour
         health -= amount;
         healthBarValue.transform.localScale = new Vector3(health / maxHealth, 1, 1);
         IsHitted = true;
-        //StartCoroutine(mover.KnockBack(player));
+        healthBar.SetActive(true);
 
         if (health <= 0) IsDead = true;
     }
 
     private void Hitted()
     {
-        healthBar.SetActive(true);
         IsHitted = false;
     }
 
