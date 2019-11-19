@@ -55,12 +55,18 @@ public class UIManager : MonoBehaviour
         healthValue.text = health + " / " + maxHealth;
     }
 
-    public void OpenContract()
+    public void ContractPanel()
+    {
+        if (contractPanel.activeInHierarchy == true) CloseContract();
+        else OpenContract();
+    }
+
+    private void OpenContract()
     {
         contractPanel.SetActive(true);
     }
 
-    public void CloseContract()
+    private void CloseContract()
     {
         if (canChangeContract)
         {
@@ -117,8 +123,15 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void Pause()
+    public void Menu()
     {
-        menuPanel.SetActive(true);
+        if (menuPanel.activeInHierarchy == true)
+        {
+            menuPanel.SetActive(false);
+        }
+        else
+        {
+            menuPanel.SetActive(true);
+        }
     }
 }

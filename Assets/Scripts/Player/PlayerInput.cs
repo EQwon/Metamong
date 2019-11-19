@@ -73,9 +73,13 @@ public class PlayerInput : MonoBehaviour
             if (warningSign) warningSign.GetComponent<WarningSignController>().ShowWarningPanel();
             if (oldMan) oldMan.GetComponent<OldManController>().StartContract();
         }
+        if (Input.GetButtonDown("Contract"))
+        {
+            UIManager.instance.ContractPanel();
+        }
         if (Input.GetButtonDown("Cancel"))
         {
-            UIManager.instance.Pause();
+            UIManager.instance.Menu();
         }
     }
 
@@ -95,7 +99,7 @@ public class PlayerInput : MonoBehaviour
         if (health <= 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 90f);
-            UIManager.instance.Pause();
+            UIManager.instance.Menu();
         }
     }
 

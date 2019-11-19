@@ -35,7 +35,7 @@ public class VillageController : MonoBehaviour
         if (targetNum >= speeches.Count)
         {
             speechPanel.SetActive(false);
-            UIManager.instance.OpenContract();
+            UIManager.instance.ContractPanel();
             UIManager.instance.CanChangeContract = true;
 
             nowNum = 0;
