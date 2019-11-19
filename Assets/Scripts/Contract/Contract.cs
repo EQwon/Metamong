@@ -68,7 +68,6 @@ public class Contract : MonoBehaviour
 
     public List<SingleContract> contracts;
 
-    private PlayerStatus stat;
     private int killCnt = 0;
 
     public int KillCnt { get { return killCnt; } }
@@ -82,11 +81,6 @@ public class Contract : MonoBehaviour
 
         contracts = new List<SingleContract>();
         contracts = GetComponent<ContractHolder>().ParseContract();
-    }
-
-    private void Start()
-    {
-        stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
     }
 
     public SingleContract GetContract(int article, int clause)
@@ -140,8 +134,6 @@ public class Contract : MonoBehaviour
 
     public void KillContractCheck()
     {
-        stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
-
         for (int i = 0; i < contracts.Count; i++)
         {
             SingleContract contract = contracts[i];
@@ -160,7 +152,7 @@ public class Contract : MonoBehaviour
             }
         }
 
-        stat.UpdateStatus();
+        PlayerStatus.instance.UpdateStatus();
     }
 
     private void ActivateResult(int i)
@@ -170,28 +162,28 @@ public class Contract : MonoBehaviour
         switch (contract.ResultClass)
         {
             case ResultClass.AttackSpeed:
-                stat.AttackPostDelay = contract.ResultValue;
+                PlayerStatus.instance.AttackPostDelay = contract.ResultValue;
                 break;
             case ResultClass.AttackDamage:
-                stat.Damage = (int)contract.ResultValue;
+                PlayerStatus.instance.Damage = (int)contract.ResultValue;
                 break;
             case ResultClass.MaxHealth:
-                stat.MaxHealth = (int)contract.ResultValue;
+                PlayerStatus.instance.MaxHealth = (int)contract.ResultValue;
                 break;
             case ResultClass.Speed:
-                stat.Speed = contract.ResultValue;
+                PlayerStatus.instance.Speed = contract.ResultValue;
                 break;
             case ResultClass.MoveDamping:
-                stat.MovementDamping = contract.ResultValue;
+                PlayerStatus.instance.MovementDamping = contract.ResultValue;
                 break;
             case ResultClass.JumpForce:
-                stat.JumpForce = contract.ResultValue;
+                PlayerStatus.instance.JumpForce = contract.ResultValue;
                 break;
             case ResultClass.InvincibleTime:
-                stat.InvincibleTime = contract.ResultValue;
+                PlayerStatus.instance.InvincibleTime = contract.ResultValue;
                 break;
             case ResultClass.KnockBackForce:
-                stat.KnockBackForce = contract.ResultValue;
+                PlayerStatus.instance.KnockBackForce = contract.ResultValue;
                 break;
             default:
                 Debug.LogError("해당하는 결과 클래스를 찾지 못했습니다.");

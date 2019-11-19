@@ -26,8 +26,12 @@ public class PlayerStatus : MonoBehaviour
     private PlayerMovement mover;
     private PlayerAttack attacker;
 
+    public static PlayerStatus instance;
+
     private void Awake()
     {
+        if (instance != this) instance = this;
+
         input = GetComponent<PlayerInput>();
         mover = GetComponent<PlayerMovement>();
         attacker = GetComponent<PlayerAttack>();

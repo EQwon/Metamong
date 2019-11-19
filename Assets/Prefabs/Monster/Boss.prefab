@@ -223,3 +223,8 @@ MonoBehaviour:
   - {x: 7, y: 1}
   - {x: -4, y: -2}
   - {x: 4, y: -2}
+  claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}
+  clawPos:
+  - {x: 26, y: 7}
+  - {x: 13, y: 7}
+  clawSize: {x: 7, y: 10}

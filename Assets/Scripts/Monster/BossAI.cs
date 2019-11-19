@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PatternType { Rain, Summon, Axe }
+public enum PatternType { Rain, Summon, Claw }
 
 public class BossAI : MonoBehaviour
 {
@@ -18,6 +18,13 @@ public class BossAI : MonoBehaviour
     [Header("Summoning Pattern")]
     [SerializeField] private GameObject summoningCircle;
     [SerializeField] private List<Vector2> summonPos;
+
+    [Header("Claw Pattern")]
+    [SerializeField] private GameObject claw;
+    [SerializeField] private List<Vector2> clawPos;
+    [SerializeField] private Vector2 clawSize;
+
+    private List<int> patternList = new List<int>();
 
     private void Start()
     {
@@ -40,20 +47,36 @@ public class BossAI : MonoBehaviour
 
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(rainingPos + (Vector2)transform.position, 0.3f);
+
+        Gizmos.color = Color.white;
+        for (int i = 0; i < clawPos.Count; i++)
+        {
+            Gizmos.DrawWireCube(clawPos[i], clawSize);
+        }
     }
 
     private IEnumerator NextPattern()
     {
+        if (patternList.Count == 0) patternList.AddRange(RandomList(3));
+
         yield return new WaitForSeconds(3f);
 
-        int ran = Random.Range(0, 100);
-        switch (ran % 2)
+        int ran = patternList[0];
+        patternList.RemoveAt(0);
+
+        switch (ran)
         {
             case 0:
                 StartCoroutine(Summoning());
                 break;
             case 1:
                 StartCoroutine(Rain());
+                break;
+            case 2:
+                StartCoroutine(Claw());
+                break;
+            default:
+                Debug.LogError("보스 패턴에서 에러가 생겼습니다. 해당하는 패턴을 찾을 수 없습니다.");
                 break;
         }
     }
@@ -119,6 +142,19 @@ public class BossAI : MonoBehaviour
         StartCoroutine(NextPattern());
     }
 
+    private IEnumerator Claw()
+    {
+        Vector2 attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
+        
+        GameObject nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
+        nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
+        nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
+
+        yield return new WaitForSeconds(8f);
+
+        StartCoroutine(NextPattern());
+    }
+
     private IEnumerator HitEffect()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -128,5 +164,22 @@ public class BossAI : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         sr.color = Color.white;
+    }
+
+    private List<int> RandomList(int num)
+    {
+        List<int> returnList = new List<int>();
+        List<int> baseList = new List<int>();
+
+        for (int i = 0; i < num; i++) baseList.Add(i);
+
+        while (baseList.Count != 0)
+        {
+            int index = Random.Range(0, baseList.Count);
+            returnList.Add(baseList[index]);
+            baseList.RemoveAt(index);
+        }
+
+        return returnList;
     }
 }
