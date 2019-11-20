@@ -86,7 +86,7 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(4f);
 
         StartCoroutine(NextPattern());
     }
@@ -116,29 +116,6 @@ public class BossAI : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
-        // 지정한 위치에 소환진을 생성
-        for (int i = 0; i < summonPos.Count; i++)
-        {
-            GameObject summoning = Instantiate(summoningCircle, summonPos[i] + (Vector2)transform.position, Quaternion.identity);
-            switch (i)
-            {
-                case 0:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 2;
-                    break;
-                case 1:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 2;
-                    break;
-                case 2:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 1;
-                    break;
-                case 3:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 0;
-                    break;
-            }
-        }
-
-        yield return new WaitForSeconds(4f);
-
         StartCoroutine(NextPattern());
     }
 
@@ -150,7 +127,7 @@ public class BossAI : MonoBehaviour
         nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
         nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
 
@@ -158,7 +135,7 @@ public class BossAI : MonoBehaviour
         nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
         nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         StartCoroutine(NextPattern());
     }

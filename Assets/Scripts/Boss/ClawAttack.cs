@@ -58,7 +58,7 @@ public class ClawAttack : MonoBehaviour
     {
         state = State.before;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         state = State.attack;
 
@@ -66,7 +66,7 @@ public class ClawAttack : MonoBehaviour
 
         state = State.end;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
 
         Destroy(gameObject);
     }
