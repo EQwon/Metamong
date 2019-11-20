@@ -86,7 +86,7 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
 
         StartCoroutine(NextPattern());
     }
@@ -114,7 +114,7 @@ public class BossAI : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
 
         StartCoroutine(NextPattern());
     }
@@ -127,7 +127,7 @@ public class BossAI : MonoBehaviour
         nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
         nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
 
@@ -135,7 +135,7 @@ public class BossAI : MonoBehaviour
         nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
         nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine(NextPattern());
     }
