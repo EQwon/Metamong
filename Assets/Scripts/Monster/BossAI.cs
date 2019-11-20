@@ -24,7 +24,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private List<Vector2> clawPos;
     [SerializeField] private Vector2 clawSize;
 
-    private List<int> patternList = new List<int>();
+    private List<int> patternList = new List<int> { 0 };
 
     private void Start()
     {
@@ -150,7 +150,15 @@ public class BossAI : MonoBehaviour
         nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
         nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(4f);
+
+        attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
+
+        nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
+        nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
+        nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
+
+        yield return new WaitForSeconds(4f);
 
         StartCoroutine(NextPattern());
     }
