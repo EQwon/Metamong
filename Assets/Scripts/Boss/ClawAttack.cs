@@ -36,12 +36,6 @@ public class ClawAttack : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireCube(attackPos, attackSize);
-    }
-
     private void Warning()
     {
         GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
