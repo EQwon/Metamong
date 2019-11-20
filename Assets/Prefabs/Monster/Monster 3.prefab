@@ -230,6 +230,7 @@ MonoBehaviour:
     attack: 0
     post: 1
   attackDamage: 10
+  attackSpeed: 0
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -240,7 +241,7 @@ MonoBehaviour:
   attackArea: {x: 0, y: 0}
   needlePrefab: {fileID: 7228884104200151665, guid: a9d4160789724944e9af6efa775649a8,
     type: 3}
-  firePos: {x: 0.5, y: 0.2}
+  firePos: {x: 0.5, y: 0.05}
   fireSpeed: 5
 --- !u!114 &3793128232060023504
 MonoBehaviour:
