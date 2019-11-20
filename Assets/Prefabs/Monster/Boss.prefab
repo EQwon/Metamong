@@ -212,19 +212,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattern: 0
-  health: 500
+  health: 700
   rainingCircle: {fileID: 1740228252334251920, guid: ae2a848d61855d441868f8f6fe59bed1,
     type: 3}
-  rainingPos: {x: 0, y: 3}
+  rainingPos: {x: 0, y: 2.5}
   summoningCircle: {fileID: 8067999289915180385, guid: 58c045686f9123d4195dc94f7bc059eb,
     type: 3}
   summonPos:
-  - {x: -7, y: 1}
-  - {x: 7, y: 1}
-  - {x: -4, y: -2}
-  - {x: 4, y: -2}
+  - {x: -3.5, y: -3}
+  - {x: 3.5, y: -3}
+  - {x: -2.5, y: -6}
+  - {x: 2.5, y: -6}
   claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}
   clawPos:
-  - {x: 26, y: 7}
-  - {x: 13, y: 7}
-  clawSize: {x: 7, y: 10}
+  - {x: 23, y: 7}
+  - {x: 16, y: 7}
+  clawSize: {x: 7, y: 8}

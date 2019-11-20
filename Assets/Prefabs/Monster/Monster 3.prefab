@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  health: 60
+  health: 40
   isFindHero: 0
   canAttackHero: 0
   isHitted: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
     attack: 0
     post: 1
   attackDamage: 10
+  attackSpeed: 0
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -262,11 +263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3468727701352014593}
     m_Modifications:
-    - target: {fileID: 3047899567810317356, guid: b8fd8718fafd4344b99bdf41ef16fa90,
-        type: 3}
-      propertyPath: m_Name
-      value: Health Bar
-      objectReference: {fileID: 0}
     - target: {fileID: 7048561330929532291, guid: b8fd8718fafd4344b99bdf41ef16fa90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -321,6 +317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047899567810317356, guid: b8fd8718fafd4344b99bdf41ef16fa90,
+        type: 3}
+      propertyPath: m_Name
+      value: Health Bar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fd8718fafd4344b99bdf41ef16fa90, type: 3}
