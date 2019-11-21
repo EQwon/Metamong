@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Info")]
     [SerializeField] private Text killCount;
+    [SerializeField] private Text attackDamageValueText;
+    [SerializeField] private Text attackSpeedValueText;
+    [SerializeField] private Text moveSpeedValueText;
+    [SerializeField] private Text jumpForceValueText;
 
     [Header("Menu")]
     [SerializeField] private GameObject menuPanel;
@@ -45,6 +49,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         ShowKillCount();
+        ShowStatus();
     }
 
     public void AdjustingHealthBar(int health, int maxHealth)
@@ -117,6 +122,14 @@ public class UIManager : MonoBehaviour
     {
         killCount.text = Contract.instance.KillCnt.ToString();
     }
+
+    private void ShowStatus()
+    {
+        attackDamageValueText.text = PlayerStatus.instance.Damage.ToString();
+        attackSpeedValueText.text = PlayerStatus.instance.AttackSpeed.ToString("#.00");
+        moveSpeedValueText.text = PlayerStatus.instance.Speed.ToString();
+        jumpForceValueText.text = PlayerStatus.instance.JumpForce.ToString();
+}
 
     public void MoveToTitle()
     {

@@ -14,11 +14,12 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float knockBackForce;
 
     public int MaxHealth { set { maxHealth = value; } }
-    public int Damage { set { damage = value; } }
+    public int Damage { get { return damage; } set { damage = value; } }
     public float AttackPostDelay { set { attackPostDelay = value; } }
-    public float Speed { set { speed = value; } }
+    public float AttackSpeed { get { return 1 / (0.1f + attackPostDelay); } }
+    public float Speed { get { return speed; } set { speed = value; } }
     public float MovementDamping { set { movementDamping = value; } }
-    public float JumpForce { set { jumpForce = value; } }
+    public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
     public float InvincibleTime { set { invincibleTime = value; } }
     public float KnockBackForce { set { knockBackForce = value; } }
 

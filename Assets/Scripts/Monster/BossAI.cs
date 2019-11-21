@@ -6,10 +6,12 @@ public enum PatternType { Rain, Summon, Claw }
 
 public class BossAI : MonoBehaviour
 {
+    [SerializeField] private GameObject bossCanvasPrefab;
     [SerializeField] private PatternType pattern;
 
     [Header("Boss Status")]
-    [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
+    private int health;
 
     [Header("Raining Pattern")]
     [SerializeField] private GameObject rainingCircle;
@@ -26,8 +28,12 @@ public class BossAI : MonoBehaviour
 
     private List<int> patternList = new List<int> { 0 };
 
+    public float HealthRatio { get { return (float)health/maxHealth; } }
+
     private void Start()
     {
+        health = maxHealth;
+        Instantiate(bossCanvasPrefab).GetComponent<BossUIManager>().Boss = this;
         StartCoroutine(NextPattern());
     }
 
