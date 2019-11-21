@@ -49,19 +49,15 @@ public class MonsterAI : MonoBehaviour
         switch (state)
         {
             case MonsterState.Patrol:
-                GetComponent<SpriteRenderer>().color = Color.white;
                 mover.Patrol();
                 break;
             case MonsterState.Chasing:
-                GetComponent<SpriteRenderer>().color = Color.yellow;
                 mover.Chasing(player);
                 break;
             case MonsterState.Attack:
-                GetComponent<SpriteRenderer>().color = Color.red;
                 attacker.TryAttack();
                 break;
             case MonsterState.Hitted:
-                GetComponent<SpriteRenderer>().color = Color.grey;
                 Hitted();
                 break;
             case MonsterState.Dead:
@@ -107,6 +103,7 @@ public class MonsterAI : MonoBehaviour
         healthBarValue.transform.localScale = new Vector3(health / maxHealth, 1, 1);
         IsHitted = true;
         healthBar.SetActive(true);
+        StartCoroutine(HitEffect());
 
         if (health <= 0) IsDead = true;
     }
@@ -114,6 +111,17 @@ public class MonsterAI : MonoBehaviour
     private void Hitted()
     {
         IsHitted = false;
+    }
+
+    private IEnumerator HitEffect()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        sr.color = Color.red;
+
+        yield return new WaitForSeconds(0.05f);
+
+        sr.color = Color.white;
     }
 
     private void Dead()
