@@ -8,6 +8,7 @@ public class BossAI : MonoBehaviour
 {
     [SerializeField] private GameObject bossCanvasPrefab;
     [SerializeField] private PatternType pattern;
+    private GameObject bossCanvas;
 
     [Header("Boss Status")]
     [SerializeField] private int maxHealth;
@@ -26,6 +27,10 @@ public class BossAI : MonoBehaviour
     [SerializeField] private List<Vector2> clawPos;
     [SerializeField] private Vector2 clawSize;
 
+    [Header("Exit")]
+    [SerializeField] private GameObject gatePrefab;
+    [SerializeField] private Vector2 exitPos;
+
     private List<int> patternList = new List<int> { 0 };
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
@@ -33,7 +38,8 @@ public class BossAI : MonoBehaviour
     private void Start()
     {
         health = maxHealth;
-        Instantiate(bossCanvasPrefab).GetComponent<BossUIManager>().Boss = this;
+        bossCanvas = Instantiate(bossCanvasPrefab);
+        bossCanvas.GetComponent<BossUIManager>().Boss = this;
         StartCoroutine(NextPattern());
     }
 
@@ -41,6 +47,13 @@ public class BossAI : MonoBehaviour
     {
         health -= amount;
         StartCoroutine(HitEffect());
+
+        if (health <= 0)
+        {
+            health = 0;
+            StopAllCoroutines();
+            StartCoroutine(Dead());
+        }
     }
 
     private void OnDrawGizmos()
@@ -59,6 +72,9 @@ public class BossAI : MonoBehaviour
         {
             Gizmos.DrawWireCube(clawPos[i], clawSize);
         }
+
+        Gizmos.color = Color.black;
+        Gizmos.DrawCube(exitPos, Vector2.one);
     }
 
     private IEnumerator NextPattern()
@@ -172,5 +188,26 @@ public class BossAI : MonoBehaviour
         }
 
         return returnList;
+    }
+
+    private IEnumerator Dead()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Vector2 originPos = transform.position;
+        GameObject gate = Instantiate(gatePrefab, exitPos, Quaternion.identity);
+
+        sr.color = Color.white;
+        Destroy(bossCanvas);
+        //gate.GetComponent<GateController>().SceneNum = ??
+
+        for (int i = 0; i < 40; i++)
+        {
+            transform.position = originPos + new Vector2(Random.Range(0, 0.5f), Random.Range(0, 0.5f));
+            sr.color -= new Color(0, 0, 0, 0.025f);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        Destroy(gameObject);
     }
 }

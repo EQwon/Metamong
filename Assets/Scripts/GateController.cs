@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class GateController : MonoBehaviour
 {
     [SerializeField] private int sceneNum;
+    [SerializeField] private Vector2 startPos;
+
+    public int SceneNum { set { sceneNum = value; } }
 
     public void EnterGate()
     {
+        PlayerStatus.instance.AdjustStartPos(startPos);
         SceneManager.LoadScene(sceneNum);
     }
     

@@ -31,13 +31,21 @@ public class PlayerStatus : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != this) instance = this;
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
 
         input = GetComponent<PlayerInput>();
         mover = GetComponent<PlayerMovement>();
         attacker = GetComponent<PlayerAttack>();
 
         UpdateStatus();
+    }
+
+    public void AdjustStartPos(Vector2 startPos)
+    {
+        transform.position = startPos;
     }
 
     private void Start()

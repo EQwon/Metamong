@@ -20,7 +20,6 @@ public class BossUIManager : MonoBehaviour
     private void Update()
     {
         float ratio = boss.HealthRatio;
-        if (ratio < 0) ratio = 0;
         healthBar.sizeDelta = new Vector2(originSize * ratio, healthBar.sizeDelta.y);
     }
 }

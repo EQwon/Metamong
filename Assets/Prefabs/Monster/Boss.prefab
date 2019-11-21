@@ -230,3 +230,6 @@ MonoBehaviour:
   - {x: 23, y: 7}
   - {x: 16, y: 7}
   clawSize: {x: 7, y: 8}
+  gatePrefab: {fileID: 3468727701352014604, guid: 8131dfec429abdc449941065aa91a70c,
+    type: 3}
+  exitPos: {x: 20, y: 2.5}
