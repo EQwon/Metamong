@@ -12,7 +12,8 @@ public class GateController : MonoBehaviour
 
     public void EnterGate()
     {
-        PlayerStatus.instance.AdjustStartPos(startPos);
+        if (sceneNum == 0) Destroy(PlayerStatus.instance.gameObject);
+        else PlayerStatus.instance.AdjustStartPos(startPos);
         SceneManager.LoadScene(sceneNum);
     }
     
