@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class OldManController : MonoBehaviour
 {
-    [SerializeField] private VillageController controller;
+    [SerializeField] private GameObject talkCanavas;
+
+    private SpeechController controller;
+
+    private void Start()
+    {
+        controller = Instantiate(talkCanavas).GetComponent<SpeechController>();
+    }
 
     public void StartContract()
     {

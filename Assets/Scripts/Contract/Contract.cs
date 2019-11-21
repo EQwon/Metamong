@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public enum ConditionClass { Always, Kill, PlayTime, JumpCnt, AttackCnt }
 public enum ConditionType { None, Greater, Less }
@@ -134,6 +135,8 @@ public class Contract : MonoBehaviour
 
     public void KillContractCheck()
     {
+        if (SceneManager.GetActiveScene().name.Contains("Village")) return;
+
         for (int i = 0; i < contracts.Count; i++)
         {
             SingleContract contract = contracts[i];
