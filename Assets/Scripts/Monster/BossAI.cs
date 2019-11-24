@@ -31,7 +31,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private GameObject gatePrefab;
     [SerializeField] private Vector2 exitPos;
 
-    private List<int> patternList = new List<int> { 2 };
+    private List<int> patternList = new List<int> { 0 };
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
 

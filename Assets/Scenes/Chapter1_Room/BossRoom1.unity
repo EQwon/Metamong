@@ -6409,7 +6409,7 @@ Tilemap:
         type: 3}
       m_TileFlags: 2
       m_ColliderType: 1
-  - first: {x: 15, y: 7, z: 0}
+  - first: {x: 14, y: 7, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 13
@@ -6419,7 +6419,7 @@ Tilemap:
         type: 3}
       m_TileFlags: 2
       m_ColliderType: 1
-  - first: {x: 16, y: 7, z: 0}
+  - first: {x: 15, y: 7, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 14
@@ -6429,7 +6429,7 @@ Tilemap:
         type: 3}
       m_TileFlags: 2
       m_ColliderType: 1
-  - first: {x: 22, y: 7, z: 0}
+  - first: {x: 23, y: 7, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 13
@@ -6439,7 +6439,7 @@ Tilemap:
         type: 3}
       m_TileFlags: 2
       m_ColliderType: 1
-  - first: {x: 23, y: 7, z: 0}
+  - first: {x: 24, y: 7, z: 0}
     second:
       m_TileIndex: 0
       m_TileSpriteIndex: 14
