@@ -13,6 +13,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float jumpForce = 700f;
     [SerializeField] private float invincibleTime;
     [SerializeField] private float knockBackForce;
+    [SerializeField] private int lastVillage;
 
     public int MaxHealth { set { maxHealth = value; } }
     public int Damage { get { return damage; } set { damage = value; } }
@@ -23,6 +24,7 @@ public class PlayerStatus : MonoBehaviour
     public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
     public float InvincibleTime { set { invincibleTime = value; } }
     public float KnockBackForce { set { knockBackForce = value; } }
+    public int LastVillage { get { return lastVillage; } }
 
     private PlayerInput input;
     private PlayerMovement mover;
@@ -70,5 +72,10 @@ public class PlayerStatus : MonoBehaviour
         mover.JumpForce = jumpForce;
         input.InvincibleTime = invincibleTime;
         mover.KnockBackForce = knockBackForce;
+
+        if (SceneManager.GetActiveScene().name.Contains("Village"))
+        {
+            lastVillage = SceneManager.GetActiveScene().buildIndex;
+        }
     }
 }

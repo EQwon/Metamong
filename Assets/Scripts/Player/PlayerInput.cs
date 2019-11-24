@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     private bool dash = false;
     private bool attack = false;
     private bool isInvincible = false;
+    private bool isDead = false;
     private GameObject nowGate = null;
     private GameObject warningSign = null;
     private GameObject oldMan = null;
@@ -50,6 +51,17 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+        {
+            horizontalMove = 0;
+            jump = false;
+            attack = false;
+            // Some Dead Action
+            UIManager.instance.Menu();
+            this.enabled = false;
+            return;
+        }
+
         horizontalMove = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         UIManager.instance.AdjustingHealthBar(Health, MaxHealth);
@@ -98,14 +110,15 @@ public class PlayerInput : MonoBehaviour
 
         if (health <= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90f);
-            UIManager.instance.Menu();
+            health = 0;
+            isDead = true;
         }
     }
 
     public void GetDamage(int amount, GameObject attacker)
     {
         if (isInvincible) return;
+        if (isDead) return;
 
         isInvincible = true;
         StartCoroutine(Invincible());

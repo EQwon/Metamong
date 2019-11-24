@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Menu")]
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private int villageSceneNum;
 
     public bool CanChangeContract { get { return canChangeContract; } set { canChangeContract = value; } }
 
@@ -146,5 +147,16 @@ public class UIManager : MonoBehaviour
         {
             menuPanel.SetActive(true);
         }
+    }
+
+    public void RestartChapter()
+    {
+        SceneManager.LoadScene(PlayerStatus.instance.LastVillage);
+        PlayerStatus.instance.transform.position = new Vector2(-3f, 5f);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
