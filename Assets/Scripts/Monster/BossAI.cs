@@ -31,7 +31,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private GameObject gatePrefab;
     [SerializeField] private Vector2 exitPos;
 
-    private List<int> patternList = new List<int> { 0 };
+    private List<int> patternList = new List<int> { 2 };
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
 
@@ -143,19 +143,25 @@ public class BossAI : MonoBehaviour
 
     private IEnumerator Claw()
     {
-        Vector2 attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
-        
+        int dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
+        Vector2 attackPos = dir == 0 ? clawPos[0] : clawPos[1];
+
         GameObject nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
-        nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
-        nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
+        ClawAttack clawAttack = nowClaw.GetComponent<ClawAttack>();
+        clawAttack.AttackPos = attackPos;
+        clawAttack.AttackSize = clawSize;
+        clawAttack.Direction = dir == 0 ? ClawDirection.Right : ClawDirection.Left;
 
         yield return new WaitForSeconds(3f);
 
-        attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
+        dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
+        attackPos = dir == 0 ? clawPos[0] : clawPos[1];
 
         nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
-        nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
-        nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
+        clawAttack = nowClaw.GetComponent<ClawAttack>();
+        clawAttack.AttackPos = attackPos;
+        clawAttack.AttackSize = clawSize;
+        clawAttack.Direction = dir == 0 ? ClawDirection.Right : ClawDirection.Left;
 
         yield return new WaitForSeconds(3f);
 

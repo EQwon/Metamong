@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ClawDirection { Right, Left }
+
 public class ClawAttack : MonoBehaviour
 {
     private enum State { before, attack, end }
@@ -10,14 +12,32 @@ public class ClawAttack : MonoBehaviour
     [SerializeField] private Vector2 attackPos;
     [SerializeField] private Vector2 attackSize;
     [SerializeField] private int attackDamage = 30;
+    [SerializeField] private ClawDirection dir;
+
+    [Header("Resource Holder")]
+    [SerializeField] List<Sprite> clawImages;
 
     private State state;
+    private Animator animator;
 
     public Vector2 AttackPos { set { attackPos = value; } }
     public Vector2 AttackSize { set { attackSize = value; } }
+    public ClawDirection Direction { set { dir = value; } }
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        animator.enabled = false;
+        if (dir == ClawDirection.Right)
+        {
+            GetComponent<SpriteRenderer>().sprite = clawImages[0];
+            transform.position += new Vector3(2, 3, 0);
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = clawImages[1];
+            transform.position += new Vector3(-2, 3, 0);
+        }
         StartCoroutine(AttackCycle());
     }
 
@@ -38,12 +58,17 @@ public class ClawAttack : MonoBehaviour
 
     private void Warning()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
     }
 
     private void Attack()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        animator.enabled = true;
+        if (dir == ClawDirection.Right) transform.position += new Vector3(-2, -8, 0);
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.position += new Vector3(2, -8, 0);
+        }
         Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
         if (collider) ApplyDamage(collider);
     }
@@ -60,7 +85,7 @@ public class ClawAttack : MonoBehaviour
 
         state = State.end;
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
 
         Destroy(gameObject);
     }

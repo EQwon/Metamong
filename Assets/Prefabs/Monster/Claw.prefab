@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724251078298658391}
   - component: {fileID: 4724251078298658388}
+  - component: {fileID: 656004652250924675}
   - component: {fileID: 4724251078298658386}
   m_Layer: 0
   m_Name: Claw
@@ -81,6 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &656004652250924675
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724251078298658387}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 409b0989f9a994e40bbacb797ed96f78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4724251078298658386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,3 +119,7 @@ MonoBehaviour:
   attackPos: {x: 26, y: 7}
   attackSize: {x: 7, y: 10}
   attackDamage: 30
+  dir: 0
+  clawImages:
+  - {fileID: 21300000, guid: d1a6076516b80224bbf612bb979678ee, type: 3}
+  - {fileID: 21300000, guid: 6b4290a8e658efb498691d05a012b3f2, type: 3}
