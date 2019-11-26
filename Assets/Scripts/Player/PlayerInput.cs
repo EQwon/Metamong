@@ -53,12 +53,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (isDead)
         {
-            horizontalMove = 0;
-            jump = false;
-            attack = false;
-            // Some Dead Action
-            UIManager.instance.Menu();
-            this.enabled = false;
+            StartCoroutine(Dead());
             return;
         }
 
@@ -141,5 +136,18 @@ public class PlayerInput : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.white;
 
         isInvincible = false;
+    }
+
+    private IEnumerator Dead()
+    {
+        horizontalMove = 0;
+        jump = false;
+        attack = false;
+        animator.SetBool("IsDead", true);
+        Debug.Log("애니매이션 재생");
+
+        yield return new WaitForSeconds(1.5f);
+
+        UIManager.instance.Menu(true);
     }
 }

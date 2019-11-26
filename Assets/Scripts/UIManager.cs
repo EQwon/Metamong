@@ -149,10 +149,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void Menu(bool on)
+    {
+        menuPanel.SetActive(on);
+    }
+
     public void RestartChapter()
     {
         SceneManager.LoadScene(PlayerStatus.instance.LastVillage);
-        PlayerStatus.instance.transform.position = new Vector2(-3f, 5f);
+        Destroy(PlayerStatus.instance.gameObject);
     }
 
     public void QuitGame()
