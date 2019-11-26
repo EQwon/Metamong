@@ -135,7 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67703515270b3049be7246ca6704436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossWarningPanel: {fileID: 0}
+  bossWarningCanvas: {fileID: 5820105192024887435, guid: 9f8f7770de805be41bf78598729e33e0,
+    type: 3}
 --- !u!1 &6745783722742323190
 GameObject:
   m_ObjectHideFlags: 0

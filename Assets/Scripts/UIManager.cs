@@ -22,9 +22,14 @@ public class UIManager : MonoBehaviour
 
     [Header("Info")]
     [SerializeField] private Text killCount;
+    [SerializeField] private Text attackDamageValueText;
+    [SerializeField] private Text attackSpeedValueText;
+    [SerializeField] private Text moveSpeedValueText;
+    [SerializeField] private Text jumpForceValueText;
 
     [Header("Menu")]
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private int villageSceneNum;
 
     public bool CanChangeContract { get { return canChangeContract; } set { canChangeContract = value; } }
 
@@ -45,6 +50,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         ShowKillCount();
+        ShowStatus();
     }
 
     public void AdjustingHealthBar(int health, int maxHealth)
@@ -118,6 +124,14 @@ public class UIManager : MonoBehaviour
         killCount.text = Contract.instance.KillCnt.ToString();
     }
 
+    private void ShowStatus()
+    {
+        attackDamageValueText.text = PlayerStatus.instance.Damage.ToString();
+        attackSpeedValueText.text = PlayerStatus.instance.AttackSpeed.ToString("0.00");
+        moveSpeedValueText.text = PlayerStatus.instance.Speed.ToString();
+        jumpForceValueText.text = PlayerStatus.instance.JumpForce.ToString();
+}
+
     public void MoveToTitle()
     {
         SceneManager.LoadScene(0);
@@ -133,5 +147,21 @@ public class UIManager : MonoBehaviour
         {
             menuPanel.SetActive(true);
         }
+    }
+
+    public void Menu(bool on)
+    {
+        menuPanel.SetActive(on);
+    }
+
+    public void RestartChapter()
+    {
+        SceneManager.LoadScene(PlayerStatus.instance.LastVillage);
+        Destroy(PlayerStatus.instance.gameObject);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

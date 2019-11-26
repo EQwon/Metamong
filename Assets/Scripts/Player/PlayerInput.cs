@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     private bool dash = false;
     private bool attack = false;
     private bool isInvincible = false;
+    private bool isDead = false;
     private GameObject nowGate = null;
     private GameObject warningSign = null;
     private GameObject oldMan = null;
@@ -50,6 +51,12 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+        if (isDead)
+        {
+            StartCoroutine(Dead());
+            return;
+        }
+
         horizontalMove = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         UIManager.instance.AdjustingHealthBar(Health, MaxHealth);
@@ -98,14 +105,15 @@ public class PlayerInput : MonoBehaviour
 
         if (health <= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90f);
-            UIManager.instance.Menu();
+            health = 0;
+            isDead = true;
         }
     }
 
     public void GetDamage(int amount, GameObject attacker)
     {
         if (isInvincible) return;
+        if (isDead) return;
 
         isInvincible = true;
         StartCoroutine(Invincible());
@@ -119,6 +127,14 @@ public class PlayerInput : MonoBehaviour
         StartCoroutine(mover.KnockBack(dir));
     }
 
+    public void GetHeal(int amount)
+    {
+        if (isDead) return;
+
+        health += amount;
+        if (health > MaxHealth) health = maxHealth;
+    }
+
     private IEnumerator Invincible()
     {
         GetComponent<SpriteRenderer>().color = Color.grey;
@@ -128,5 +144,18 @@ public class PlayerInput : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.white;
 
         isInvincible = false;
+    }
+
+    private IEnumerator Dead()
+    {
+        horizontalMove = 0;
+        jump = false;
+        attack = false;
+        animator.SetBool("IsDead", true);
+        Debug.Log("애니매이션 재생");
+
+        yield return new WaitForSeconds(1.5f);
+
+        UIManager.instance.Menu(true);
     }
 }

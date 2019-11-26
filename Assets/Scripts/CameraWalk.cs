@@ -9,6 +9,7 @@ public class CameraWalk : MonoBehaviour
     [SerializeField] private float rightEdge;
     [SerializeField] private Vector2 upperLimit;
     [SerializeField] private Vector2 lowerLimit;
+    [SerializeField] private float cameraSpeed;
 
     private Vector3 targetPos;
     private GameObject player;
@@ -40,6 +41,19 @@ public class CameraWalk : MonoBehaviour
         float cameraSize = 2 * Camera.main.orthographicSize;
         if (targetPos.x < leftEdge + cameraSize) targetPos.x = leftEdge + cameraSize;
         if (targetPos.x > rightEdge - cameraSize) targetPos.x = rightEdge - cameraSize;
+
+        if (Input.GetAxisRaw("Vertical") > 0)
+        {
+            targetPos.y = transform.position.y + cameraSpeed * Time.fixedDeltaTime;
+            if (targetPos.y > playerPosY + upperLimit.y)
+                targetPos.y = playerPosY + upperLimit.y;
+        }
+        if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            targetPos.y = transform.position.y - cameraSpeed * Time.fixedDeltaTime;
+            if (targetPos.y < playerPosY + lowerLimit.y)
+                targetPos.y = playerPosY + lowerLimit.y;
+        }
 
         transform.position = targetPos;
     }

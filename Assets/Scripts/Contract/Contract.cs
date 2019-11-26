@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public enum ConditionClass { Always, Kill, PlayTime, JumpCnt, AttackCnt }
 public enum ConditionType { None, Greater, Less }
@@ -66,7 +67,8 @@ public class Contract : MonoBehaviour
 {
     public static Contract instance;
 
-    public List<SingleContract> contracts;
+    public List<SingleContract> contracts = new List<SingleContract>();
+    public List<SingleContract> debugContracts = new List<SingleContract>();
 
     private int killCnt = 0;
 
@@ -78,9 +80,9 @@ public class Contract : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-
-        contracts = new List<SingleContract>();
+        
         contracts = GetComponent<ContractHolder>().ParseContract();
+        debugContracts = GetComponent<ContractHolder>().ParseDebugContract();
     }
 
     public SingleContract GetContract(int article, int clause)
@@ -134,6 +136,12 @@ public class Contract : MonoBehaviour
 
     public void KillContractCheck()
     {
+        if (SceneManager.GetActiveScene().name.Contains("Village"))
+        {
+            // 기본 세팅으로 전환
+            return;
+        }
+
         for (int i = 0; i < contracts.Count; i++)
         {
             SingleContract contract = contracts[i];

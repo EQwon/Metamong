@@ -6,10 +6,13 @@ public enum PatternType { Rain, Summon, Claw }
 
 public class BossAI : MonoBehaviour
 {
+    [SerializeField] private GameObject bossCanvasPrefab;
     [SerializeField] private PatternType pattern;
+    private GameObject bossCanvas;
 
     [Header("Boss Status")]
-    [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
+    private int health;
 
     [Header("Raining Pattern")]
     [SerializeField] private GameObject rainingCircle;
@@ -24,10 +27,19 @@ public class BossAI : MonoBehaviour
     [SerializeField] private List<Vector2> clawPos;
     [SerializeField] private Vector2 clawSize;
 
+    [Header("Exit")]
+    [SerializeField] private GameObject gatePrefab;
+    [SerializeField] private Vector2 exitPos;
+
     private List<int> patternList = new List<int> { 0 };
+
+    public float HealthRatio { get { return (float)health/maxHealth; } }
 
     private void Start()
     {
+        health = maxHealth;
+        bossCanvas = Instantiate(bossCanvasPrefab);
+        bossCanvas.GetComponent<BossUIManager>().Boss = this;
         StartCoroutine(NextPattern());
     }
 
@@ -35,6 +47,13 @@ public class BossAI : MonoBehaviour
     {
         health -= amount;
         StartCoroutine(HitEffect());
+
+        if (health <= 0)
+        {
+            health = 0;
+            StopAllCoroutines();
+            StartCoroutine(Dead());
+        }
     }
 
     private void OnDrawGizmos()
@@ -53,6 +72,9 @@ public class BossAI : MonoBehaviour
         {
             Gizmos.DrawWireCube(clawPos[i], clawSize);
         }
+
+        Gizmos.color = Color.black;
+        Gizmos.DrawCube(exitPos, Vector2.one);
     }
 
     private IEnumerator NextPattern()
@@ -121,19 +143,25 @@ public class BossAI : MonoBehaviour
 
     private IEnumerator Claw()
     {
-        Vector2 attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
-        
+        int dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
+        Vector2 attackPos = dir == 0 ? clawPos[0] : clawPos[1];
+
         GameObject nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
-        nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
-        nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
+        ClawAttack clawAttack = nowClaw.GetComponent<ClawAttack>();
+        clawAttack.AttackPos = attackPos;
+        clawAttack.AttackSize = clawSize;
+        clawAttack.Direction = dir == 0 ? ClawDirection.Right : ClawDirection.Left;
 
         yield return new WaitForSeconds(3f);
 
-        attackPos = PlayerStatus.instance.transform.position.x >= transform.position.x ? clawPos[0] : clawPos[1];
+        dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
+        attackPos = dir == 0 ? clawPos[0] : clawPos[1];
 
         nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
-        nowClaw.GetComponent<ClawAttack>().AttackPos = attackPos;
-        nowClaw.GetComponent<ClawAttack>().AttackSize = clawSize;
+        clawAttack = nowClaw.GetComponent<ClawAttack>();
+        clawAttack.AttackPos = attackPos;
+        clawAttack.AttackSize = clawSize;
+        clawAttack.Direction = dir == 0 ? ClawDirection.Right : ClawDirection.Left;
 
         yield return new WaitForSeconds(3f);
 
@@ -166,5 +194,26 @@ public class BossAI : MonoBehaviour
         }
 
         return returnList;
+    }
+
+    private IEnumerator Dead()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Vector2 originPos = transform.position;
+        GameObject gate = Instantiate(gatePrefab, exitPos, Quaternion.identity);
+
+        sr.color = Color.white;
+        Destroy(bossCanvas);
+        //gate.GetComponent<GateController>().SceneNum = ??
+
+        for (int i = 0; i < 40; i++)
+        {
+            transform.position = originPos + new Vector2(Random.Range(0, 0.5f), Random.Range(0, 0.5f));
+            sr.color -= new Color(0, 0, 0, 0.025f);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        Destroy(gameObject);
     }
 }

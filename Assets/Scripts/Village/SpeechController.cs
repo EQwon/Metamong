@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VillageController : MonoBehaviour
+public class SpeechController : MonoBehaviour
 {
     [Header("Resources Holder")]
     [SerializeField] private TextAsset speechAsset;

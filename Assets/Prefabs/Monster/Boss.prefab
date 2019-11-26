@@ -211,8 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b4e0f928da249449a6793e3fa73821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossCanvasPrefab: {fileID: 68443193841314569, guid: 5494189ed2e31ed4a9453570378447f4,
+    type: 3}
   pattern: 0
-  health: 700
+  maxHealth: 500
   rainingCircle: {fileID: 1740228252334251920, guid: ae2a848d61855d441868f8f6fe59bed1,
     type: 3}
   rainingPos: {x: 0, y: 2.5}
@@ -228,3 +230,6 @@ MonoBehaviour:
   - {x: 23, y: 7}
   - {x: 16, y: 7}
   clawSize: {x: 7, y: 8}
+  gatePrefab: {fileID: 3468727701352014604, guid: 8131dfec429abdc449941065aa91a70c,
+    type: 3}
+  exitPos: {x: 20, y: 2.5}

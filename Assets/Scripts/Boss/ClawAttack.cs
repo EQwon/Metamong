@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ClawDirection { Right, Left }
+
 public class ClawAttack : MonoBehaviour
 {
     private enum State { before, attack, end }
@@ -10,14 +12,19 @@ public class ClawAttack : MonoBehaviour
     [SerializeField] private Vector2 attackPos;
     [SerializeField] private Vector2 attackSize;
     [SerializeField] private int attackDamage = 30;
+    [SerializeField] private ClawDirection dir;
+    [SerializeField] private float warningTime = 0.4f;
+    [SerializeField] private float waitingTime = 0.5f;
 
     private State state;
 
     public Vector2 AttackPos { set { attackPos = value; } }
     public Vector2 AttackSize { set { attackSize = value; } }
+    public ClawDirection Direction { set { dir = value; } }
 
     private void Start()
     {
+        if (dir == ClawDirection.Left) transform.localScale = new Vector3(-1, 1, 1);
         StartCoroutine(AttackCycle());
     }
 
@@ -38,12 +45,10 @@ public class ClawAttack : MonoBehaviour
 
     private void Warning()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
     }
 
     private void Attack()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
         Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
         if (collider) ApplyDamage(collider);
     }
@@ -52,7 +57,7 @@ public class ClawAttack : MonoBehaviour
     {
         state = State.before;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(warningTime);
 
         state = State.attack;
 
@@ -60,7 +65,7 @@ public class ClawAttack : MonoBehaviour
 
         state = State.end;
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(waitingTime);
 
         Destroy(gameObject);
     }
@@ -70,5 +75,4 @@ public class ClawAttack : MonoBehaviour
         GameObject hero = coll.gameObject;
         hero.GetComponent<PlayerInput>().GetDamage(attackDamage, gameObject);
     }
-
 }

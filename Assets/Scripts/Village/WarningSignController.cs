@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class WarningSignController : MonoBehaviour
 {
-    [SerializeField] private GameObject bossWarningPanel;
+    [SerializeField] private GameObject bossWarningCanvas;
+
+    private GameObject warningPanel;
 
     private void Start()
     {
-        bossWarningPanel.SetActive(false);
+        warningPanel = Instantiate(bossWarningCanvas).transform.GetChild(0).gameObject;
+        warningPanel.SetActive(false);
     }
 
     public void ShowWarningPanel()
     {
-        bossWarningPanel.SetActive(true);
+        warningPanel.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
