@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needlePrefab: {fileID: 2115626742736997040, guid: 1920a34f28b7e164ab7aca9b0b27eceb,
     type: 3}
-  speed: 2
+  speed: 6
   damage: 10
 --- !u!114 &5190305244751955705
 MonoBehaviour:
