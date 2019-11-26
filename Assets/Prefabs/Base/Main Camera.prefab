@@ -101,3 +101,4 @@ MonoBehaviour:
   rightEdge: 150
   upperLimit: {x: 2.5, y: 2}
   lowerLimit: {x: -2.5, y: -2}
+  cameraSpeed: 3
