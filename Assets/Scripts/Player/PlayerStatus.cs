@@ -15,15 +15,39 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float knockBackForce;
     [SerializeField] private int lastVillage;
 
-    public int MaxHealth { set { maxHealth = value; } }
-    public int Damage { get { return damage; } set { damage = value; } }
-    public float AttackPostDelay { set { attackPostDelay = value; } }
+    public int MaxHealth { set {
+            if (maxHealth > value) Debuff();
+            else Buff();
+            maxHealth = value; } }
+    public int Damage { get { return damage; } set {
+            if (damage > value) Debuff();
+            else Buff();
+            damage = value; } }
+    public float AttackPostDelay { set {
+            if (attackPostDelay > value) Buff();
+            else Debuff();
+            attackPostDelay = value; } }
     public float AttackSpeed { get { return 1 / (0.1f + attackPostDelay); } }
-    public float Speed { get { return speed; } set { speed = value; } }
-    public float MovementDamping { set { movementDamping = value; } }
-    public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
-    public float InvincibleTime { set { invincibleTime = value; } }
-    public float KnockBackForce { set { knockBackForce = value; } }
+    public float Speed { get { return speed; } set {
+            if (speed > value) Debuff();
+            else Buff();
+            speed = value; } }
+    public float MovementDamping { set {
+            if (movementDamping > value) Buff();
+            else Debuff();
+            movementDamping = value; } }
+    public float JumpForce { get { return jumpForce; } set {
+            if (jumpForce > value) Debuff();
+            else Buff();
+            jumpForce = value; } }
+    public float InvincibleTime { set {
+            if (invincibleTime > value) Debuff();
+            else Buff();
+            invincibleTime = value; } }
+    public float KnockBackForce { set {
+            if (knockBackForce > value) Buff();
+            else Debuff();
+            knockBackForce = value; } }
     public int LastVillage { get { return lastVillage; } }
 
     private PlayerInput input;
@@ -78,4 +102,10 @@ public class PlayerStatus : MonoBehaviour
             lastVillage = SceneManager.GetActiveScene().buildIndex;
         }
     }
+
+    private void Buff()
+    { }
+
+    private void Debuff()
+    { }
 }

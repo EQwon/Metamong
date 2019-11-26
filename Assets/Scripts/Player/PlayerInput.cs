@@ -127,6 +127,14 @@ public class PlayerInput : MonoBehaviour
         StartCoroutine(mover.KnockBack(dir));
     }
 
+    public void GetHeal(int amount)
+    {
+        if (isDead) return;
+
+        health += amount;
+        if (health > MaxHealth) health = maxHealth;
+    }
+
     private IEnumerator Invincible()
     {
         GetComponent<SpriteRenderer>().color = Color.grey;

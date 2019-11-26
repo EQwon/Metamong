@@ -127,7 +127,7 @@ public class UIManager : MonoBehaviour
     private void ShowStatus()
     {
         attackDamageValueText.text = PlayerStatus.instance.Damage.ToString();
-        attackSpeedValueText.text = PlayerStatus.instance.AttackSpeed.ToString("#.00");
+        attackSpeedValueText.text = PlayerStatus.instance.AttackSpeed.ToString("0.00");
         moveSpeedValueText.text = PlayerStatus.instance.Speed.ToString();
         jumpForceValueText.text = PlayerStatus.instance.JumpForce.ToString();
 }
