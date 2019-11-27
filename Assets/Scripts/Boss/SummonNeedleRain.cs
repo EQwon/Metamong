@@ -8,7 +8,7 @@ public class SummonNeedleRain : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private int damage = 10;
 
-    private float term = 0.2f;
+    private float term = 0.1f;
 
     private void Start()
     {

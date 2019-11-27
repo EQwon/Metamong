@@ -31,7 +31,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private GameObject gatePrefab;
     [SerializeField] private Vector2 exitPos;
 
-    private List<int> patternList = new List<int> { 0 };
+    private List<int> patternList = new List<int> { 1 };
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
 
@@ -108,7 +108,7 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine(NextPattern());
     }
@@ -136,7 +136,7 @@ public class BossAI : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
 
         StartCoroutine(NextPattern());
     }

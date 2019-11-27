@@ -120,4 +120,5 @@ MonoBehaviour:
   attackSize: {x: 7, y: 10}
   attackDamage: 30
   dir: 0
-  warningTime: 0.4
+  warningTime: 1
+  waitingTime: 0.5
