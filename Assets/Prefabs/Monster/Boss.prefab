@@ -221,15 +221,15 @@ MonoBehaviour:
   summoningCircle: {fileID: 8067999289915180385, guid: 58c045686f9123d4195dc94f7bc059eb,
     type: 3}
   summonPos:
-  - {x: -3.5, y: -3}
-  - {x: 3.5, y: -3}
+  - {x: -4.5, y: -3}
+  - {x: 4.5, y: -3}
   - {x: -2.5, y: -6}
   - {x: 2.5, y: -6}
   claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}
   clawPos:
   - {x: 23, y: 7}
   - {x: 16, y: 7}
-  clawSize: {x: 7, y: 8}
+  clawSize: {x: 4, y: 10}
   gatePrefab: {fileID: 3468727701352014604, guid: 8131dfec429abdc449941065aa91a70c,
     type: 3}
-  exitPos: {x: 20, y: 2.5}
+  exitPos: {x: 19.5, y: 2.5}
