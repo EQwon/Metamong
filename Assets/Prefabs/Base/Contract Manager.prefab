@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ba473d90b238f4a992061ea01885c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contractAsset: {fileID: 4900000, guid: b5560287bb181624f8d00867f1a99372, type: 3}
+  contractAsset: {fileID: 4900000, guid: 8246e261d6b6bfd4680903c8409a7b23, type: 3}
   debugContract: {fileID: 4900000, guid: 69703ba18c9bee0449e5a337963585e1, type: 3}

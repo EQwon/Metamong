@@ -15,7 +15,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float knockBackForce;
     [SerializeField] private int lastVillage;
 
-    public int MaxHealth { set {
+    public int MaxHealth { get { return maxHealth; } set {
             if (maxHealth > value) Debuff();
             else Buff();
             maxHealth = value; } }
@@ -60,8 +60,6 @@ public class PlayerStatus : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
 
         input = GetComponent<PlayerInput>();
         mover = GetComponent<PlayerMovement>();

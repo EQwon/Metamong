@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public enum ConditionClass { Always, Kill, PlayTime, JumpCnt, AttackCnt }
-public enum ConditionType { None, Greater, Less }
+public enum ConditionType { None, Greater, Less, Per }
 public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping, JumpForce, InvincibleTime, KnockBackForce }
 
 [System.Serializable]
@@ -157,6 +157,9 @@ public class Contract : MonoBehaviour
                 case ConditionType.Greater:
                     if (killCnt >= contract.ConditionValue) ActivateResult(i);
                     break;
+                case ConditionType.Per:
+                    for(int n = 0; n < killCnt / contract.ConditionValue; n++) ActivateResult(i);
+                    break;
             }
         }
 
@@ -173,13 +176,22 @@ public class Contract : MonoBehaviour
                 PlayerStatus.instance.AttackPostDelay = contract.ResultValue;
                 break;
             case ResultClass.AttackDamage:
-                PlayerStatus.instance.Damage = (int)contract.ResultValue;
+                if(contract.ConditionType == ConditionType.Per)
+                    PlayerStatus.instance.Damage += (int)contract.ResultValue;
+                else
+                    PlayerStatus.instance.Damage = (int)contract.ResultValue;
                 break;
             case ResultClass.MaxHealth:
-                PlayerStatus.instance.MaxHealth = (int)contract.ResultValue;
+                if (contract.ConditionType == ConditionType.Per)
+                    PlayerStatus.instance.MaxHealth += (int)contract.ResultValue;
+                else
+                    PlayerStatus.instance.MaxHealth = (int)contract.ResultValue;
                 break;
             case ResultClass.Speed:
-                PlayerStatus.instance.Speed = contract.ResultValue;
+                if (contract.ConditionType == ConditionType.Per)
+                    PlayerStatus.instance.Speed += contract.ResultValue;
+                else
+                    PlayerStatus.instance.Speed = contract.ResultValue;
                 break;
             case ResultClass.MoveDamping:
                 PlayerStatus.instance.MovementDamping = contract.ResultValue;

@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GateController : MonoBehaviour
 {
     [SerializeField] private Vector2 exitPos;
 
-    public Vector2 ExitPos { get { return exitPos; } }
+    protected GameObject player;
+
+    public virtual void UseGate()
+    {
+        player.transform.position = exitPos;
+    }
 
     private void OnDrawGizmos()
     {
@@ -19,6 +23,7 @@ public class GateController : MonoBehaviour
     {
         if (coll.tag == "Player")
         {
+            player = coll.gameObject;
             coll.GetComponent<PlayerInput>().NowGate = gameObject;
         }
     }
@@ -27,6 +32,7 @@ public class GateController : MonoBehaviour
     {
         if (coll.tag == "Player")
         {
+            player = null;
             coll.GetComponent<PlayerInput>().NowGate = null;
         }
     }

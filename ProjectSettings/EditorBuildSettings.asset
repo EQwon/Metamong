@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: 3d8d58d45238e604c81a98255464b99e
   - enabled: 1
-    path: Assets/Scenes/Village.unity
+    path: Assets/Scenes/Chapter1_Room/Village.unity
     guid: 68d520db0ea627a44bb3197ae5743223
   - enabled: 1
     path: Assets/Scenes/Chapter1_Room/NewRoom2.unity
