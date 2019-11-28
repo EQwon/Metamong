@@ -5,18 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GateController : MonoBehaviour
 {
-    [SerializeField] private int sceneNum;
-    [SerializeField] private Vector2 startPos;
+    [SerializeField] private Vector2 exitPos;
 
-    public int SceneNum { set { sceneNum = value; } }
+    public Vector2 ExitPos { get { return exitPos; } }
 
-    public void EnterGate()
+    private void OnDrawGizmos()
     {
-        if (sceneNum == 0) Destroy(PlayerStatus.instance.gameObject);
-        else PlayerStatus.instance.AdjustStartPos(startPos);
-        SceneManager.LoadScene(sceneNum);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(exitPos, 0.5f);
     }
-    
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "Player")

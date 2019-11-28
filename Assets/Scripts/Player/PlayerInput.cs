@@ -76,7 +76,7 @@ public class PlayerInput : MonoBehaviour
         }
         if (Input.GetButtonDown("Action"))
         {
-            if (nowGate) nowGate.GetComponent<GateController>().EnterGate();
+            if (nowGate) transform.position = nowGate.GetComponent<GateController>().ExitPos;
             if (warningSign) warningSign.GetComponent<WarningSignController>().ShowWarningPanel();
             if (oldMan) oldMan.GetComponent<OldManController>().StartContract();
         }
