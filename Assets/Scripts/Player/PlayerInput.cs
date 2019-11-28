@@ -152,7 +152,6 @@ public class PlayerInput : MonoBehaviour
         jump = false;
         attack = false;
         animator.SetBool("IsDead", true);
-        Debug.Log("애니매이션 재생");
 
         yield return new WaitForSeconds(1.5f);
 

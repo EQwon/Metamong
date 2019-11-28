@@ -100,12 +100,13 @@ public class MonsterAI : MonoBehaviour
     public void GetDamage(int amount, GameObject player)
     {
         health -= amount;
+        if (health < 0) health = 0;
         healthBarValue.transform.localScale = new Vector3(health / maxHealth, 1, 1);
         IsHitted = true;
         healthBar.SetActive(true);
         StartCoroutine(HitEffect());
 
-        if (health <= 0) IsDead = true;
+        if (health == 0) IsDead = true;
     }
 
     private void Hitted()
