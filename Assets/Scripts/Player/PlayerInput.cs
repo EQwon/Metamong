@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private int maxHealth;
     [SerializeField] private int health;
     [SerializeField] private float invincibleTime = 0.8f;
 
@@ -19,13 +20,13 @@ public class PlayerInput : MonoBehaviour
     private GameObject warningSign = null;
     private GameObject oldMan = null;
 
-    private int maxHealth;
-
     public int MaxHealth
     {
         get { return maxHealth; }
         set
         {
+            if (value > maxHealth)
+                health += value - maxHealth;
             maxHealth = value;
             if (health > maxHealth)
                 health = maxHealth;

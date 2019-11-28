@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashSpeed = 1000f;
     [SerializeField] private LayerMask m_WhatIsGround;
 
-    private float speed;
+    [SerializeField] private float speed;
     private float m_JumpForce;
 
     private Vector2 groundChecker { get { return new Vector2(0, -0.5f) + (Vector2)transform.position; } }
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 targetVelocity = Vector3.zero;
 
-    public float Speed { set { speed = value; } }
+    public float Speed { get { return speed; } set { speed = value; } }
     public float JumpForce { set { m_JumpForce = value; } }
     public float MovementDamping { set { movementDamping = value; } }
     public float KnockBackForce { set { knockBackForce = value; } }

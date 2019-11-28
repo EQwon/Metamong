@@ -15,39 +15,15 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float knockBackForce;
     [SerializeField] private int lastVillage;
 
-    public int MaxHealth { get { return maxHealth; } set {
-            if (maxHealth > value) Debuff();
-            else Buff();
-            maxHealth = value; } }
-    public int Damage { get { return damage; } set {
-            if (damage > value) Debuff();
-            else Buff();
-            damage = value; } }
-    public float AttackPostDelay { set {
-            if (attackPostDelay > value) Buff();
-            else Debuff();
-            attackPostDelay = value; } }
+    public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
+    public int Damage { get { return damage; } set { damage = value; } }
+    public float AttackPostDelay { set { attackPostDelay = value; } }
     public float AttackSpeed { get { return 1 / (0.1f + attackPostDelay); } }
-    public float Speed { get { return speed; } set {
-            if (speed > value) Debuff();
-            else Buff();
-            speed = value; } }
-    public float MovementDamping { set {
-            if (movementDamping > value) Buff();
-            else Debuff();
-            movementDamping = value; } }
-    public float JumpForce { get { return jumpForce; } set {
-            if (jumpForce > value) Debuff();
-            else Buff();
-            jumpForce = value; } }
-    public float InvincibleTime { set {
-            if (invincibleTime > value) Debuff();
-            else Buff();
-            invincibleTime = value; } }
-    public float KnockBackForce { set {
-            if (knockBackForce > value) Buff();
-            else Debuff();
-            knockBackForce = value; } }
+    public float Speed { get { return speed; } set { speed = value; } }
+    public float MovementDamping { set { movementDamping = value; } }
+    public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
+    public float InvincibleTime { set { invincibleTime = value; } }
+    public float KnockBackForce { set { knockBackForce = value; } }
     public int LastVillage { get { return lastVillage; } }
 
     private PlayerInput input;
@@ -68,11 +44,6 @@ public class PlayerStatus : MonoBehaviour
         UpdateStatus();
     }
 
-    public void AdjustStartPos(Vector2 startPos)
-    {
-        transform.position = startPos;
-    }
-
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoad;
@@ -85,11 +56,24 @@ public class PlayerStatus : MonoBehaviour
 
     public void UpdateStatus()
     {
-        Debug.Log("스탯 업데이트");
+        //Debug.Log("스탯 업데이트");
+
+        if (input.MaxHealth > maxHealth) Debuff();
+        else if (input.MaxHealth < maxHealth) Buff();
         input.MaxHealth = maxHealth;
+
+        if (attacker.Damage > damage) Debuff();
+        else if(attacker.Damage < damage) Buff();
         attacker.Damage = damage;
+
+        if (attacker.AttackPostDelay > attackPostDelay) Buff();
+        else if (attacker.AttackPostDelay < attackPostDelay) Debuff();
         attacker.AttackPostDelay = attackPostDelay;
+
+        if (mover.Speed > speed) Debuff();
+        else if (mover.Speed < speed) Buff();
         mover.Speed = speed;
+
         mover.MovementDamping = movementDamping;
         mover.JumpForce = jumpForce;
         input.InvincibleTime = invincibleTime;
@@ -102,8 +86,12 @@ public class PlayerStatus : MonoBehaviour
     }
 
     private void Buff()
-    { }
+    {
+        Debug.Log("버프 적용");
+    }
 
     private void Debuff()
-    { }
+    {
+        Debug.Log("디버프 적용");
+    }
 }

@@ -14,7 +14,7 @@ public class WeaponDelay
 public class PlayerAttack : MonoBehaviour
 {
     public WeaponDelay delay;
-    private int damage;
+    [SerializeField] private int damage;
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private GameObject attackEffect;
 
@@ -25,8 +25,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 attackPos { get { return new Vector2(isFacingRight * 0.6f, -0.1f) + (Vector2)transform.position; } }
     private Vector2 attackSize { get { return new Vector2(1.7f, 1.2f); } }
 
-    public int Damage { set { damage = value; } }
-    public float AttackPostDelay { set { delay.post = value; } }
+    public int Damage { get { return damage; } set { damage = value; } }
+    public float AttackPostDelay { get { return delay.post; } set { delay.post = value; } }
 
     private void Start()
     {

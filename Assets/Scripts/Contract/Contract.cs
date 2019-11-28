@@ -68,7 +68,6 @@ public class Contract : MonoBehaviour
     public static Contract instance;
 
     public List<SingleContract> contracts = new List<SingleContract>();
-    public List<SingleContract> debugContracts = new List<SingleContract>();
 
     private int killCnt = 0;
 
@@ -80,9 +79,13 @@ public class Contract : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-        
+
         contracts = GetComponent<ContractHolder>().ParseContract();
-        debugContracts = GetComponent<ContractHolder>().ParseDebugContract();
+    }
+
+    public void UseChapterContract(bool use)
+    {
+        
     }
 
     public SingleContract GetContract(int article, int clause)
@@ -129,7 +132,7 @@ public class Contract : MonoBehaviour
     public void KillEvent()
     {
         killCnt += 1;
-        Debug.Log("현재 킬 카운트는 " + killCnt + "입니다.");
+        //Debug.Log("현재 킬 카운트는 " + killCnt + "입니다.");
 
         KillContractCheck();
     }

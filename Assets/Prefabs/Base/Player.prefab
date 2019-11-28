@@ -173,6 +173,7 @@ MonoBehaviour:
   jumpForce: 870
   invincibleTime: 0.8
   knockBackForce: 800
+  lastVillage: 0
 --- !u!114 &8541901529948109588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93384fed9ec846408ddd61acff7f9f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   health: 0
   invincibleTime: 0.8
 --- !u!114 &8541901529948109586
@@ -205,6 +207,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  speed: 6
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -236,7 +239,8 @@ MonoBehaviour:
   delay:
     pre: 0.1
     attack: 0
-    post: 1
+    post: 0.6
+  damage: 50
   attackLayer:
     serializedVersion: 2
     m_Bits: 512
