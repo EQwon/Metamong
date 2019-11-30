@@ -107,7 +107,7 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
 
         NextPattern();
     }
