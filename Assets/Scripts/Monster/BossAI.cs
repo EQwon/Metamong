@@ -45,7 +45,8 @@ public class BossAI : MonoBehaviour
 
     public void GetDamage(int amount)
     {
-        health -= amount;
+        if (amount > 70 && amount < 50) health -= 20;
+        else health -= amount;
         StartCoroutine(HitEffect());
 
         if (health <= 0)
@@ -70,7 +71,7 @@ public class BossAI : MonoBehaviour
         Gizmos.color = Color.white;
         for (int i = 0; i < clawPos.Count; i++)
         {
-            Gizmos.DrawWireCube(clawPos[i], clawSize);
+            Gizmos.DrawWireCube(clawPos[i] + (Vector2)transform.position, clawSize);
         }
 
         Gizmos.color = Color.black;
@@ -144,7 +145,7 @@ public class BossAI : MonoBehaviour
     private IEnumerator Claw()
     {
         int dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
-        Vector2 attackPos = dir == 0 ? clawPos[0] : clawPos[1];
+        Vector2 attackPos = (dir == 0 ? clawPos[0] : clawPos[1]) + (Vector2)transform.position;
 
         GameObject nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
         ClawAttack clawAttack = nowClaw.GetComponent<ClawAttack>();
@@ -155,7 +156,7 @@ public class BossAI : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
-        attackPos = dir == 0 ? clawPos[0] : clawPos[1];
+        attackPos = (dir == 0 ? clawPos[0] : clawPos[1]) + (Vector2)transform.position;
 
         nowClaw = Instantiate(claw, attackPos, Quaternion.identity);
         clawAttack = nowClaw.GetComponent<ClawAttack>();

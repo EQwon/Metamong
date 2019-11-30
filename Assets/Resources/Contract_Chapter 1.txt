@@ -8,13 +8,13 @@
 0	7	Kill	Greater	0	KnockBackForce	800	기본 넉백 사거리입니다.		
 0	8	Kill	Greater	0	MoveDamping	0.05	기본 바닥 마찰력입니다.
 1	1	Kill	Greater	0	JumpForce	870	이 무기는 던전을 시작할 때 계약서를 적용합니다.	12	
-1	2	Kill	Greater	0	AttackSpeed	0.6	이 무기의 사용권한을 얻습니다	11	
+1	2	Kill	Greater	0	AttackSpeed	0.5	이 무기의 사용권한을 얻습니다	11	
 2	1	Kill	Greater	0	MaxHealth	100	검의 주인은 [100]의 기본 체력을 가지고 시작합니다.	22	23
-2	2	Kill	Per	10	MaxHealth	10	검이 [10]마리의 적을 처치할 때마다 검의 주인의 체력은 [10씩] 증가합니다.	21	23
-2	3	Kill	Greater	80	MaxHealth	80	검이 [80]마리의 적을 처치할 시 검의 주인의 체력은 [20]으로 감소합니다.	21	22
+2	2	Kill	Per	10	MaxHealth	10	검이 [10]명의 적을 처치할 때마다 검의 주인의 체력은 [10]씩 증가합니다.	21	23
+2	3	Kill	Greater	80	MaxHealth	20	검이 [80]명의 적을 처치할 시 검의 주인의 체력은 [20]으로 감소합니다.	21	22
 3	1	Kill	Greater	0	AttackDamage	100	검의 주인은 [100]의 기본 공격력을 가지고 시작합니다.	32	33
-3	2	Kill	Per	15	AttackDamage	-15	검이 [15]마리의 적을 처치할 시 검의 공격력은 [15]씩 감소합니다.	31	33
-3	3	Kill	Greater	90	AttackDamage	200	검이 [90]마리의 적을 처치할 시 검의 공격력은 [200]으로 증가합니다.	31	32
+3	2	Kill	Per	15	AttackDamage	-15	검이 [15]명의 적을 처치할 시 검의 공격력은 [15]씩 감소합니다.	31	33
+3	3	Kill	Greater	90	AttackDamage	200	검이 [90]명의 적을 처치할 시 검의 공격력은 [200]으로 증가합니다.	31	32
 4	1	Kill	Greater	0	Speed	6	검의 주인은 [6]의 기본 속도를 획득하고 시작합니다.	42	43
-4	2	Kill	Per	30	Speed	-1	검이 [30]마리의 적을 처치할 때마다 주인의 속도는 [1]씩 감소합니다.	41	43
-4	3	Kill	Greater	80	Speed	8	검이 [80]마리의 적을 처치할 시 주인의 속도는 [8]로 증가합니다.	41	42
+4	2	Kill	Per	30	Speed	-1	검이 [30]명의 적을 처치할 때마다 주인의 속도는 [1]씩 감소합니다.	41	43
+4	3	Kill	Greater	80	Speed	8	검이 [80]명의 적을 처치할 시 주인의 속도는 [8]로 증가합니다.	41	42

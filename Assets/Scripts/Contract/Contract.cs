@@ -83,6 +83,11 @@ public class Contract : MonoBehaviour
         contracts = GetComponent<ContractHolder>().ParseContract();
     }
 
+    public void InitializeKillCount()
+    {
+        killCnt = 0;
+    }
+
     public void UseChapterContract(bool use)
     {
         

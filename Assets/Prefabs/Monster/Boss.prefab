@@ -227,8 +227,8 @@ MonoBehaviour:
   - {x: 2.5, y: -6}
   claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}
   clawPos:
-  - {x: 23, y: 7}
-  - {x: 16, y: 7}
+  - {x: 4, y: -5}
+  - {x: -4, y: -5}
   clawSize: {x: 4, y: 10}
   gatePrefab: {fileID: 3468727701352014604, guid: bcf82ce3d1a843a47998eb87a7af49e5,
     type: 3}

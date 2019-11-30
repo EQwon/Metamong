@@ -157,7 +157,7 @@ public class UIManager : MonoBehaviour
     public void RestartChapter()
     {
         SceneManager.LoadScene(PlayerStatus.instance.LastVillage);
-        Destroy(PlayerStatus.instance.gameObject);
+        Contract.instance.InitializeKillCount();
     }
 
     public void QuitGame()
