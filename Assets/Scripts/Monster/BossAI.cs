@@ -45,7 +45,7 @@ public class BossAI : MonoBehaviour
 
     public void GetDamage(int amount)
     {
-        if (amount > 70 && amount < 50) health -= 20;
+        if (amount > 70 || amount < 50) health -= 20;
         else health -= amount;
         StartCoroutine(HitEffect());
 
