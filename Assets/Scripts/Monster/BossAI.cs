@@ -31,7 +31,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private GameObject gatePrefab;
     [SerializeField] private Vector2 exitPos;
 
-    private List<int> patternList = new List<int> { 1 };
+    private List<int> patternList = new List<int> { 0, 1, 2 };
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
 
@@ -40,7 +40,7 @@ public class BossAI : MonoBehaviour
         health = maxHealth;
         bossCanvas = Instantiate(bossCanvasPrefab);
         bossCanvas.GetComponent<BossUIManager>().Boss = this;
-        StartCoroutine(NextPattern());
+        NextPattern();
     }
 
     public void GetDamage(int amount)
@@ -78,11 +78,9 @@ public class BossAI : MonoBehaviour
         Gizmos.DrawCube(exitPos, Vector2.one);
     }
 
-    private IEnumerator NextPattern()
+    private void NextPattern()
     {
         if (patternList.Count == 0) patternList.AddRange(RandomList(3));
-
-        yield return new WaitForSeconds(3f);
 
         int ran = patternList[0];
         patternList.RemoveAt(0);
@@ -109,9 +107,9 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
-        StartCoroutine(NextPattern());
+        NextPattern();
     }
 
     private IEnumerator Summoning()
@@ -139,7 +137,7 @@ public class BossAI : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        StartCoroutine(NextPattern());
+        NextPattern();
     }
 
     private IEnumerator Claw()
@@ -166,7 +164,7 @@ public class BossAI : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        StartCoroutine(NextPattern());
+        NextPattern();
     }
 
     private IEnumerator HitEffect()
