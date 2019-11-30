@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour
 {
+    [Header("Status")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int damage = 5;
     [SerializeField] private float attackPostDelay = 1f;
@@ -14,6 +15,9 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float invincibleTime;
     [SerializeField] private float knockBackForce;
     [SerializeField] private int lastVillage;
+
+    [Header("Buff")]
+    [SerializeField] private GameObject buffPrefab;
 
     public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
     public int Damage { get { return damage; } set { damage = value; } }
@@ -58,20 +62,20 @@ public class PlayerStatus : MonoBehaviour
     {
         //Debug.Log("스탯 업데이트");
 
-        if (input.MaxHealth > maxHealth) Debuff();
-        else if (input.MaxHealth < maxHealth) Buff();
+        if (input.MaxHealth > maxHealth) Debuff(ResultClass.MaxHealth);
+        else if (input.MaxHealth < maxHealth) Buff(ResultClass.MaxHealth);
         input.MaxHealth = maxHealth;
 
-        if (attacker.Damage > damage) Debuff();
-        else if(attacker.Damage < damage) Buff();
+        if (attacker.Damage > damage) Debuff(ResultClass.AttackDamage);
+        else if(attacker.Damage < damage) Buff(ResultClass.AttackDamage);
         attacker.Damage = damage;
 
-        if (attacker.AttackPostDelay > attackPostDelay) Buff();
-        else if (attacker.AttackPostDelay < attackPostDelay) Debuff();
+        //if (attacker.AttackPostDelay > attackPostDelay) Buff();
+        //else if (attacker.AttackPostDelay < attackPostDelay) Debuff();
         attacker.AttackPostDelay = attackPostDelay;
 
-        if (mover.Speed > speed) Debuff();
-        else if (mover.Speed < speed) Buff();
+        if (mover.Speed > speed) Debuff(ResultClass.Speed);
+        else if (mover.Speed < speed) Buff(ResultClass.Speed);
         mover.Speed = speed;
 
         mover.MovementDamping = movementDamping;
@@ -85,13 +89,13 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    private void Buff()
+    private void Buff(ResultClass target)
     {
-        Debug.Log("버프 적용");
+        Instantiate(buffPrefab, transform).GetComponent<StatusEffect>().Set(target, true);
     }
 
-    private void Debuff()
+    private void Debuff(ResultClass target)
     {
-        Debug.Log("디버프 적용");
+        Instantiate(buffPrefab, transform).GetComponent<StatusEffect>().Set(target, false);
     }
 }

@@ -177,7 +177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB358\uC804\uC5D0 <color=#FF0000FF>\uB9C8\uC655</color> \uCD9C\uBAB0!"
+  m_Text: "\uB358\uC804\uC5D0 <color=#BE2633>\uB9C8\uC655</color> \uCD9C\uBAB0!"
 --- !u!1 &9084947519913601648
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +213,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: -120}
-  m_SizeDelta: {x: 850, y: 105}
+  m_AnchoredPosition: {x: 35, y: -120}
+  m_SizeDelta: {x: 888.6, y: 105}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9084947519913601653
 CanvasRenderer:
@@ -251,14 +251,15 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 50
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "- \uB370\uBBF8\uC9C0\uAC00 \uB0AE\uC740 \uACF5\uACA9\uC740 \uB4E4\uC5B4\uAC00\uC9C0
-    \uC54A\uC2B5\uB2C8\uB2E4.\n- \uB108\uBB34 \uAC15\uD55C \uACF5\uACA9\uC740 \uD295\uACA8\uB0C5\uB2C8\uB2E4."
+  m_Text: "[\uC555\uB3C4] : <color=#AE2633>45 \uC774\uD558\uC758 \uD53C\uD574</color>\uB294
+    20\uC73C\uB85C \uACE0\uC815\uB429\uB2C8\uB2E4.\r\n[\uBA78\uC2DC] : <color=#AE2633>75
+    \uC774\uC0C1\uC758 \uD53C\uD574</color>\uB294 20\uC73C\uB85C \uACE0\uC815\uB429\uB2C8\uB2E4."
 --- !u!114 &9084947519913601652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.74509805, g: 0.14901961, b: 0.2, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
