@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   damage: 50
-  attackPostDelay: 0.6
+  attackPostDelay: 0.5
   speed: 6
   movementDamping: 0.05
   jumpForce: 870
@@ -239,7 +239,7 @@ MonoBehaviour:
   delay:
     pre: 0.1
     attack: 0
-    post: 0.6
+    post: 0.5
   damage: 50
   attackLayer:
     serializedVersion: 2
