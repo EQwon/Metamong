@@ -82,11 +82,6 @@ public class PlayerStatus : MonoBehaviour
         mover.JumpForce = jumpForce;
         input.InvincibleTime = invincibleTime;
         mover.KnockBackForce = knockBackForce;
-
-        if (SceneManager.GetActiveScene().name.Contains("Village"))
-        {
-            lastVillage = SceneManager.GetActiveScene().buildIndex;
-        }
     }
 
     private void Buff(ResultClass target)
