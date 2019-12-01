@@ -62,20 +62,20 @@ public class PlayerStatus : MonoBehaviour
     {
         //Debug.Log("스탯 업데이트");
 
-        if (input.MaxHealth > maxHealth) Debuff(ResultClass.MaxHealth);
-        else if (input.MaxHealth < maxHealth) Buff(ResultClass.MaxHealth);
+        if (input.MaxHealth > maxHealth) Debuff(ResultClass.MaxHealth, maxHealth - input.MaxHealth);
+        else if (input.MaxHealth < maxHealth) Buff(ResultClass.MaxHealth, maxHealth - input.MaxHealth);
         input.MaxHealth = maxHealth;
 
-        if (attacker.Damage > damage) Debuff(ResultClass.AttackDamage);
-        else if(attacker.Damage < damage) Buff(ResultClass.AttackDamage);
+        if (attacker.Damage > damage) Debuff(ResultClass.AttackDamage, damage - attacker.Damage);
+        else if(attacker.Damage < damage) Buff(ResultClass.AttackDamage, damage - attacker.Damage);
         attacker.Damage = damage;
 
         //if (attacker.AttackPostDelay > attackPostDelay) Buff();
         //else if (attacker.AttackPostDelay < attackPostDelay) Debuff();
         attacker.AttackPostDelay = attackPostDelay;
 
-        if (mover.Speed > speed) Debuff(ResultClass.Speed);
-        else if (mover.Speed < speed) Buff(ResultClass.Speed);
+        if (mover.Speed > speed) Debuff(ResultClass.Speed, speed - mover.Speed);
+        else if (mover.Speed < speed) Buff(ResultClass.Speed, speed - mover.Speed);
         mover.Speed = speed;
 
         mover.MovementDamping = movementDamping;
@@ -84,13 +84,13 @@ public class PlayerStatus : MonoBehaviour
         mover.KnockBackForce = knockBackForce;
     }
 
-    private void Buff(ResultClass target)
+    private void Buff(ResultClass target, float value)
     {
-        Instantiate(buffPrefab, transform).GetComponent<StatusEffect>().Set(target, true);
+        Instantiate(buffPrefab, UIManager.instance.transform).GetComponent<StatusEffect>().Set(target, value, true);
     }
 
-    private void Debuff(ResultClass target)
+    private void Debuff(ResultClass target, float value)
     {
-        Instantiate(buffPrefab, transform).GetComponent<StatusEffect>().Set(target, false);
+        Instantiate(buffPrefab, UIManager.instance.transform).GetComponent<StatusEffect>().Set(target, value, false);
     }
 }
