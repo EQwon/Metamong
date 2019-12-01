@@ -213,8 +213,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: -120}
-  m_SizeDelta: {x: 888.6, y: 105}
+  m_AnchoredPosition: {x: 35, y: -150}
+  m_SizeDelta: {x: 888.6, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9084947519913601653
 CanvasRenderer:
@@ -246,7 +246,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f1c3f549bc300e743b210e66fc89f0b4, type: 3}
-    m_FontSize: 40
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -257,9 +257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "[\uC555\uB3C4] : <color=#AE2633>45 \uC774\uD558\uC758 \uD53C\uD574</color>\uB294
-    20\uC73C\uB85C \uACE0\uC815\uB429\uB2C8\uB2E4.\r\n[\uBA78\uC2DC] : <color=#AE2633>75
-    \uC774\uC0C1\uC758 \uD53C\uD574</color>\uB294 20\uC73C\uB85C \uACE0\uC815\uB429\uB2C8\uB2E4."
+  m_Text: "\uB9C8\uC655\uC740 75\uC774\uC0C1\uC758 \uD53C\uD574\uB294 \uBB34\uC2DC\uD569\uB2C8\uB2E4."
 --- !u!114 &9084947519913601652
 MonoBehaviour:
   m_ObjectHideFlags: 0
