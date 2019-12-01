@@ -28,7 +28,7 @@ public class ContractDisplay : MonoBehaviour
 
     private GameObject CreateClause(SingleContract contract)
     {
-        string number = contract.Article + "항 " + contract.Clause + "조";
+        string number = contract.Article + "조 " + contract.Clause + "항";
         string text = contract.ContractText;
 
         GameObject clause = Instantiate(clausePrefab, transform);
