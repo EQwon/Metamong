@@ -118,7 +118,7 @@ MonoBehaviour:
     m_Bits: 256
   attackPos: {x: 26, y: 7}
   attackSize: {x: 7, y: 10}
-  attackDamage: 30
+  attackDamage: 20
   dir: 0
-  warningTime: 1
+  warningTime: 1.5
   waitingTime: 0.5
