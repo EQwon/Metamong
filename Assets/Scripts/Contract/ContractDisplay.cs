@@ -16,11 +16,12 @@ public class ContractDisplay : MonoBehaviour
         for (int i = 0; i < contracts.Count; i++)
         {
             if (contracts[i].Article == 0) continue;
-            if (contracts[i - 1].Article != contracts[i].Article) validCnt += 0.5f;
 
             GameObject clause = CreateClause(contracts[i]);
             clause.GetComponent<RectTransform>().localPosition -= new Vector3(0, validCnt * 100, 0);
-            validCnt += 1;
+
+            if (contracts[i].Clause == 0) validCnt += 0.5f;
+            else validCnt += 1;
         }
 
         GetComponent<RectTransform>().sizeDelta += new Vector2(0, validCnt * 100);
@@ -28,10 +29,20 @@ public class ContractDisplay : MonoBehaviour
 
     private GameObject CreateClause(SingleContract contract)
     {
-        string number = contract.Article + "항 " + contract.Clause + "조";
+        GameObject clause = Instantiate(clausePrefab, transform);
+
+        string number;
+        if (contract.Clause == 0)
+        {
+            number = contract.Article + "조";
+            RectTransform rect = clause.GetComponent<RectTransform>();
+            rect.localPosition += new Vector3(-60f, 0, 0);
+            rect.sizeDelta -= new Vector2(0, 50f);
+        }
+        else number = contract.Clause + "항";
+
         string text = contract.ContractText;
 
-        GameObject clause = Instantiate(clausePrefab, transform);
         clause.name = "Article" + contract.Article + " Clause" + contract.Clause;
         clause.transform.GetChild(0).GetComponent<Text>().text = number;
         clause.transform.GetChild(1).GetComponent<Text>().text = text;

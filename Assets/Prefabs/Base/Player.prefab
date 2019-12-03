@@ -174,7 +174,7 @@ MonoBehaviour:
   invincibleTime: 0.8
   knockBackForce: 800
   lastVillage: 2
-  buffPrefab: {fileID: 7307814555654271202, guid: 90e97e5306fc9d34bb7075ec994a99c0,
+  buffPrefab: {fileID: 6000923953921668853, guid: 543a0380774a28b4281ee3e708cc0323,
     type: 3}
 --- !u!114 &8541901529948109588
 MonoBehaviour:
