@@ -19,6 +19,12 @@ public class ContractController : MonoBehaviour
 
     public void Init(int article, int clause, List<SimpleContract> relates)
     {
+        if (clause == 0)
+        {
+            Destroy(box.gameObject);
+            enabled = false;
+            return;
+        }
         myNum.article = article;
         myNum.clause = clause;
         relatedContracts = relates;
