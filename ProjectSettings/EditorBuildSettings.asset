@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter2_Room/Village 2.unity
     guid: f45862fcabd0d8f4fa8f143fd120b4cf
   - enabled: 0
-    path: Assets/Scenes/Chapter2_Room/NewRoom10.unity
+    path: Assets/Scenes/Chapter2_Room/Chapter2_Dungeon.unity
     guid: c1b1e43a21625ad49b862b5fd309eae6
   - enabled: 0
     path: Assets/Scenes/Chapter2_Room/NewRoom11.unity
