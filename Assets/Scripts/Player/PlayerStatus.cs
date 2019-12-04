@@ -20,6 +20,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private GameObject buffPrefab;
     [SerializeField] private GameObject contractEffectPrefab;
     private List<ContractEffect> effectQueue = new List<ContractEffect>();
+    private bool isFulfilling = false;
 
     public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
     public int Damage { get { return damage; } set { damage = value; } }
@@ -60,24 +61,30 @@ public class PlayerStatus : MonoBehaviour
         Contract.instance.KillContractCheck();
     }
 
+    private void Update()
+    {
+        if (effectQueue.Count > 0 && isFulfilling == false)
+            StartCoroutine(ContractFulfillment());
+    }
+
     public void UpdateStatus()
     {
         //Debug.Log("스탯 업데이트");
 
-        if (input.MaxHealth > maxHealth) ContractFulfillment(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, false));
-        else if (input.MaxHealth < maxHealth) ContractFulfillment(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, true));
+        if (input.MaxHealth > maxHealth) AddEffectQueue(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, false));
+        else if (input.MaxHealth < maxHealth) AddEffectQueue(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, true));
         input.MaxHealth = maxHealth;
 
-        if (attacker.Damage > damage) ContractFulfillment(new ContractEffect(ResultClass.AttackDamage, damage - attacker.Damage, false));
-        else if(attacker.Damage < damage) ContractFulfillment(new ContractEffect( ResultClass.AttackDamage, damage - attacker.Damage, true));
+        if (attacker.Damage > damage) AddEffectQueue(new ContractEffect(ResultClass.AttackDamage, damage - attacker.Damage, false));
+        else if(attacker.Damage < damage) AddEffectQueue(new ContractEffect( ResultClass.AttackDamage, damage - attacker.Damage, true));
         attacker.Damage = damage;
 
-        if (attacker.AttackPostDelay > attackPostDelay) ContractFulfillment(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, true));
-        else if (attacker.AttackPostDelay < attackPostDelay) ContractFulfillment(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, false));
+        if (attacker.AttackPostDelay > attackPostDelay) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, true));
+        else if (attacker.AttackPostDelay < attackPostDelay) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, false));
         attacker.AttackPostDelay = attackPostDelay;
 
-        if (mover.Speed > speed) ContractFulfillment(new ContractEffect(ResultClass.Speed, speed - mover.Speed, false));
-        else if (mover.Speed < speed) ContractFulfillment(new ContractEffect(ResultClass.Speed, speed - mover.Speed, true));
+        if (mover.Speed > speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, false));
+        else if (mover.Speed < speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, true));
         mover.Speed = speed;
 
         mover.MovementDamping = movementDamping;
@@ -86,14 +93,27 @@ public class PlayerStatus : MonoBehaviour
         mover.KnockBackForce = knockBackForce;
     }
 
-    private void ContractFulfillment(ContractEffect contractEffect)
+    private void AddEffectQueue(ContractEffect contractEffect)
     {
-        ResultClass target = contractEffect.resultClass;
-        float value = contractEffect.value;
-        bool isBuff = contractEffect.isBuff;
+        effectQueue.Add(contractEffect);
+    }
+
+    private IEnumerator ContractFulfillment()
+    {
+        isFulfilling = true;
+
+        ResultClass target = effectQueue[0].resultClass;
+        float value = effectQueue[0].value;
+        bool isBuff = effectQueue[0].isBuff;
 
         Instantiate(contractEffectPrefab, transform);
         Instantiate(buffPrefab, UIManager.instance.transform).GetComponent<StatusEffect>().Set(target, value, isBuff);
+        effectQueue.RemoveAt(0);
+
+        yield return new WaitForSeconds(2f);
+
+        if (effectQueue.Count > 0) StartCoroutine(ContractFulfillment());
+        else isFulfilling = false;
     }
 
     private struct ContractEffect
