@@ -217,7 +217,7 @@ MonoBehaviour:
     m_RandomTransform: 0
   - m_Neighbors: 0200000001000000020000000100000001000000010000000100000001000000
     m_Sprites:
-    - {fileID: -3470946665260465302, guid: 70d579f02a7dcbe48b08ade0d572ce21, type: 3}
+    - {fileID: 21300000, guid: 683c98f2ba605e14e955763984b6fc85, type: 3}
     m_GameObject: {fileID: 8650645398929124529, guid: 972d04d71b407f84fb368f247d071952,
       type: 3}
     m_AnimationSpeed: 1
