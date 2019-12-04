@@ -18,6 +18,8 @@ public class PlayerStatus : MonoBehaviour
 
     [Header("Buff")]
     [SerializeField] private GameObject buffPrefab;
+    [SerializeField] private GameObject contractEffectPrefab;
+    private List<ContractEffect> effectQueue = new List<ContractEffect>();
 
     public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
     public int Damage { get { return damage; } set { damage = value; } }
@@ -62,20 +64,20 @@ public class PlayerStatus : MonoBehaviour
     {
         //Debug.Log("스탯 업데이트");
 
-        if (input.MaxHealth > maxHealth) Debuff(ResultClass.MaxHealth, maxHealth - input.MaxHealth);
-        else if (input.MaxHealth < maxHealth) Buff(ResultClass.MaxHealth, maxHealth - input.MaxHealth);
+        if (input.MaxHealth > maxHealth) ContractFulfillment(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, false));
+        else if (input.MaxHealth < maxHealth) ContractFulfillment(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, true));
         input.MaxHealth = maxHealth;
 
-        if (attacker.Damage > damage) Debuff(ResultClass.AttackDamage, damage - attacker.Damage);
-        else if(attacker.Damage < damage) Buff(ResultClass.AttackDamage, damage - attacker.Damage);
+        if (attacker.Damage > damage) ContractFulfillment(new ContractEffect(ResultClass.AttackDamage, damage - attacker.Damage, false));
+        else if(attacker.Damage < damage) ContractFulfillment(new ContractEffect( ResultClass.AttackDamage, damage - attacker.Damage, true));
         attacker.Damage = damage;
 
-        //if (attacker.AttackPostDelay > attackPostDelay) Buff();
-        //else if (attacker.AttackPostDelay < attackPostDelay) Debuff();
+        if (attacker.AttackPostDelay > attackPostDelay) ContractFulfillment(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, true));
+        else if (attacker.AttackPostDelay < attackPostDelay) ContractFulfillment(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, false));
         attacker.AttackPostDelay = attackPostDelay;
 
-        if (mover.Speed > speed) Debuff(ResultClass.Speed, speed - mover.Speed);
-        else if (mover.Speed < speed) Buff(ResultClass.Speed, speed - mover.Speed);
+        if (mover.Speed > speed) ContractFulfillment(new ContractEffect(ResultClass.Speed, speed - mover.Speed, false));
+        else if (mover.Speed < speed) ContractFulfillment(new ContractEffect(ResultClass.Speed, speed - mover.Speed, true));
         mover.Speed = speed;
 
         mover.MovementDamping = movementDamping;
@@ -84,13 +86,27 @@ public class PlayerStatus : MonoBehaviour
         mover.KnockBackForce = knockBackForce;
     }
 
-    private void Buff(ResultClass target, float value)
+    private void ContractFulfillment(ContractEffect contractEffect)
     {
-        Instantiate(buffPrefab, UIManager.instance.transform).GetComponent<StatusEffect>().Set(target, value, true);
+        ResultClass target = contractEffect.resultClass;
+        float value = contractEffect.value;
+        bool isBuff = contractEffect.isBuff;
+
+        Instantiate(contractEffectPrefab, transform);
+        Instantiate(buffPrefab, UIManager.instance.transform).GetComponent<StatusEffect>().Set(target, value, isBuff);
     }
 
-    private void Debuff(ResultClass target, float value)
+    private struct ContractEffect
     {
-        Instantiate(buffPrefab, UIManager.instance.transform).GetComponent<StatusEffect>().Set(target, value, false);
+        public ResultClass resultClass;
+        public float value;
+        public bool isBuff;
+
+        public ContractEffect(ResultClass resultClass, float value, bool isBuff)
+        {
+            this.resultClass = resultClass;
+            this.value = value;
+            this.isBuff = isBuff;
+        }
     }
 }

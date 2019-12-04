@@ -32,6 +32,9 @@ public class StatusEffect : MonoBehaviour
             case ResultClass.AttackDamage:
                 statusText = "공격력 ";
                 break;
+            case ResultClass.AttackSpeed:
+                statusText = "공격속도 ";
+                break;
             case ResultClass.Speed:
                 statusText = "이동속도 ";
                 break;

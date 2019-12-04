@@ -176,6 +176,8 @@ MonoBehaviour:
   lastVillage: 2
   buffPrefab: {fileID: 6000923953921668853, guid: 543a0380774a28b4281ee3e708cc0323,
     type: 3}
+  contractEffectPrefab: {fileID: 3029719141401624614, guid: 7c1d26d76cf806142a28dc28ee991b5e,
+    type: 3}
 --- !u!114 &8541901529948109588
 MonoBehaviour:
   m_ObjectHideFlags: 0
