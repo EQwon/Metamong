@@ -29,11 +29,12 @@ public class BossAI : MonoBehaviour
 
     [Header("Exit")]
     [SerializeField] private GameObject gatePrefab;
-    [SerializeField] private Vector2 exitPos;
+    private Vector2 exitPos;
 
     private List<int> patternList = new List<int> { 0, 1, 2 };
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
+    public Vector2 ExitPos { set { exitPos = value; } }
 
     private void Start()
     {
@@ -73,9 +74,6 @@ public class BossAI : MonoBehaviour
         {
             Gizmos.DrawWireCube(clawPos[i] + (Vector2)transform.position, clawSize);
         }
-
-        Gizmos.color = Color.black;
-        Gizmos.DrawCube(exitPos, Vector2.one);
     }
 
     protected void NextPattern()

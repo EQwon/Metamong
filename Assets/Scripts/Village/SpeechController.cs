@@ -5,16 +5,20 @@ using UnityEngine.UI;
 
 public class SpeechController : MonoBehaviour
 {
-    [Header("Resources Holder")]
-    [SerializeField] private TextAsset speechAsset;
-
     [Header("UI Holder")]
     [SerializeField] private GameObject speechPanel;
     [SerializeField] private Text speechText;
 
+    private GameObject speaker;
+    private bool showContract;
+    private TextAsset speechAsset;
     private List<string> speeches;
     private GameObject player;
     private int nowNum = 0;
+
+    public TextAsset SpeechAsset { set { speechAsset = value; } }
+    public GameObject Speaker { set { speaker = value; } }
+    public bool ShowContract { set { showContract = value; } }
 
     private void Start()
     {
@@ -35,8 +39,7 @@ public class SpeechController : MonoBehaviour
         if (targetNum >= speeches.Count)
         {
             speechPanel.SetActive(false);
-            UIManager.instance.ContractPanel();
-            UIManager.instance.CanChangeContract = true;
+            EndTalkEvent();
 
             nowNum = 0;
             return;
@@ -49,5 +52,28 @@ public class SpeechController : MonoBehaviour
     private void ShowNowSpeech()
     {
         speechText.text = speeches[nowNum];
+    }
+
+    private void EndTalkEvent()
+    {
+        if (showContract)
+        {
+            UIManager.instance.ContractPanel();
+            UIManager.instance.CanChangeContract = true;
+        }
+        else
+        {
+            StartCoroutine(Die());
+        }
+    }
+
+    private IEnumerator Die()
+    {
+        speaker.GetComponent<Collider2D>().enabled = false;
+
+        speaker.GetComponent<Animator>().enabled = true;
+        yield return new WaitForSeconds(1f);
+
+        Destroy(speaker);
     }
 }

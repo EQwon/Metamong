@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour
     private bool isDead = false;
     private GameObject nowGate = null;
     private GameObject warningSign = null;
-    private GameObject oldMan = null;
+    private GameObject talkableMan = null;
 
     public int MaxHealth
     {
@@ -36,7 +36,7 @@ public class PlayerInput : MonoBehaviour
     public float InvincibleTime { set { invincibleTime = value; } }
     public GameObject NowGate { set { nowGate = value; } }
     public GameObject WarningSign { set { warningSign = value; } }
-    public GameObject OldMan { set { oldMan = value; } }
+    public GameObject TalkableMan { set { talkableMan = value; } }
 
     private void Awake()
     {
@@ -79,7 +79,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (nowGate) nowGate.GetComponent<GateController>().UseGate();
             if (warningSign) warningSign.GetComponent<WarningSignController>().ShowWarningPanel();
-            if (oldMan) oldMan.GetComponent<OldManController>().StartContract();
+            if (talkableMan) talkableMan.GetComponent<TalkableManController>().StartContract();
         }
         if (Input.GetButtonDown("Contract"))
         {

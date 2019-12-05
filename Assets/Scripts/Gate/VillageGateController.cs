@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class VillageGateController : GateController
 {
-    [SerializeField] private int sceneNum;
-
     public override void UseGate()
     {
+        int sceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(sceneNum);
         Contract.instance.UseChapterContract(false);
     }
