@@ -18,11 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter1_Room/Chapter1_Dungeon.unity
     guid: acf9b1d11d9ba784080cad17efafbcb4
   - enabled: 1
+    path: Assets/Scenes/Chapter1_Room/Chapter1_Story.unity
+    guid: 86126cc65cf201e4d9a36a11d8f2130a
+  - enabled: 1
     path: Assets/Scenes/Chapter2_Room/Chapter2_Village.unity
     guid: f45862fcabd0d8f4fa8f143fd120b4cf
   - enabled: 1
     path: Assets/Scenes/Chapter2_Room/Chapter2_Dungeon.unity
     guid: c1b1e43a21625ad49b862b5fd309eae6
+  - enabled: 1
+    path: Assets/Scenes/Chapter2_Room/Chapter2_Story.unity
+    guid: bd1d08e98a18508488a113a7f657c2db
   - enabled: 1
     path: Assets/Scenes/Chapter3_Room/Chapter3_Village.unity
     guid: b2fe31b9c6f57554d84ccb36765f9c5d
