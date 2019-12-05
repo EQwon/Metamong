@@ -13,8 +13,10 @@ public class BossGateController : GateController
         player.transform.position = exitPos;
     }
 
-    private void OnDrawGizmos()
+    protected override void OnDrawGizmos()
     {
+        base.OnDrawGizmos();
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(bossPos, Vector2.one * 4);
     }

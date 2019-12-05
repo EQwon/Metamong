@@ -13,7 +13,7 @@ public class GateController : MonoBehaviour
         player.transform.position = exitPos;
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(exitPos, 0.5f);

@@ -8,6 +8,11 @@ public class DungeonGateController : GateController
     [SerializeField] private int sceneNum;
     [SerializeField] private GameObject loadingCanvas;
 
+    protected override void OnDrawGizmos()
+    {
+        
+    }
+
     public override void UseGate()
     {
         Instantiate(loadingCanvas);
