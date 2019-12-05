@@ -20,12 +20,12 @@ public class BossAI : MonoBehaviour
 
     [Header("Summoning Pattern")]
     [SerializeField] private GameObject summoningCircle;
-    [SerializeField] private List<Vector2> summonPos;
+    [SerializeField] private List<MonsterSummon> summonPos;
 
     [Header("Claw Pattern")]
-    [SerializeField] private GameObject claw;
+    [SerializeField] protected GameObject claw;
     [SerializeField] private List<Vector2> clawPos;
-    [SerializeField] private Vector2 clawSize;
+    [SerializeField] protected Vector2 clawSize;
 
     [Header("Exit")]
     [SerializeField] private GameObject gatePrefab;
@@ -62,7 +62,7 @@ public class BossAI : MonoBehaviour
         Gizmos.color = Color.blue;
         for (int i = 0; i < summonPos.Count; i++)
         {
-            Gizmos.DrawSphere(summonPos[i] + (Vector2)transform.position, 0.3f);
+            Gizmos.DrawSphere(summonPos[i].summonPos + (Vector2)transform.position, 0.3f);
         }
 
         Gizmos.color = Color.green;
@@ -78,7 +78,7 @@ public class BossAI : MonoBehaviour
         Gizmos.DrawCube(exitPos, Vector2.one);
     }
 
-    private void NextPattern()
+    protected void NextPattern()
     {
         if (patternList.Count == 0) patternList.AddRange(RandomList(3));
 
@@ -117,22 +117,9 @@ public class BossAI : MonoBehaviour
         // 지정한 위치에 소환진을 생성
         for (int i = 0; i < summonPos.Count; i++)
         {
-            GameObject summoning = Instantiate(summoningCircle, summonPos[i] + (Vector2)transform.position, Quaternion.identity);
-            switch (i)
-            {
-                case 0:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 2;
-                    break;
-                case 1:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 2;
-                    break;
-                case 2:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 0;
-                    break;
-                case 3:
-                    summoning.GetComponent<SummonMonster>().MonsterType = 1;
-                    break;
-            }
+            GameObject summoning = Instantiate(summoningCircle, summonPos[i].summonPos + (Vector2)transform.position, Quaternion.identity);
+
+            summoning.GetComponent<SummonMonster>().MonsterType = summonPos[i].monsterType;
         }
 
         yield return new WaitForSeconds(3f);
@@ -140,7 +127,7 @@ public class BossAI : MonoBehaviour
         NextPattern();
     }
 
-    private IEnumerator Claw()
+    protected virtual IEnumerator Claw()
     {
         int dir = PlayerStatus.instance.transform.position.x >= transform.position.x ? 0 : 1;
         Vector2 attackPos = (dir == 0 ? clawPos[0] : clawPos[1]) + (Vector2)transform.position;
@@ -214,5 +201,18 @@ public class BossAI : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    [System.Serializable]
+    private struct MonsterSummon
+    {
+        public Vector2 summonPos;
+        public int monsterType;
+
+        public MonsterSummon(Vector2 pos, int type)
+        {
+            summonPos = pos;
+            monsterType = type;
+        }
     }
 }

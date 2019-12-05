@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 2855763477960764761}
   - component: {fileID: 2855763477960764760}
   - component: {fileID: 8209364497244767686}
-  - component: {fileID: 2855763477960774311}
+  - component: {fileID: 3412602716761483015}
   m_Layer: 9
   m_Name: Boss_Chapter2
   m_TagString: Boss
@@ -199,7 +199,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.8
---- !u!114 &2855763477960774311
+--- !u!114 &3412602716761483015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,28 +208,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2855763477960774310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5b4e0f928da249449a6793e3fa73821, type: 3}
+  m_Script: {fileID: 11500000, guid: 68177efddbb05634ba90a3df4e691235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bossCanvasPrefab: {fileID: 68443193841314569, guid: 5494189ed2e31ed4a9453570378447f4,
     type: 3}
   pattern: 0
-  maxHealth: 500
+  maxHealth: 700
   rainingCircle: {fileID: 1740228252334251920, guid: e4b1951ca7570c4419c3d7de4e31ba21,
     type: 3}
-  rainingPos: {x: 0, y: -5}
+  rainingPos: {x: 0, y: 0}
   summoningCircle: {fileID: 8067999289915180385, guid: 58c045686f9123d4195dc94f7bc059eb,
     type: 3}
   summonPos:
-  - {x: -4.5, y: -3}
-  - {x: 4.5, y: -3}
-  - {x: -2.5, y: -6}
-  - {x: 2.5, y: -6}
+  - summonPos: {x: -6.5, y: -0.5}
+    monsterType: 0
+  - summonPos: {x: 6.5, y: -0.5}
+    monsterType: 0
+  - summonPos: {x: 0, y: -2.5}
+    monsterType: 2
   claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}
-  clawPos:
-  - {x: 4, y: -5}
-  - {x: -4, y: -5}
+  clawPos: []
   clawSize: {x: 4, y: 10}
   gatePrefab: {fileID: 3468727701352014604, guid: bcf82ce3d1a843a47998eb87a7af49e5,
     type: 3}
-  exitPos: {x: 219.5, y: -92.5}
+  exitPos: {x: 0, y: 0}
