@@ -70,6 +70,7 @@ public class Contract : MonoBehaviour
     public List<SingleContract> contracts = new List<SingleContract>();
 
     private int killCnt = 0;
+    private int contractLevel = 0;
 
     public int KillCnt { get { return killCnt; } }
 
@@ -80,7 +81,7 @@ public class Contract : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        contracts = GetComponent<ContractHolder>().ParseContract();
+        contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
     }
 
     public void InitializeKillCount()
@@ -91,6 +92,12 @@ public class Contract : MonoBehaviour
     public void UseChapterContract(bool use)
     {
         
+    }
+
+    public void ProgressContract()
+    {
+        contractLevel += 1;
+        contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
     }
 
     public SingleContract GetContract(int article, int clause)
@@ -181,7 +188,7 @@ public class Contract : MonoBehaviour
         switch (contract.ResultClass)
         {
             case ResultClass.AttackSpeed:
-                PlayerStatus.instance.AttackPostDelay = contract.ResultValue;
+                PlayerStatus.instance.AttackSpeed = contract.ResultValue;
                 break;
             case ResultClass.AttackDamage:
                 if(contract.ConditionType == ConditionType.Per)

@@ -5,17 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class DungeonGateController : GateController
 {
-    [SerializeField] private int sceneNum;
     [SerializeField] private GameObject loadingCanvas;
-
-    protected override void OnDrawGizmos()
-    {
-        
-    }
 
     public override void UseGate()
     {
         Instantiate(loadingCanvas);
+
+        int sceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(sceneNum);
         Contract.instance.UseChapterContract(true);
     }

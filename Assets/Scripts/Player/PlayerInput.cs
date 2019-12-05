@@ -89,11 +89,6 @@ public class PlayerInput : MonoBehaviour
         {
             UIManager.instance.Menu();
         }
-        if (Input.GetButtonDown("Cheat"))
-        {
-            Debug.Log("Cheat enabled");
-            transform.position = new Vector2(211f, -45f);
-        }
     }
 
     public void OnLanding()

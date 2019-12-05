@@ -1,7 +1,7 @@
 ﻿조	항	조건 클래스	조건 타입	조건 값	결과 클래스	결과 값	설명 텍스트	연결 조항	연결 조항
 0	1	Kill	Greater	0	MaxHealth	1	기본체력 관련 약관 체크 안하면 체력 1		
 0	2	Kill	Greater	0	AttackDamage	1	기본공격력 관련 약관 체크 안하면 공격력 1		
-0	3	Kill	Greater	0	AttackSpeed	10	무기의 사용 권한 관련 약관 체크 안하면 공격불가		
+0	3	Kill	Greater	0	AttackSpeed	0.1	무기의 사용 권한 관련 약관 체크 안하면 공격불가		
 0	4	Kill	Greater	0	Speed	1	기본이동속도 관련 약관 체크 안하면 이동속도 1		
 0	5	Kill	Greater	0	JumpForce	100	기본점프 관련 약관 체크 안하면 점프력 1		
 0	6	Kill	Greater	0	InvincibleTime	0.8	기본 무적시간입니다.		
@@ -9,7 +9,7 @@
 0	8	Kill	Greater	0	MoveDamping	0.05	기본 바닥 마찰력입니다.
 1	0	Always	None	0	None	0	무기와 던전에 관한 조항
 1	1	Kill	Greater	0	JumpForce	870	<color=#C80000>(필수) </color>이 무기는 던전을 시작할 때 계약서를 적용합니다.	12	
-1	2	Kill	Greater	0	AttackSpeed	0.5	<color=#C80000>(필수) </color>이 무기의 사용권한을 얻습니다	11	
+1	2	Kill	Greater	0	AttackSpeed	1.6	<color=#C80000>(필수) </color>이 무기의 사용권한을 얻습니다	11	
 2	0	Always	None	0	None	0	무기 사용자의 체력에 관한 조항
 2	1	Kill	Greater	0	MaxHealth	100	<color=#C80000>(필수) </color>검의 주인은 [100]의 기본 체력을 가지고 시작합니다.	22	23
 2	2	Kill	Per	10	MaxHealth	10	검이 [10]명의 적을 처치할 때마다 검의 주인의 체력은 [10]씩 증가합니다.	21	23

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ContractHolder : MonoBehaviour
 {
-    [SerializeField] private TextAsset contractAsset;
+    [SerializeField] private List<TextAsset> contractAsset;
     [SerializeField] private TextAsset debugContract;
 
-    public List<SingleContract> ParseContract()
+    public List<SingleContract> ParseContract(int level)
     {
         List<SingleContract> ret = new List<SingleContract>();
 
-        List<List<string>> data = Parser.ContractParse(contractAsset);
+        List<List<string>> data = Parser.ContractParse(contractAsset[level]);
 
         for (int i = 0; i < data.Count; i++)
         {

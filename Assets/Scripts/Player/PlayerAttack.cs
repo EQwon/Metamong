@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 attackSize { get { return new Vector2(1.7f, 1.2f); } }
 
     public int Damage { get { return damage; } set { damage = value; } }
-    public float AttackPostDelay { get { return delay.post; } set { delay.post = value; } }
+    public float AttackSpeed { get { return 1 / (delay.pre + delay.post); } set { delay.post = (1 / value) - delay.pre; } }
 
     private void Start()
     {

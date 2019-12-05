@@ -8,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
     [Header("Status")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int damage = 5;
-    [SerializeField] private float attackPostDelay = 1f;
+    [SerializeField] private float attackSpeed = 1f;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float movementDamping = 0.05f;
     [SerializeField] private float jumpForce = 700f;
@@ -24,8 +24,7 @@ public class PlayerStatus : MonoBehaviour
 
     public int MaxHealth { get { return maxHealth; } set { maxHealth = value; } }
     public int Damage { get { return damage; } set { damage = value; } }
-    public float AttackPostDelay { set { attackPostDelay = value; } }
-    public float AttackSpeed { get { return 1 / (0.1f + attackPostDelay); } }
+    public float AttackSpeed { get { return attackSpeed; } set { attackSpeed = value; } }
     public float Speed { get { return speed; } set { speed = value; } }
     public float MovementDamping { set { movementDamping = value; } }
     public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
@@ -54,6 +53,10 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoad;
+        if (SceneManager.GetActiveScene().name.Contains("Village"))
+        {
+            lastVillage = SceneManager.GetActiveScene().buildIndex;
+        }
     }
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
@@ -79,9 +82,9 @@ public class PlayerStatus : MonoBehaviour
         else if(attacker.Damage < damage) AddEffectQueue(new ContractEffect( ResultClass.AttackDamage, damage - attacker.Damage, true));
         attacker.Damage = damage;
 
-        if (attacker.AttackPostDelay > attackPostDelay) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, true));
-        else if (attacker.AttackPostDelay < attackPostDelay) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackPostDelay - attacker.AttackPostDelay, false));
-        attacker.AttackPostDelay = attackPostDelay;
+        if (attacker.AttackSpeed > attackSpeed) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackSpeed - attacker.AttackSpeed, false));
+        else if (attacker.AttackSpeed < attackSpeed) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackSpeed - attacker.AttackSpeed, true));
+        attacker.AttackSpeed = attackSpeed;
 
         if (mover.Speed > speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, false));
         else if (mover.Speed < speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, true));
