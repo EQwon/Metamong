@@ -156,7 +156,13 @@ public class UIManager : MonoBehaviour
 
     public void RestartChapter()
     {
-        SceneManager.LoadScene(PlayerStatus.instance.LastVillage);
+        int villageScene = 2;
+        int nowScene = SceneManager.GetActiveScene().buildIndex;
+        if (nowScene % 3 == 2) villageScene = nowScene;
+        else if (nowScene % 3 == 0) villageScene = nowScene - 1;
+        else villageScene = nowScene - 2;
+
+        SceneManager.LoadScene(villageScene);
         Contract.instance.InitializeKillCount();
     }
 

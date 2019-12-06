@@ -30,7 +30,6 @@ public class PlayerStatus : MonoBehaviour
     public float JumpForce { get { return jumpForce; } set { jumpForce = value; } }
     public float InvincibleTime { set { invincibleTime = value; } }
     public float KnockBackForce { set { knockBackForce = value; } }
-    public int LastVillage { get { return lastVillage; } }
 
     private PlayerInput input;
     private PlayerMovement mover;
