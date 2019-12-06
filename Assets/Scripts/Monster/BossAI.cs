@@ -12,7 +12,7 @@ public class BossAI : MonoBehaviour
 
     [Header("Boss Status")]
     [SerializeField] private int maxHealth;
-    private int health;
+    protected int health;
 
     [Header("Raining Pattern")]
     [SerializeField] private GameObject rainingCircle;
@@ -46,9 +46,7 @@ public class BossAI : MonoBehaviour
 
     public void GetDamage(int amount)
     {
-        if (amount > 75) return;
-        else health -= amount;
-        StartCoroutine(HitEffect());
+        DamageArea(amount);
 
         if (health <= 0)
         {
@@ -56,6 +54,13 @@ public class BossAI : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(Dead());
         }
+    }
+
+    protected virtual void DamageArea(int amount)
+    {
+        if (amount > 75) return;
+        else health -= amount;
+        StartCoroutine(HitEffect());
     }
 
     private void OnDrawGizmos()
@@ -105,7 +110,7 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(8f);
 
         NextPattern();
     }
@@ -152,7 +157,7 @@ public class BossAI : MonoBehaviour
         NextPattern();
     }
 
-    private IEnumerator HitEffect()
+    protected IEnumerator HitEffect()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
