@@ -32,6 +32,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private int maxHealth;
     protected int health;
     private BossStatChanger multiplyer = new BossStatChanger();
+    [SerializeField] private float patternDelay;
 
     [Header("Raining Pattern")]
     [SerializeField] private GameObject rainingCircle;
@@ -61,7 +62,7 @@ public class BossAI : MonoBehaviour
         health = maxHealth + multiplyer.changedHealthAmount;
         bossCanvas = Instantiate(bossCanvasPrefab);
         bossCanvas.GetComponent<BossUIManager>().Boss = this;
-        NextPattern();
+        StartCoroutine(NextPattern());
     }
 
     public void GetDamage(int amount)
@@ -101,12 +102,14 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    protected void NextPattern()
+    protected IEnumerator NextPattern()
     {
         if (patternList.Count == 0) patternList.AddRange(RandomList(3));
 
         int ran = patternList[0];
         patternList.RemoveAt(0);
+
+        yield return new WaitForSeconds(patternDelay);
 
         switch (ran)
         {
@@ -130,9 +133,9 @@ public class BossAI : MonoBehaviour
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(5f);
 
-        NextPattern();
+        StartCoroutine(NextPattern());
     }
 
     private IEnumerator Summoning()
@@ -145,9 +148,9 @@ public class BossAI : MonoBehaviour
             summoning.GetComponent<SummonMonster>().MonsterType = summonPos[i].monsterType;
         }
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0f);
 
-        NextPattern();
+        StartCoroutine(NextPattern());
     }
 
     protected virtual IEnumerator Claw()
@@ -172,9 +175,7 @@ public class BossAI : MonoBehaviour
         clawAttack.AttackSize = clawSize;
         clawAttack.Direction = dir == 0 ? ClawDirection.Right : ClawDirection.Left;
 
-        yield return new WaitForSeconds(3f);
-
-        NextPattern();
+        StartCoroutine(NextPattern());
     }
 
     protected IEnumerator HitEffect()

@@ -215,6 +215,7 @@ MonoBehaviour:
     type: 3}
   pattern: 0
   maxHealth: 1000
+  patternDelay: 2
   rainingCircle: {fileID: 1740228252334251920, guid: e4b1951ca7570c4419c3d7de4e31ba21,
     type: 3}
   rainingPos: {x: 0, y: 0}
@@ -222,9 +223,9 @@ MonoBehaviour:
     type: 3}
   summonPos:
   - summonPos: {x: -6.5, y: -0.5}
-    monsterType: 0
+    monsterType: 1
   - summonPos: {x: 6.5, y: -0.5}
-    monsterType: 0
+    monsterType: 1
   - summonPos: {x: 0, y: -2.5}
     monsterType: 2
   claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}

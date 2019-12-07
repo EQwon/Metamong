@@ -10,6 +10,7 @@ public class BossAI_Chapter2 : BossAI
 
         if (amount <= 35) health -= amount / 2;
         else health -= amount;
+
         StartCoroutine(HitEffect());
     }
 
@@ -22,9 +23,9 @@ public class BossAI_Chapter2 : BossAI
         yield return new WaitForSeconds(1f);
 
         ClawPlayer();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
 
-        NextPattern();
+        StartCoroutine(NextPattern());
     }
 
     private void ClawPlayer()
