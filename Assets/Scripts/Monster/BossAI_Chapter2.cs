@@ -8,7 +8,7 @@ public class BossAI_Chapter2 : BossAI
     {
         if (amount > 75) return;
 
-        if (amount <= 35) health -= amount / 2;
+        if (amount >= 50) health -= amount / 2;
         else health -= amount;
 
         StartCoroutine(HitEffect());
