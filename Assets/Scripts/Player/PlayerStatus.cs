@@ -73,19 +73,19 @@ public class PlayerStatus : MonoBehaviour
     {
         //Debug.Log("스탯 업데이트");
 
-        if (input.MaxHealth > maxHealth) AddEffectQueue(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, false));
+        if (input.MaxHealth > maxHealth) AddEffectQueue(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, true));
         else if (input.MaxHealth < maxHealth) AddEffectQueue(new ContractEffect(ResultClass.MaxHealth, maxHealth - input.MaxHealth, true));
         input.MaxHealth = maxHealth;
 
-        if (attacker.Damage > damage) AddEffectQueue(new ContractEffect(ResultClass.AttackDamage, damage - attacker.Damage, false));
+        if (attacker.Damage > damage) AddEffectQueue(new ContractEffect(ResultClass.AttackDamage, damage - attacker.Damage, true));
         else if(attacker.Damage < damage) AddEffectQueue(new ContractEffect( ResultClass.AttackDamage, damage - attacker.Damage, true));
         attacker.Damage = damage;
 
-        if (attacker.AttackSpeed > attackSpeed) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackSpeed - attacker.AttackSpeed, false));
+        if (attacker.AttackSpeed > attackSpeed) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackSpeed - attacker.AttackSpeed, true));
         else if (attacker.AttackSpeed < attackSpeed) AddEffectQueue(new ContractEffect(ResultClass.AttackSpeed, attackSpeed - attacker.AttackSpeed, true));
         attacker.AttackSpeed = attackSpeed;
 
-        if (mover.Speed > speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, false));
+        if (mover.Speed > speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, true));
         else if (mover.Speed < speed) AddEffectQueue(new ContractEffect(ResultClass.Speed, speed - mover.Speed, true));
         mover.Speed = speed;
 
@@ -95,7 +95,7 @@ public class PlayerStatus : MonoBehaviour
         mover.KnockBackForce = knockBackForce;
     }
 
-    private void AddEffectQueue(ContractEffect contractEffect)
+    public void AddEffectQueue(ContractEffect contractEffect)
     {
         effectQueue.Add(contractEffect);
     }
@@ -117,18 +117,27 @@ public class PlayerStatus : MonoBehaviour
         if (effectQueue.Count > 0) StartCoroutine(ContractFulfillment());
         else isFulfilling = false;
     }
+}
 
-    private struct ContractEffect
+public struct ContractEffect
+{
+    public ResultClass resultClass;
+    public float value;
+    public bool isBuff;
+
+    public ContractEffect(ResultClass resultClass, float value, bool bigIsBuff)
     {
-        public ResultClass resultClass;
-        public float value;
-        public bool isBuff;
-
-        public ContractEffect(ResultClass resultClass, float value, bool isBuff)
+        this.resultClass = resultClass;
+        this.value = value;
+        if (bigIsBuff)
         {
-            this.resultClass = resultClass;
-            this.value = value;
-            this.isBuff = isBuff;
+            if (value > 0) isBuff = true;
+            else isBuff = false;
+        }
+        else
+        {
+            if (value > 0) isBuff = false;
+            else isBuff = true;
         }
     }
 }

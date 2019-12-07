@@ -149,7 +149,7 @@ public class Contract : MonoBehaviour
         KillContractCheck();
     }
 
-    public BossStatMultiplyer BossEvent()
+    public BossStatChanger BossEvent()
     {
         return BossContractCheck();
     }
@@ -186,9 +186,9 @@ public class Contract : MonoBehaviour
         PlayerStatus.instance.UpdateStatus();
     }
 
-    private BossStatMultiplyer BossContractCheck()
+    private BossStatChanger BossContractCheck()
     {
-        BossStatMultiplyer multiplyer = new BossStatMultiplyer();
+        BossStatChanger changer = new BossStatChanger();
 
         for (int i = 0; i < contracts.Count; i++)
         {
@@ -200,15 +200,15 @@ public class Contract : MonoBehaviour
             switch (contract.ConditionType)
             {
                 case ConditionType.Less:
-                    if (PlayerStatus.instance.MaxHealth < contract.ConditionValue) ActivateBossResult(i, ref multiplyer);
+                    if (PlayerStatus.instance.MaxHealth < contract.ConditionValue) ActivateBossResult(i, ref changer);
                     break;
                 case ConditionType.Greater:
-                    if (PlayerStatus.instance.MaxHealth >= contract.ConditionValue) ActivateBossResult(i, ref multiplyer);
+                    if (PlayerStatus.instance.MaxHealth >= contract.ConditionValue) ActivateBossResult(i, ref changer);
                     break;
             }
         }
 
-        return multiplyer;
+        return changer;
     }
 
     private void ActivateKillResult(int i)
@@ -256,14 +256,15 @@ public class Contract : MonoBehaviour
         }
     }
 
-    private void ActivateBossResult(int i, ref BossStatMultiplyer multiplyer)
+    private void ActivateBossResult(int i, ref BossStatChanger changer)
     {
         SingleContract contract = contracts[i];
 
         switch (contract.ResultClass)
         {
             case ResultClass.BossHealth:
-                multiplyer.healthMul = contract.ResultValue;
+                changer.changedHealthAmount += (int)contract.ResultValue;
+                PlayerStatus.instance.AddEffectQueue(new ContractEffect(ResultClass.BossHealth, contract.ResultValue, false));
                 break;
         }
     }

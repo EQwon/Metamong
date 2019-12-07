@@ -38,6 +38,9 @@ public class StatusEffect : MonoBehaviour
             case ResultClass.Speed:
                 statusText = "이동속도 ";
                 break;
+            case ResultClass.BossHealth:
+                statusText = "보스 체력 ";
+                break;
             default:
                 statusText = "버그남 ";
                 break;
