@@ -35,8 +35,8 @@ public class BossAI : MonoBehaviour
     [SerializeField] private float patternDelay;
 
     [Header("Raining Pattern")]
-    [SerializeField] private GameObject rainingCircle;
-    [SerializeField] private Vector2 rainingPos;
+    [SerializeField] protected GameObject rainingCircle;
+    [SerializeField] protected Vector2 rainingPos;
 
     [Header("Summoning Pattern")]
     [SerializeField] private GameObject summoningCircle;
@@ -44,7 +44,7 @@ public class BossAI : MonoBehaviour
 
     [Header("Claw Pattern")]
     [SerializeField] protected GameObject claw;
-    [SerializeField] private List<Vector2> clawPos;
+    [SerializeField] protected List<Vector2> clawPos;
     [SerializeField] protected Vector2 clawSize;
 
     [Header("Exit")]
@@ -128,7 +128,7 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    private IEnumerator Rain()
+    protected virtual IEnumerator Rain()
     {
         // 비를 내리게 하는 오브젝트를 생성
         Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
