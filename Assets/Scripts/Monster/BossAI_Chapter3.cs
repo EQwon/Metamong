@@ -47,7 +47,8 @@ public class BossAI_Chapter3 : BossAI
                 yield return new WaitForSeconds(1f);
             }
         }
-        
+
+        StartCoroutine(NextPattern());
     }
     private void Claw(int i)
     {
