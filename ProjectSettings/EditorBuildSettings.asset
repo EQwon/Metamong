@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter3_Room/Chapter3_Village.unity
     guid: b2fe31b9c6f57554d84ccb36765f9c5d
+  - enabled: 1
+    path: Assets/Scenes/Chapter3_Room/Chapter3_Dungeon.unity
+    guid: cec44a4585424614686acc8a0e690979
+  - enabled: 1
+    path: Assets/Scenes/Chapter3_Room/Chapter3_Story.unity
+    guid: 1698e886ed14fbd4ba16fcb33891c3d2
   m_configObjects: {}

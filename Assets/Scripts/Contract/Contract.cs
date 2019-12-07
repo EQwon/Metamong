@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
-public enum ConditionClass { Always, Kill, PlayTime, JumpCnt, AttackCnt }
+public enum ConditionClass { Always, Kill, MaxHealth  }
 public enum ConditionType { None, Greater, Less, Per }
-public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping, JumpForce, InvincibleTime, KnockBackForce }
+public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping, JumpForce, InvincibleTime, KnockBackForce, BossHealth }
 
 [System.Serializable]
 public class SimpleContract
@@ -149,6 +149,11 @@ public class Contract : MonoBehaviour
         KillContractCheck();
     }
 
+    public BossStatMultiplyer BossEvent()
+    {
+        return BossContractCheck();
+    }
+
     public void KillContractCheck()
     {
         if (SceneManager.GetActiveScene().name.Contains("Village"))
@@ -167,13 +172,13 @@ public class Contract : MonoBehaviour
             switch (contract.ConditionType)
             {
                 case ConditionType.Less:
-                    if (killCnt < contract.ConditionValue) ActivateResult(i);
+                    if (killCnt < contract.ConditionValue) ActivateKillResult(i);
                     break;
                 case ConditionType.Greater:
-                    if (killCnt >= contract.ConditionValue) ActivateResult(i);
+                    if (killCnt >= contract.ConditionValue) ActivateKillResult(i);
                     break;
                 case ConditionType.Per:
-                    for(int n = 0; n < killCnt / contract.ConditionValue; n++) ActivateResult(i);
+                    for(int n = 0; n < killCnt / contract.ConditionValue; n++) ActivateKillResult(i);
                     break;
             }
         }
@@ -181,7 +186,32 @@ public class Contract : MonoBehaviour
         PlayerStatus.instance.UpdateStatus();
     }
 
-    private void ActivateResult(int i)
+    private BossStatMultiplyer BossContractCheck()
+    {
+        BossStatMultiplyer multiplyer = new BossStatMultiplyer();
+
+        for (int i = 0; i < contracts.Count; i++)
+        {
+            SingleContract contract = contracts[i];
+
+            if (contract.ConditionClass != ConditionClass.MaxHealth) continue;
+            if (contract.isAgree == false) continue;
+
+            switch (contract.ConditionType)
+            {
+                case ConditionType.Less:
+                    if (PlayerStatus.instance.MaxHealth < contract.ConditionValue) ActivateBossResult(i, ref multiplyer);
+                    break;
+                case ConditionType.Greater:
+                    if (PlayerStatus.instance.MaxHealth >= contract.ConditionValue) ActivateBossResult(i, ref multiplyer);
+                    break;
+            }
+        }
+
+        return multiplyer;
+    }
+
+    private void ActivateKillResult(int i)
     {
         SingleContract contract = contracts[i];
 
@@ -222,6 +252,18 @@ public class Contract : MonoBehaviour
                 break;
             default:
                 Debug.LogError("해당하는 결과 클래스를 찾지 못했습니다.");
+                break;
+        }
+    }
+
+    private void ActivateBossResult(int i, ref BossStatMultiplyer multiplyer)
+    {
+        SingleContract contract = contracts[i];
+
+        switch (contract.ResultClass)
+        {
+            case ResultClass.BossHealth:
+                multiplyer.healthMul = contract.ResultValue;
                 break;
         }
     }

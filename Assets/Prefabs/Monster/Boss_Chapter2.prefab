@@ -214,7 +214,7 @@ MonoBehaviour:
   bossCanvasPrefab: {fileID: 68443193841314569, guid: 5494189ed2e31ed4a9453570378447f4,
     type: 3}
   pattern: 0
-  maxHealth: 700
+  maxHealth: 1000
   rainingCircle: {fileID: 1740228252334251920, guid: e4b1951ca7570c4419c3d7de4e31ba21,
     type: 3}
   rainingPos: {x: 0, y: 0}
@@ -232,4 +232,3 @@ MonoBehaviour:
   clawSize: {x: 4, y: 10}
   gatePrefab: {fileID: 3468727701352014604, guid: bcf82ce3d1a843a47998eb87a7af49e5,
     type: 3}
-  exitPos: {x: 0, y: -6}

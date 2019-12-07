@@ -12,6 +12,7 @@ public class BossGateController : GateController
     {
         GameObject nowBoss = Instantiate(boss, bossPos, Quaternion.identity);
         nowBoss.GetComponent<BossAI>().ExitPos = bossRoomExitPos;
+        nowBoss.GetComponent<BossAI>().Multiplyer = Contract.instance.BossEvent();
 
         player.transform.position = exitPos;
     }

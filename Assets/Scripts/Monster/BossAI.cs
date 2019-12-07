@@ -4,6 +4,24 @@ using UnityEngine;
 
 public enum PatternType { Rain, Summon, Claw }
 
+public class BossStatMultiplyer
+{
+    public float healthMul;
+    public float damageMul;
+
+    public BossStatMultiplyer()
+    {
+        healthMul = 1;
+        damageMul = 1;
+    }
+
+    public BossStatMultiplyer(float healthMul, float damageMul)
+    {
+        this.healthMul = healthMul;
+        this.damageMul = damageMul;
+    }
+}
+
 public class BossAI : MonoBehaviour
 {
     [SerializeField] private GameObject bossCanvasPrefab;
@@ -13,6 +31,7 @@ public class BossAI : MonoBehaviour
     [Header("Boss Status")]
     [SerializeField] private int maxHealth;
     protected int health;
+    private BossStatMultiplyer multiplyer = new BossStatMultiplyer();
 
     [Header("Raining Pattern")]
     [SerializeField] private GameObject rainingCircle;
@@ -35,10 +54,11 @@ public class BossAI : MonoBehaviour
 
     public float HealthRatio { get { return (float)health/maxHealth; } }
     public Vector2 ExitPos { set { exitPos = value; } }
+    public BossStatMultiplyer Multiplyer { set { multiplyer = value; } }
 
     private void Start()
     {
-        health = maxHealth;
+        health = (int)(maxHealth * multiplyer.healthMul);
         bossCanvas = Instantiate(bossCanvasPrefab);
         bossCanvas.GetComponent<BossUIManager>().Boss = this;
         NextPattern();
