@@ -31,21 +31,28 @@ public class Parser
         return returnList;
     }
 
-    public static List<string> SpeechParse(TextAsset data)
+    public static List<List<string>> SpeechParse(TextAsset data)
     {
-        List<string> returnList = new List<string>();
         StringReader sr = new StringReader(data.text);
+        List<List<string>> speeches = new List<List<string>>();
 
-        sr.ReadLine();                  // 제일 윗 줄을 건너뛴다.
         string source = sr.ReadLine();  // 먼저 한줄을 읽는다.
 
-        while (source != null)          // 비어있을 때까지 읽는다
+        while (source != null)
         {
-            returnList.Add(source);     // 저장
+            List<string> singleSpeech = new List<string>();
 
-            source = sr.ReadLine();     // 한줄 읽는다.            
+            while (source != "END")          // END가 나올 때까지 읽는다
+            {
+                singleSpeech.Add(source);     // 저장
+
+                source = sr.ReadLine();     // 한줄 읽는다.            
+            }
+
+            speeches.Add(singleSpeech);
+            source = sr.ReadLine();
         }
 
-        return returnList;
+        return speeches;
     }
 }

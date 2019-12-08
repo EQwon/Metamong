@@ -12,8 +12,9 @@ public class SpeechController : MonoBehaviour
     private GameObject speaker;
     private bool showContract;
     private TextAsset speechAsset;
-    private List<string> speeches;
+    private List<List<string>> speeches;
     private GameObject player;
+    private int talkCnt = 0;
     private int nowNum = 0;
 
     public TextAsset SpeechAsset { set { speechAsset = value; } }
@@ -36,7 +37,7 @@ public class SpeechController : MonoBehaviour
     {
         int targetNum = nowNum + 1;
 
-        if (targetNum >= speeches.Count)
+        if (targetNum >= speeches[talkCnt].Count)
         {
             speechPanel.SetActive(false);
             EndTalkEvent();
@@ -51,7 +52,7 @@ public class SpeechController : MonoBehaviour
 
     private void ShowNowSpeech()
     {
-        speechText.text = speeches[nowNum];
+        speechText.text = speeches[talkCnt][nowNum];
     }
 
     private void EndTalkEvent()
@@ -61,10 +62,9 @@ public class SpeechController : MonoBehaviour
             UIManager.instance.ContractPanel();
             UIManager.instance.CanChangeContract = true;
         }
-        else
-        {
-            StartCoroutine(Die());
-        }
+
+        talkCnt += 1;
+        if (speeches.Count <= talkCnt) talkCnt -= 1;
     }
 
     private IEnumerator Die()
@@ -75,5 +75,10 @@ public class SpeechController : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Destroy(speaker);
+    }
+
+    public void Choice(bool accept)
+    {
+
     }
 }
