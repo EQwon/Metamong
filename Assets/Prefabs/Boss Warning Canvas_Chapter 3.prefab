@@ -213,7 +213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: -150}
+  m_AnchoredPosition: {x: 35, y: -120}
   m_SizeDelta: {x: 888.6, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9084947519913601653
@@ -257,7 +257,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\uAC70\uB300 \uB9C8\uBB3C\uC740 "
+  m_Text: "\uAC70\uB300 \uB9C8\uBB3C\uC740 50\uC774\uD558\uC758 \uD53C\uD574\uB294
+    \uBB34\uC2DC\uD569\uB2C8\uB2E4.\n\uAC70\uB300 \uB9C8\uBB3C\uC740 \uCCB4\uB825\uC774
+    \uC0C1\uB2F9\uD788 \uB9CE\uC2B5\uB2C8\uB2E4."
 --- !u!114 &9084947519913601652
 MonoBehaviour:
   m_ObjectHideFlags: 0

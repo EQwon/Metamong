@@ -10,7 +10,10 @@ public class BossAI_Chapter3 : BossAI
 
     protected override void DamageArea(int amount)
     {
+        if (amount <= 50) return;
+        else health -= amount;
 
+        StartCoroutine(HitEffect());
     }
 
     protected override IEnumerator Rain()
