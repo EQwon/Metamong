@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public enum ConditionClass { Always, Kill, MaxHealth  }
 public enum ConditionType { None, Greater, Less, Per }
-public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping, JumpForce, InvincibleTime, KnockBackForce, BossHealth }
+public enum ResultClass { None, AttackSpeed, AttackDamage, MaxHealth, Speed, MoveDamping, JumpForce, InvincibleTime, KnockBackForce, BossHealth, KillCnt }
 
 [System.Serializable]
 public class SimpleContract
@@ -70,6 +70,7 @@ public class Contract : MonoBehaviour
     public List<SingleContract> contracts = new List<SingleContract>();
 
     private int killCnt = 0;
+    private int killCntChanger = 0;
     private int contractLevel = 0;
 
     public int KillCnt { get { return killCnt; } }
@@ -143,7 +144,7 @@ public class Contract : MonoBehaviour
 
     public void KillEvent()
     {
-        killCnt += 1;
+        killCnt += 1 + killCntChanger;
         //Debug.Log("현재 킬 카운트는 " + killCnt + "입니다.");
 
         KillContractCheck();
@@ -178,7 +179,8 @@ public class Contract : MonoBehaviour
                     if (killCnt >= contract.ConditionValue) ActivateKillResult(i);
                     break;
                 case ConditionType.Per:
-                    for(int n = 0; n < killCnt / contract.ConditionValue; n++) ActivateKillResult(i);
+                    int nowKillCnt = killCnt;
+                    for (int n = 0; n < nowKillCnt / contract.ConditionValue; n++) ActivateKillResult(i);
                     break;
             }
         }
@@ -249,6 +251,9 @@ public class Contract : MonoBehaviour
                 break;
             case ResultClass.KnockBackForce:
                 PlayerStatus.instance.KnockBackForce = contract.ResultValue;
+                break;
+            case ResultClass.KillCnt:
+                killCntChanger = (int)contract.ResultValue;
                 break;
             default:
                 Debug.LogError("해당하는 결과 클래스를 찾지 못했습니다.");
