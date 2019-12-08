@@ -10,8 +10,6 @@ public class BossAI_Chapter3 : BossAI
 
     protected override void DamageArea(int amount)
     {
-        if (amount > 75) return;
-
 
     }
 
