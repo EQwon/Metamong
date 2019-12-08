@@ -20,11 +20,17 @@ public class BossAI_Chapter3 : BossAI
     {
         int num = Random.Range(0, 100);
 
-        if(num >= 50) Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
-        else Instantiate(spiralCircle, spiralPos + (Vector2)transform.position, Quaternion.identity);
-
-        yield return new WaitForSeconds(5f);
-
+        if (num >= 50)
+        {
+            Instantiate(rainingCircle, rainingPos + (Vector2)transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(5f);
+        }
+        else
+        {
+            Instantiate(spiralCircle, spiralPos + (Vector2)transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+        
         StartCoroutine(NextPattern());
     }
 

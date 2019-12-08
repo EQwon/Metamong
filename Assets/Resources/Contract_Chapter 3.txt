@@ -15,9 +15,9 @@
 1	5	Kill	Greater	0	KillCnt	1	<color=#0000C8>(권장) </color>검이 적을 처치할 때마다 영혼을 [1]개 추가로 수집합니다.	22	32
 2	0	Always	None	0	None	0	무기 사용자의 체력에 관한 조항		
 2	1	Kill	Greater	0	MaxHealth	100	<color=#C80000>(필수) </color>검의 주인은 [100]의 기본 체력을 가지고 시작합니다.	23	24
-2	2	Kill	Greater	0	MaxHealth	50	검의 주인이 [50]의 기본 체력을 가지고 시작합니다.	15	32
+2	2	Kill	Greater	0	MaxHealth	80	검의 주인이 [80]의 기본 체력을 가지고 시작합니다.	15	32
 2	3	Kill	Per	10	MaxHealth	10	검이 [10]명의 적을 처치할 때마다 검의 주인의 체력은 [10]씩 증가합니다.	21	24
-2	4	Kill	Greater	80	MaxHealth	20	검이 [80]명의 적을 처치할 시 검의 주인의 체력은 [20]으로 감소합니다.	21	23
+2	4	Kill	Greater	80	MaxHealth	50	검이 [80]명의 적을 처치할 시 검의 주인의 체력은 [50]으로 감소합니다.	21	23
 3	0	Always	None	0	None	0	무기의 공격과 속도에 관한 조항		
 3	1	Kill	Greater	0	AttackDamage	100	<color=#C80000>(필수) </color>검의 주인은 [100]의 기본 공격력을 가지고 시작합니다.	33	34
 3	2	Kill	Greater	0	AttackDamage	90	검의 주인이 [90]의 기본 공격력을 가지고 시작합니다.	15	22
