@@ -214,7 +214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -350, y: 0}
+  m_AnchoredPosition: {x: -370, y: 0}
   m_SizeDelta: {x: 160, y: 70}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3962603609978872188
@@ -352,8 +352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 40, y: 0}
-  m_SizeDelta: {x: 600, y: 70}
+  m_AnchoredPosition: {x: 30, y: 0}
+  m_SizeDelta: {x: 615, y: 70}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &436346589172276117
 CanvasRenderer:
@@ -396,5 +396,6 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
-  m_Text: "\uC774 \uBB34\uAE30\uB294 \uB358\uC804\uC744 \uBAA8\uB450 \uADF9\uBCF5\uD560
-    \uB54C\uAE4C\uC9C0 \uB193\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  m_Text: "<color=#0000C8>(\uAD8C\uC7A5) </color>\uBCF4\uC2A4 \uBC29 \uC9C4\uC785\uC2DC
+    \uCD5C\uB300\uCCB4\uB825\uC774 [140] \uC774\uD558\uC774\uBA74 \uBCF4\uC2A4\uC758
+    \uCCB4\uB825\uC774 [1500] \uAC10\uC18C\uD569\uB2C8\uB2E4."
