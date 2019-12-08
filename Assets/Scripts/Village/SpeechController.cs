@@ -7,6 +7,7 @@ public class SpeechController : MonoBehaviour
 {
     [Header("UI Holder")]
     [SerializeField] private GameObject speechPanel;
+    [SerializeField] protected GameObject choicePanel;
     [SerializeField] private Text speechText;
 
     private GameObject speaker;
@@ -25,6 +26,7 @@ public class SpeechController : MonoBehaviour
     {
         speeches = Parser.SpeechParse(speechAsset);
         speechPanel.SetActive(false);
+        choicePanel.SetActive(false);
     }
 
     public void ShowSpeech()
@@ -55,7 +57,7 @@ public class SpeechController : MonoBehaviour
         speechText.text = speeches[talkCnt][nowNum];
     }
 
-    private void EndTalkEvent()
+    protected virtual void EndTalkEvent()
     {
         if (showContract)
         {
@@ -75,10 +77,5 @@ public class SpeechController : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Destroy(speaker);
-    }
-
-    public void Choice(bool accept)
-    {
-
     }
 }

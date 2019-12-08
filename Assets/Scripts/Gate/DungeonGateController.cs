@@ -13,6 +13,5 @@ public class DungeonGateController : GateController
 
         int sceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(sceneNum);
-        Contract.instance.UseChapterContract(true);
     }
 }

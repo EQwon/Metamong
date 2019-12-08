@@ -278,8 +278,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7554799417526459524}
-        m_MethodName: Choice
+      - m_Target: {fileID: 2577182983707066776}
+        m_MethodName: Choose
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7554799417526459524}
+      - m_Target: {fileID: 0}
         m_MethodName: NextSpeech
         m_Mode: 1
         m_Arguments:
@@ -516,9 +516,9 @@ GameObject:
   - component: {fileID: 7554799417526459545}
   - component: {fileID: 7554799417526459526}
   - component: {fileID: 7554799417526459527}
-  - component: {fileID: 7554799417526459524}
+  - component: {fileID: 2577182983707066776}
   m_Layer: 5
-  m_Name: Talk Canvas
+  m_Name: Devil Talk Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7554799417526459524
+--- !u!114 &2577182983707066776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7554799417526459525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81271c8f196cd264b88bf1f93056116a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c1f9b435f0d91c4c8c2c0dc59a4eef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speechPanel: {fileID: 7554799418577245616}
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7554799417526459524}
+      - m_Target: {fileID: 2577182983707066776}
         m_MethodName: NextSpeech
         m_Mode: 1
         m_Arguments:
@@ -953,8 +953,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7554799417526459524}
-        m_MethodName: Choice
+      - m_Target: {fileID: 2577182983707066776}
+        m_MethodName: Choose
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

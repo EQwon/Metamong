@@ -90,11 +90,6 @@ public class Contract : MonoBehaviour
         killCnt = 0;
     }
 
-    public void UseChapterContract(bool use)
-    {
-        
-    }
-
     public void ProgressContract()
     {
         contractLevel += 1;

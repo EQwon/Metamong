@@ -11,11 +11,11 @@ public class VillageGateController : GateController
     {
         int sceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(sceneNum);
-        Contract.instance.UseChapterContract(false);
-        Contract.instance.InitializeKillCount();
+
         if (progressContractLevel)
         {
             Contract.instance.ProgressContract();
+            Contract.instance.InitializeKillCount();
         }
     }
 }
