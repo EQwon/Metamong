@@ -43,7 +43,7 @@ EditorBuildSettings:
     guid: 40a35f0bb4a29674fb544d17baf2ffcd
   - enabled: 1
     path: Assets/Scenes/Chapter4/Accept.unity
-    guid: 85070c9a48a453447ab582718efb5655
+    guid: 357f8fc20bee77c48958150a84323a3c
   - enabled: 1
     path: Assets/Scenes/Chapter4/Reject.unity
     guid: 46112a2fb9c4b34409d4fd783303fe96

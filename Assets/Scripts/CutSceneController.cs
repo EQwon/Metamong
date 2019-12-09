@@ -37,4 +37,9 @@ public class CutSceneController : PrologueController
             animator.enabled = true;
         }
     }
+
+    protected override void EndEvent()
+    {
+        SceneManager.LoadScene(14);
+    }
 }

@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237c7eb4d7242834198a8445ad570451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechAsset: {fileID: 4900000, guid: ca758f8f085d7fd43b1a876f57aa7194, type: 3}
+  speechAsset: {fileID: 4900000, guid: 6b0e173ee994bfa4b8bab7308499f019, type: 3}
   talkCanavas: {fileID: 7554799417526459525, guid: d82511ad7a731474c8fff8725f018ee3,
     type: 3}
   shouldShowContract: 0

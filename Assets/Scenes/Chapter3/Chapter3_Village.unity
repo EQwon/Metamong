@@ -350,6 +350,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2531760784289507323, guid: 96e2d81a32c91824e823972ab773f56d,
+        type: 3}
+      propertyPath: speechAsset
+      value: 
+      objectReference: {fileID: 4900000, guid: 5256e8dba01046941a2f334c18265053, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e2d81a32c91824e823972ab773f56d, type: 3}
 --- !u!1 &1074823640
