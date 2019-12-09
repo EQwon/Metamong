@@ -11,14 +11,14 @@ public class PrologueController : MonoBehaviour
     [SerializeField] private List<string> prologueSpeeches;
 
     [Header("UI Holder")]
-    [SerializeField] private Image prologueImagePanel;
-    [SerializeField] private Text prologueText;
+    [SerializeField] protected Image prologueImagePanel;
+    [SerializeField] protected Text prologueText;
 
     private int nowNum = 0;
 
-    private void Start()
+    protected virtual void Start()
     {
-        ShowNowPrologue();
+        ShowNowStory();
     }
 
     public void NextPrologue()
@@ -27,17 +27,22 @@ public class PrologueController : MonoBehaviour
 
         if (targetNum >= prologueImages.Count)
         {
-            SceneManager.LoadScene(2);
+            EndEvent();
             return;
         }
 
         nowNum = targetNum;
-        ShowNowPrologue();
+        ShowNowStory();
     }
 
-    private void ShowNowPrologue()
+    protected virtual void ShowNowStory()
     {
         prologueImagePanel.sprite = prologueImages[nowNum];
         prologueText.text = prologueSpeeches[nowNum];
+    }
+
+    protected virtual void EndEvent()
+    {
+        SceneManager.LoadScene(2);
     }
 }

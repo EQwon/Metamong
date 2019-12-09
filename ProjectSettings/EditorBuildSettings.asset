@@ -41,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter4/Chapter4_Village.unity
     guid: 40a35f0bb4a29674fb544d17baf2ffcd
+  - enabled: 1
+    path: Assets/Scenes/Chapter4/Accept.unity
+    guid: 85070c9a48a453447ab582718efb5655
+  - enabled: 1
+    path: Assets/Scenes/Chapter4/Reject.unity
+    guid: 46112a2fb9c4b34409d4fd783303fe96
   m_configObjects: {}

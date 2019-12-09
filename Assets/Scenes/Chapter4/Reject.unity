@@ -397,6 +397,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1231120978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231120979}
+  - component: {fileID: 1231120981}
+  - component: {fileID: 1231120980}
+  m_Layer: 5
+  m_Name: Animation Satan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1231120979
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231120978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1434641802}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -10000, y: 0}
+  m_SizeDelta: {x: 1365, y: 680}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1231120980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231120978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 268c608a0e0bbd541878ef2cb1de7bb3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1231120981
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231120978}
+  m_CullTransparentMesh: 0
 --- !u!1 &1301407174
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +643,7 @@ GameObject:
   - component: {fileID: 1434641802}
   - component: {fileID: 1434641804}
   - component: {fileID: 1434641803}
+  - component: {fileID: 1434641805}
   m_Layer: 5
   m_Name: Prologue Image
   m_TagString: Untagged
@@ -585,7 +661,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1980295858}
+  - {fileID: 1231120979}
   m_Father: {fileID: 1450726455}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,7 +692,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 887766163ba78f04e9741d94aee44081, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aeffc3dc212ce6349904e8b8e7fe0f81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -632,6 +710,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434641801}
   m_CullTransparentMesh: 0
+--- !u!95 &1434641805
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434641801}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1653532f1dd0a34aa489122e3bd8080, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1450726451
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,37 +840,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450726451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f36788612c59d79418b08be74178afe3, type: 3}
+  m_Script: {fileID: 11500000, guid: a14ea4d9546385a4aa12365d3e286649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prologueImages:
-  - {fileID: 21300000, guid: 887766163ba78f04e9741d94aee44081, type: 3}
-  - {fileID: 21300000, guid: 5c99ee7bd72c092489d9757dd4842358, type: 3}
-  - {fileID: 21300000, guid: fa156f90b351e714b9fb1c42643791bc, type: 3}
-  - {fileID: 21300000, guid: fa156f90b351e714b9fb1c42643791bc, type: 3}
-  - {fileID: 21300000, guid: 2a9c9a308001d854e993aa768194027b, type: 3}
-  - {fileID: 21300000, guid: 2a9c9a308001d854e993aa768194027b, type: 3}
-  - {fileID: 21300000, guid: 2a9c9a308001d854e993aa768194027b, type: 3}
-  - {fileID: 21300000, guid: 264b04e61cb140a448e1c0328c4eb962, type: 3}
-  - {fileID: 21300000, guid: e5caa0f9ccba00d4686e97e47d3f9b51, type: 3}
-  - {fileID: 21300000, guid: e5caa0f9ccba00d4686e97e47d3f9b51, type: 3}
+  - {fileID: 21300000, guid: 6ab073bcba3d5c24e995c8c44d233fc6, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: d099b760a43e6f44c83167e10f227247, type: 3}
+  - {fileID: 21300000, guid: d099b760a43e6f44c83167e10f227247, type: 3}
+  - {fileID: 21300000, guid: d099b760a43e6f44c83167e10f227247, type: 3}
+  - {fileID: 21300000, guid: b22f5a102279e9543a3cdd17af7356a3, type: 3}
+  - {fileID: 21300000, guid: b22f5a102279e9543a3cdd17af7356a3, type: 3}
   prologueSpeeches:
-  - "\uB9C8\uC744\uC5D0 \uB3C4\uCC29\uD558\uC2E0 \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4.
-    \uC6A9\uC0AC\uB2D8\uC744 \uC5EC\uAE30 \uBAA8\uC2DC\uAC8C \uB418\uC5B4 \uC601\uAD11\uC774\uAD70\uC694."
-  - "\uC655\uAD6D\uC744 \uC218\uB144\uAC04 \uAD34\uB86D\uD788\uB358 <color=#F2C331>\uB9C8\uC655</color>\uC744
-    \uB2E8\uCE7C\uC5D0 \uBB3C\uB9AC\uCE58\uC2E0 \uB370\uB2E4\uAC00..."
-  - "\uC6A9\uC0AC \uC791\uC704 \uC218\uC5EC\uC2DD\uC5D0\uC11C\uB3C4 \uB09C\uC785\uD55C
-    \uC554\uC0B4\uC790\uB97C \uC81C\uC555\uD558\uC9C0 \uC54A\uC73C\uC168\uC2B5\uB2C8\uAE4C. "
-  - "\uC6A9\uC0AC\uB2D8\uC758 \uBA85\uC131\uC744 \uB4E3\uC9C0 \uBABB\uD55C \uB9C8\uC744\uC774
-    \uC5C6\uC744 \uAC81\uB2C8\uB2E4."
-  - "\uC774\uC81C \uC774 \uD3C9\uD654\uB85C\uC6B4 \uB9C8\uC744\uC5D0\uC11C \uD734\uAC00\uB97C
-    \uC990\uAE30\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4."
-  - '...?'
-  - "<color=#FD2A2A>...\uC7A5\uB2D8, \uCD0C\uC7A5\uB2D8!</color>"
-  - "\uD070\uC77C\uB0AC\uC2B5\uB2C8\uB2E4! \uB9C8\uC744 \uAC00\uC7A5\uC790\uB9AC \uB3D9\uAD74\uC5D0\uC11C
-    <color=#FD2A2A>\uB9C8\uBB3C</color>\uC774 \uB098\uD0C0\uB0AC\uB2E4\uACE0...!"
-  - "\uBB50\uB77C, \uB9C8\uBB3C\uC740 \uB2E4 \uD1F4\uCE58\uB41C \uC904 \uC54C\uC558\uB294\uB370...?!"
-  - "\uC6A9\uC0AC\uB2D8, \uC6A9\uC0AC\uB2D8\uC758 \uB3C4\uC6C0\uC774 \uD544\uC694\uD569\uB2C8\uB2E4!"
+  - "\uC7A0\uC2DC \uBA38\uBB47\uAC70\uB9AC\uB358 \uC6B0\uB9AC\uC758 \uC6A9\uC0AC\uB294..."
+  - "\uAC80\uC744 \uACE0\uCCD0\uC950\uACE0 \uB9C8\uC655\uC744 \uC4F0\uB7EC\uB728\uB838\uC2B5\uB2C8\uB2E4."
+  - "\uADF8\uB7EC\uB098 \uC6A9\uC0AC\uAC00 \uBAA8\uB974\uB294 \uC0AC\uC2E4\uC774 \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
+  - "\uC624\uB798 \uC804, \uB9C8\uC655\uC744 \uBB3C\uB9AC\uCE58\uACA0\uB178\uB77C
+    \uC655\uC2E4\uACFC \uB9FA\uC740 \uACC4\uC57D\uC5D0,"
+  - "\uB9C8\uC655\uC774 \uC8FD\uC73C\uBA74 \uC6A9\uC0AC\uB3C4 \uD0C0\uB77D\uD558\uAC8C
+    \uB41C\uB2E4\uB294 \uC870\uD56D\uC774 \uC788\uC5C8\uB358 \uAC83\uC774\uC9C0\uC694."
+  - "\uD0C0\uB77D\uD55C \uC6A9\uC0AC\uB294 \uC0C8\uB85C\uC6B4 \uB9C8\uC655\uC73C\uB85C
+    \uB3C4\uB798\uD588\uACE0,"
+  - "\uC655\uAD6D\uC740 \uADF8 \uCE7C \uC544\uB798 \uBB34\uB108\uC9C0\uACE0 \uB9D0\uC558\uC2B5\uB2C8\uB2E4.
+    \u2026 \uC218\uB9CE\uC740 \uD76C\uC0DD\uC790\uB97C \uB0B8 \uCC44 \uB9D0\uC785\uB2C8\uB2E4."
   prologueImagePanel: {fileID: 1434641803}
   prologueText: {fileID: 1465362141}
 --- !u!1 &1465362139
@@ -855,4 +944,79 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465362139}
+  m_CullTransparentMesh: 0
+--- !u!1 &1980295857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980295858}
+  - component: {fileID: 1980295860}
+  - component: {fileID: 1980295859}
+  m_Layer: 5
+  m_Name: Animation Hero
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1980295858
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980295857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1434641802}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 10000, y: 0}
+  m_SizeDelta: {x: 1365, y: 680}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1980295859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980295857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bffa908d39795e24e869c92342d1e439, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1980295860
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980295857}
   m_CullTransparentMesh: 0
