@@ -200,6 +200,7 @@ MonoBehaviour:
   - {fileID: 3468727701352014604, guid: 78b156b6c456347479b91b195bbde7d8, type: 3}
   - {fileID: 3468727701352014604, guid: 3687f0e6c82e426418a6db89dd60e71d, type: 3}
   monsterType: 0
+  instantiateClip: {fileID: 8300000, guid: d3ff4358174e4ca4585057d9cafe3345, type: 3}
 --- !u!114 &4207573542849430862
 MonoBehaviour:
   m_ObjectHideFlags: 0

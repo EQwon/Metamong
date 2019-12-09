@@ -139,6 +139,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+  instantiateClip: {fileID: 8300000, guid: 2354cc5e44c9a0d43be2971af477d8bf, type: 3}
 --- !u!114 &3574132669171881516
 MonoBehaviour:
   m_ObjectHideFlags: 0

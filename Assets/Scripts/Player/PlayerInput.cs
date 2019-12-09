@@ -7,6 +7,11 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private float invincibleTime = 0.8f;
 
+    [Header("SE")]
+    [SerializeField] private AudioClip attackClip;
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip damagedClip;
+
     private PlayerMovement mover;
     private PlayerAttack attacker;
     private Animator animator;
@@ -66,10 +71,12 @@ public class PlayerInput : MonoBehaviour
         {
             jump = true;
             animator.SetBool("IsJumping", true);
+            SoundManager.instance.PlaySE(jumpClip);
         }
         if (Input.GetButtonDown("Attack"))
         {
             attack = true;
+            StartCoroutine(SoundManager.instance.PlaySE(attackClip, 0.1f));
         }
         if (Input.GetButtonDown("Dash"))
         {
@@ -116,6 +123,7 @@ public class PlayerInput : MonoBehaviour
         if (isInvincible) return;
         if (isDead) return;
 
+        SoundManager.instance.PlaySE(damagedClip);
         isInvincible = true;
         StartCoroutine(Invincible());
 

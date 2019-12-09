@@ -193,6 +193,9 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   invincibleTime: 0.8
+  attackClip: {fileID: 0}
+  jumpClip: {fileID: 0}
+  damagedClip: {fileID: 0}
 --- !u!114 &8541901529948109586
 MonoBehaviour:
   m_ObjectHideFlags: 0

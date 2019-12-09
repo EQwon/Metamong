@@ -122,3 +122,5 @@ MonoBehaviour:
   dir: 0
   warningTime: 1.5
   waitingTime: 0.5
+  instantiateClip: {fileID: 8300000, guid: 819643d5118ae5c429e103ac147b55b4, type: 3}
+  attackClip: {fileID: 8300000, guid: fd5ffd7898d3d744287b44241449e0a1, type: 3}

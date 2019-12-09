@@ -16,6 +16,10 @@ public class ClawAttack : MonoBehaviour
     [SerializeField] private float warningTime = 0.4f;
     [SerializeField] private float waitingTime = 0.5f;
 
+    [Header("SE")]
+    [SerializeField] private AudioClip instantiateClip;
+    [SerializeField] private AudioClip attackClip;
+
     private State state;
 
     public Vector2 AttackPos { set { attackPos = value; } }
@@ -26,6 +30,7 @@ public class ClawAttack : MonoBehaviour
     {
         if (dir == ClawDirection.Left) transform.localScale = new Vector3(-1, 1, 1);
         StartCoroutine(AttackCycle());
+        SoundManager.instance.PlaySE(instantiateClip);
     }
 
     private void FixedUpdate()
@@ -49,6 +54,7 @@ public class ClawAttack : MonoBehaviour
 
     private void Attack()
     {
+        SoundManager.instance.PlaySE(attackClip);
         Collider2D collider = Physics2D.OverlapBox(attackPos, attackSize, 0, attackLayer);
         if (collider) ApplyDamage(collider);
     }

@@ -26,6 +26,7 @@ public class BossAI : MonoBehaviour
 {
     [SerializeField] private GameObject bossCanvasPrefab;
     [SerializeField] private PatternType pattern;
+    [SerializeField] private AudioClip instantiateClip;
     private GameObject bossCanvas;
 
     [Header("Boss Status")]
@@ -63,6 +64,7 @@ public class BossAI : MonoBehaviour
         bossCanvas = Instantiate(bossCanvasPrefab);
         bossCanvas.GetComponent<BossUIManager>().Boss = this;
         StartCoroutine(NextPattern());
+        SoundManager.instance.PlaySE(instantiateClip);
     }
 
     public void GetDamage(int amount)
