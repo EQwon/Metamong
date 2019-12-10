@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1495985851
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 30f7cbd9f3d171a49b8332b9ddcfc41a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,6 @@ MonoBehaviour:
     type: 3}
   directions: 
   longBar: {fileID: 21300000, guid: cfa03f3e72a7b414b9553266d6632c8e, type: 3}
-  shortBar: {fileID: 21300000, guid: 30f7cbd9f3d171a49b8332b9ddcfc41a, type: 3}
   signSprites:
   - {fileID: 21300000, guid: ff75728d01a1b8b4b8209097a6a269e4, type: 3}
   - {fileID: 21300000, guid: ad8cf519b79ece647a93c49cc7f040a3, type: 3}
