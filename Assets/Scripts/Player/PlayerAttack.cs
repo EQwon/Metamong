@@ -18,6 +18,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private GameObject attackEffect;
 
+    [Header("SE")]
+    [SerializeField] private AudioClip hitClip;
+
     private int isFacingRight = 1;
     private bool canAttack = true;
     private Animator animator;
@@ -79,6 +82,8 @@ public class PlayerAttack : MonoBehaviour
 
             if (enemy.tag == "Boss") enemy.GetComponent<BossAI>().GetDamage(damage);
             else enemy.GetComponent<MonsterAI>().GetDamage(damage, gameObject);
+
+            SoundManager.instance.PlaySE(hitClip);
             Instantiate(attackEffect, attackPos, Quaternion.identity);
             StartCoroutine(Camera.main.gameObject.GetComponent<CameraWalk>().Shaking());
         }
