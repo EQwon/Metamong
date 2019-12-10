@@ -214,6 +214,7 @@ MonoBehaviour:
   bossCanvasPrefab: {fileID: 68443193841314569, guid: 5494189ed2e31ed4a9453570378447f4,
     type: 3}
   pattern: 0
+  instantiateClip: {fileID: 8300000, guid: c9ac73d81a5720b438f8e63bf810752d, type: 3}
   maxHealth: 1000
   patternDelay: 2
   rainingCircle: {fileID: 1740228252334251920, guid: e4b1951ca7570c4419c3d7de4e31ba21,

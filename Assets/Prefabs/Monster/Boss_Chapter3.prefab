@@ -214,7 +214,8 @@ MonoBehaviour:
   bossCanvasPrefab: {fileID: 68443193841314569, guid: 5494189ed2e31ed4a9453570378447f4,
     type: 3}
   pattern: 0
-  maxHealth: 4000
+  instantiateClip: {fileID: 8300000, guid: c9ac73d81a5720b438f8e63bf810752d, type: 3}
+  maxHealth: 10000
   patternDelay: 2
   rainingCircle: {fileID: 1740228252334251920, guid: ae2a848d61855d441868f8f6fe59bed1,
     type: 3}
@@ -232,7 +233,7 @@ MonoBehaviour:
     monsterType: 0
   - summonPos: {x: 0, y: -2.5}
     monsterType: 1
-  claw: {fileID: 4724251078298658387, guid: e62eca0094a73cf46b3290f358103ae4, type: 3}
+  claw: {fileID: 4724251078298658387, guid: 3fe432192f692ea48b3f3318e403501d, type: 3}
   clawPos:
   - {x: -8, y: -1}
   - {x: -4, y: -1}
