@@ -215,7 +215,7 @@ MonoBehaviour:
     type: 3}
   pattern: 0
   instantiateClip: {fileID: 8300000, guid: c9ac73d81a5720b438f8e63bf810752d, type: 3}
-  maxHealth: 10000
+  maxHealth: 8000
   patternDelay: 2
   rainingCircle: {fileID: 1740228252334251920, guid: ae2a848d61855d441868f8f6fe59bed1,
     type: 3}
