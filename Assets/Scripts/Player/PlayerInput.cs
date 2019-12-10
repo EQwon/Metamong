@@ -8,8 +8,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float invincibleTime = 0.8f;
 
     [Header("SE")]
-    [SerializeField] private AudioClip attackClip;
-    [SerializeField] private AudioClip jumpClip;
     [SerializeField] private AudioClip damagedClip;
 
     private PlayerMovement mover;
@@ -71,12 +69,10 @@ public class PlayerInput : MonoBehaviour
         {
             jump = true;
             animator.SetBool("IsJumping", true);
-            SoundManager.instance.PlaySE(jumpClip);
         }
         if (Input.GetButtonDown("Attack"))
         {
             attack = true;
-            StartCoroutine(SoundManager.instance.PlaySE(attackClip, 0.1f));
         }
         if (Input.GetButtonDown("Dash"))
         {

@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject attackEffect;
 
     [Header("SE")]
+    [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip hitClip;
 
     private int isFacingRight = 1;
@@ -57,6 +58,7 @@ public class PlayerAttack : MonoBehaviour
 
         canAttack = false;
         animator.SetTrigger("Attack");
+        StartCoroutine(SoundManager.instance.PlaySE(attackClip, 0.1f));
 
         yield return new WaitForSeconds(delay.pre);
 

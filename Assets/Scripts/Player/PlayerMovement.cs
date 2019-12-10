@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround;
 
     [SerializeField] private float speed;
+
+    [Header("SE")]
+    [SerializeField] private AudioClip jumpClip;
+
     private float m_JumpForce;
 
     private Vector2 groundChecker { get { return new Vector2(0, -0.5f) + (Vector2)transform.position; } }
@@ -87,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (m_Grounded && jump)
         {
+            SoundManager.instance.PlaySE(jumpClip);
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
     }

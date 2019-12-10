@@ -467,7 +467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: "\uAE40\uC544\uC601\tStory & Art\n\uAE40\uD76C\uC900\tART\n\uC774\uADDC\uC6D0\tProgramming\n\uC774\uB3D9\uBBFC\tDesign
+  m_Text: "\uAE40\uC544\uC601\tStory\t\tArt\n\uAE40\uD76C\uC900\tArt\t\t\tStory\n\uC774\uADDC\uC6D0\tProgramming\n\uC774\uB3D9\uBBFC\tDesign
     & Sound"
 --- !u!222 &269877741
 CanvasRenderer:
