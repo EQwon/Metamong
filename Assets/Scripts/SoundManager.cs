@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Resources")]
     [SerializeField] private List<AudioClip> bgms;
+    [SerializeField] private AudioClip bossBGM;
 
     [Header("Holder")]
     [SerializeField] private AudioSource BGM;
@@ -52,6 +53,16 @@ public class SoundManager : MonoBehaviour
             BGM.clip = targetClip;
             BGM.Play();
         }
+    }
+
+    public IEnumerator BossBGM(float delay)
+    {
+        BGM.Stop();
+
+        yield return new WaitForSeconds(delay);
+
+        BGM.clip = bossBGM;
+        BGM.Play();
     }
 
     public void PlaySE(AudioClip clip)

@@ -143,4 +143,5 @@ MonoBehaviour:
   bgms:
   - {fileID: 8300000, guid: 9cbf534a12ba34646a5919f8e56cefb6, type: 3}
   - {fileID: 8300000, guid: 8079fdecc30340042b99134eae91e493, type: 3}
+  bossBGM: {fileID: 8300000, guid: 46d955dd7ea3e174fad4335bed163649, type: 3}
   BGM: {fileID: 3795439473517141993}

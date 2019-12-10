@@ -65,6 +65,7 @@ public class BossAI : MonoBehaviour
         bossCanvas.GetComponent<BossUIManager>().Boss = this;
         StartCoroutine(NextPattern());
         SoundManager.instance.PlaySE(instantiateClip);
+        StartCoroutine(SoundManager.instance.BossBGM(instantiateClip.length));
     }
 
     public void GetDamage(int amount)
