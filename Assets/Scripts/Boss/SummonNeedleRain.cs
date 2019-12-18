@@ -8,7 +8,7 @@ public class SummonNeedleRain : MonoBehaviour
     [SerializeField] private float speed = 2f;
     [SerializeField] private int damage = 10;
 
-    private float term = 0.1f;
+    private float term = 0.15f;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class SummonNeedleRain : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        for(int i = 0; i < 40; i++)
+        for(int i = 0; i < 4/term; i++)
         {
             float angle = Random.Range(220, 320);
             float rad = Mathf.Deg2Rad * angle;

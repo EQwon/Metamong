@@ -9,7 +9,7 @@ public class SummonNeedleSpiral : MonoBehaviour
     [SerializeField] private int lineNum;
     [SerializeField] private int damage = 10;
 
-    private float term = 0.2f;
+    private float term = 0.25f;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class SummonNeedleSpiral : MonoBehaviour
         float rot = 0f;
         int dir = Random.Range(0, 100) >= 50 ? 1 : -1;
 
-        for(int i = 0; i < 15; i++)
+        for(int i = 0; i < 3/term; i++)
         {
             for (int j = 0; j < lineNum; j++)
             {
