@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text attackSpeedValueText;
     [SerializeField] private Text moveSpeedValueText;
     [SerializeField] private Text jumpForceValueText;
+    [SerializeField] private GameObject descriptionPanel;
+    [SerializeField] private Text descriptionText;
 
     [Header("Menu")]
     [SerializeField] private GameObject menuPanel;
@@ -130,7 +132,31 @@ public class UIManager : MonoBehaviour
         attackSpeedValueText.text = PlayerStatus.instance.AttackSpeed.ToString("0.00");
         moveSpeedValueText.text = PlayerStatus.instance.Speed.ToString();
         jumpForceValueText.text = PlayerStatus.instance.JumpForce.ToString();
-}
+    }
+
+    public void ShowDescription(string status)
+    {
+        string nowText = "Bug...";
+
+        switch (status)
+        {
+            case "AttackDamage":
+                nowText = "마물에게 <color=#225AF6>" + PlayerStatus.instance.Damage.ToString() + "</color>의 피해를 입힐 수 있습니다.";
+                break;
+            case "AttackSpeed":
+                nowText = "1초에 <color=#225AF6>" + PlayerStatus.instance.AttackSpeed.ToString("0.00") + "</color>번 공격할 수 있습니다.";
+                break;
+            case "MoveSpeed":
+                nowText = "1초에 약 <color=#225AF6>" + PlayerStatus.instance.Speed.ToString() + "</color>타일 이동할 수 있습니다.";
+                break;
+            case "JumpForce":
+                nowText = "<color=#225AF6>" + PlayerStatus.instance.JumpForce.ToString() + "</color>의 힘으로 점프합니다.";
+                break;
+        }
+
+        descriptionPanel.SetActive(true);
+        descriptionText.text = nowText;
+    }
 
     public void MoveToTitle()
     {

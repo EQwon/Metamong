@@ -330,15 +330,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3330978904983033670}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 5255035933355183254}
+          m_MethodName: ShowDescription
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: MoveSpeed
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -690,6 +690,8 @@ MonoBehaviour:
   attackSpeedValueText: {fileID: 1679447090635519529}
   moveSpeedValueText: {fileID: 5571842316277192706}
   jumpForceValueText: {fileID: 4360529747678976524}
+  descriptionPanel: {fileID: 3330978904983033670}
+  descriptionText: {fileID: 8112320043885703779}
   menuPanel: {fileID: 4604480727423836684}
   villageSceneNum: 0
 --- !u!1 &1045881463067125957
@@ -1481,15 +1483,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3330978904983033670}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 5255035933355183254}
+          m_MethodName: ShowDescription
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: AttackDamage
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1737,12 +1739,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.3
   m_Text: "\uC774\uAC83\uC740 \uC815\uBCF4 \uD328\uB110"
 --- !u!1 &3306603941832948965
 GameObject:
@@ -1854,8 +1856,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 30}
-  m_SizeDelta: {x: 450, y: 160}
+  m_AnchoredPosition: {x: 80, y: 20}
+  m_SizeDelta: {x: 450, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3327182933493058267
 CanvasRenderer:
@@ -2068,15 +2070,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3330978904983033670}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 5255035933355183254}
+          m_MethodName: ShowDescription
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: AttackSpeed
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -2749,15 +2751,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3330978904983033670}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 5255035933355183254}
+          m_MethodName: ShowDescription
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: JumpForce
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,

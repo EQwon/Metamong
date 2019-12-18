@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &7689514682709129205
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350115457111600370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19b561199043f0e428343b5f90a0c68e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4882733996381196286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +29,7 @@ PrefabInstance:
     - target: {fileID: 3468727701352014604, guid: 96e2d81a32c91824e823972ab773f56d,
         type: 3}
       propertyPath: m_Name
-      value: Devil
+      value: Satan_HalfCape
       objectReference: {fileID: 0}
     - target: {fileID: 3468727701352014593, guid: 96e2d81a32c91824e823972ab773f56d,
         type: 3}
@@ -75,11 +94,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 902180712, guid: 96e2d81a32c91824e823972ab773f56d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.41
+      value: 1.28125
       objectReference: {fileID: 0}
     - target: {fileID: 902180712, guid: 96e2d81a32c91824e823972ab773f56d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.43
+      value: 1.34375
       objectReference: {fileID: 0}
     - target: {fileID: 2531760784289507323, guid: 96e2d81a32c91824e823972ab773f56d,
         type: 3}
@@ -99,3 +118,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e2d81a32c91824e823972ab773f56d, type: 3}
+--- !u!1 &8350115457111600370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3468727701352014604, guid: 96e2d81a32c91824e823972ab773f56d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4882733996381196286}
+  m_PrefabAsset: {fileID: 0}
