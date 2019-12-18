@@ -55,6 +55,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void BossBGM()
+    {
+        BGM.Stop();
+
+        BGM.clip = bossBGM;
+        BGM.Play();
+    }
+
     public IEnumerator BossBGM(float delay)
     {
         BGM.Stop();
