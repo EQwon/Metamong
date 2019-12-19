@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 30
+  healingClip: {fileID: 8300000, guid: 0a8901ae2db7a5f4ea289a9a887fc642, type: 3}
 --- !u!95 &4479816662898025702
 Animator:
   serializedVersion: 3

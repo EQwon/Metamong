@@ -5,6 +5,7 @@ using UnityEngine;
 public class PotionController : MonoBehaviour
 {
     [SerializeField] private int healAmount = 30;
+    [SerializeField] private AudioClip healingClip;
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
@@ -12,6 +13,7 @@ public class PotionController : MonoBehaviour
         {
             PlayerInput player = coll.transform.GetComponent<PlayerInput>();
             player.GetHeal(healAmount);
+            SoundManager.instance.PlaySE(healingClip);
 
             Destroy(gameObject);
         }
