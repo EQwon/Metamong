@@ -161,6 +161,7 @@ public class UIManager : MonoBehaviour
     public void MoveToTitle()
     {
         SceneManager.LoadScene(0);
+        Contract.instance.InitializeContractLevel();
     }
 
     public void Menu()

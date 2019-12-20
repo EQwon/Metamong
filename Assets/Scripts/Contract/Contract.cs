@@ -85,6 +85,12 @@ public class Contract : MonoBehaviour
         contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
     }
 
+    public void InitializeContractLevel()
+    {
+        contractLevel = 0;
+        contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
+    }
+
     public void InitializeKillCount()
     {
         killCnt = 0;
