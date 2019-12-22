@@ -217,6 +217,7 @@ public class BossAI : MonoBehaviour
 
         sr.color = Color.white;
         Destroy(bossCanvas);
+        GetComponent<Collider2D>().enabled = false;
         //gate.GetComponent<GateController>().SceneNum = ??
 
         for (int i = 0; i < 40; i++)
