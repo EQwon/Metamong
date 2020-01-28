@@ -170,7 +170,7 @@ MonoBehaviour:
   attackSpeed: 1.6
   speed: 6
   movementDamping: 0.05
-  jumpForce: 870
+  jumpForce: 1150
   invincibleTime: 0.8
   knockBackForce: 800
   lastVillage: 2

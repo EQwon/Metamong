@@ -68,8 +68,8 @@ public class PlayerMovement : MonoBehaviour
     public void Move(float move, bool jump, bool dash)
     {
         if (isDashing) return;
-        if (m_Rigidbody2D.velocity.y < 0.1f) m_Rigidbody2D.gravityScale = 5f;
-        else m_Rigidbody2D.gravityScale = 3f;
+        if (m_Rigidbody2D.velocity.y < 0.1f) m_Rigidbody2D.gravityScale = 8f;
+        else m_Rigidbody2D.gravityScale = 5f;
 
         if (dash)
         {
