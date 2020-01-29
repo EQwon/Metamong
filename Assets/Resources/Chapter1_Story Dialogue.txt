@@ -1,10 +1,10 @@
-﻿오, 던전은 벌써 끝났습니까?
-역시 전설의 용사답군요.
-… 물론 이게 마물들의 끝은 아니지만 말입니다.
-그럼 어서 마을로 돌아가시지요.
+﻿Well, well, well. Finished the dungeon already?
+As expected from the legendary hero.
+... You must know, this isn't really the end of these monsters.
+But for now, it's time for you to return to the village.
 END
-… 제가 누구냐고요? 그건 중요하지 않죠.
-그보다 용사님은 할일이 남지 않았습니까?
+... Who am I? It doesn't matter.
+Don't you have more important things at hand?
 END
-그럼 어서 마을로 돌아가시지요.
+Time for you to return to the village. Hurry, now.
 END

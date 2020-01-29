@@ -827,22 +827,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e5caa0f9ccba00d4686e97e47d3f9b51, type: 3}
   - {fileID: 21300000, guid: e5caa0f9ccba00d4686e97e47d3f9b51, type: 3}
   prologueSpeeches:
-  - "\uB9C8\uC744\uC5D0 \uB3C4\uCC29\uD558\uC2E0 \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4.
-    \uC6A9\uC0AC\uB2D8\uC744 \uC5EC\uAE30 \uBAA8\uC2DC\uAC8C \uB418\uC5B4 \uC601\uAD11\uC774\uAD70\uC694."
-  - "\uC655\uAD6D\uC744 \uC218\uB144\uAC04 \uAD34\uB86D\uD788\uB358 <color=#F2C331>\uB9C8\uC655</color>\uC744
-    \uB2E8\uCE7C\uC5D0 \uBB3C\uB9AC\uCE58\uC2E0 \uB370\uB2E4\uAC00..."
-  - "\uC6A9\uC0AC \uC791\uC704 \uC218\uC5EC\uC2DD\uC5D0\uC11C\uB3C4 \uB09C\uC785\uD55C
-    \uC554\uC0B4\uC790\uB97C \uC81C\uC555\uD558\uC9C0 \uC54A\uC73C\uC168\uC2B5\uB2C8\uAE4C. "
-  - "\uC6A9\uC0AC\uB2D8\uC758 \uBA85\uC131\uC744 \uB4E3\uC9C0 \uBABB\uD55C \uB9C8\uC744\uC774
-    \uC5C6\uC744 \uAC81\uB2C8\uB2E4."
-  - "\uC774\uC81C \uC774 \uD3C9\uD654\uB85C\uC6B4 \uB9C8\uC744\uC5D0\uC11C \uD734\uAC00\uB97C
-    \uC990\uAE30\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4."
+  - Ah, the hero of our kingdom! It is an honour to welcome you here.
+  - No need to be modest. You've rid this land of its ancient evil, <color=#F2C331>the
+    demon king</color>,
+  - and even took care of those assassins at the knighting ceremony.
+  - Truly, your fame has reached every corner of the kingdom.
+  - "Now please, make yourself at home. This village has remained peaceful for years\u2015"
   - '...?'
-  - "<color=#FD2A2A>...\uC7A5\uB2D8, \uCD0C\uC7A5\uB2D8!</color>"
-  - "\uD070\uC77C\uB0AC\uC2B5\uB2C8\uB2E4! \uB9C8\uC744 \uAC00\uC7A5\uC790\uB9AC \uB3D9\uAD74\uC5D0\uC11C
-    <color=#FD2A2A>\uB9C8\uBB3C</color>\uC774 \uB098\uD0C0\uB0AC\uB2E4\uACE0...!"
-  - "\uBB50\uB77C, \uB9C8\uBB3C\uC740 \uB2E4 \uD1F4\uCE58\uB41C \uC904 \uC54C\uC558\uB294\uB370...?!"
-  - "\uC6A9\uC0AC\uB2D8, \uC6A9\uC0AC\uB2D8\uC758 \uB3C4\uC6C0\uC774 \uD544\uC694\uD569\uB2C8\uB2E4!"
+  - <color=#FD2A2A>... Sir, sir!</color> It's an emergency!
+  - "<color=#FD2A2A>Monsters</color>, from the eastern cave\u2015they're about to
+    swarm the village!"
+  - How in the...? I thought all monsters were eradicated with the demon king!
+  - I know this is sudden, hero, but we need your help!
   prologueImagePanel: {fileID: 1434641803}
   prologueText: {fileID: 1465362141}
 --- !u!1 &1465362139

@@ -921,17 +921,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b22f5a102279e9543a3cdd17af7356a3, type: 3}
   - {fileID: 21300000, guid: b22f5a102279e9543a3cdd17af7356a3, type: 3}
   prologueSpeeches:
-  - "\uC7A0\uC2DC \uBA38\uBB47\uAC70\uB9AC\uB358 \uC6B0\uB9AC\uC758 \uC6A9\uC0AC\uB294..."
-  - "\uAC80\uC744 \uACE0\uCCD0\uC950\uACE0 \uB9C8\uC655\uC744 \uC4F0\uB7EC\uB728\uB838\uC2B5\uB2C8\uB2E4."
-  - "\uADF8\uB7EC\uB098 \uC6A9\uC0AC\uAC00 \uBAA8\uB974\uB294 \uC0AC\uC2E4\uC774 \uC788\uC5C8\uC2B5\uB2C8\uB2E4."
-  - "\uC624\uB798 \uC804, \uB9C8\uC655\uC744 \uBB3C\uB9AC\uCE58\uACA0\uB178\uB77C
-    \uC655\uC2E4\uACFC \uB9FA\uC740 \uACC4\uC57D\uC5D0,"
-  - "\uB9C8\uC655\uC774 \uC8FD\uC73C\uBA74 \uC6A9\uC0AC\uB3C4 \uD0C0\uB77D\uD558\uAC8C
-    \uB41C\uB2E4\uB294 \uC870\uD56D\uC774 \uC788\uC5C8\uB358 \uAC83\uC774\uC9C0\uC694."
-  - "\uD0C0\uB77D\uD55C \uC6A9\uC0AC\uB294 \uC0C8\uB85C\uC6B4 \uB9C8\uC655\uC73C\uB85C
-    \uB3C4\uB798\uD588\uACE0,"
-  - "\uC655\uAD6D\uC740 \uADF8 \uCE7C \uC544\uB798 \uBB34\uB108\uC9C0\uACE0 \uB9D0\uC558\uC2B5\uB2C8\uB2E4.
-    \u2026 \uC218\uB9CE\uC740 \uD76C\uC0DD\uC790\uB97C \uB0B8 \uCC44 \uB9D0\uC785\uB2C8\uB2E4."
+  - Our hero hesitated for a moment, then...
+  - '... raised the sword, and cut the demon king down.'
+  - Yet the hero couldn't have known, that long ago,
+  - 'in the contract they signed before defeating the demon king... '
+  - '... one of the clauses stated: when the demon dies, so shall the hero.'
+  - "Our hero died\u2015only to be reborn into the new evil of the land,"
+  - and the unprotected kingdom burned to the ground... along with its numerous citizens.
   prologueImagePanel: {fileID: 1434641803}
   prologueText: {fileID: 1465362141}
 --- !u!1 &1465362139

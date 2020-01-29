@@ -1,6 +1,6 @@
-﻿다시 만나서 아주 반갑습니다, 용사님. 결국 마물들을 전부 물리쳤군요.
-왜 제가 여기 있냐고요? 그야, 제안할 것이 있어서지요.
-왕실의 계획은 다 들었을 겁니다.
-…
-이런 왕국을 위해 용사님이 싸워야 할 이유가 있습니까?
+﻿Well, well, ... so we meet again. I see that you've finally defeated every monster in this place.
+... Why I'm here? To make you an offer you can't refuse, of course.
+I presume you've heard about the plot―what these "monsters" really were...
+...
+Why should you give your life for this ungrateful kingdom?
 END

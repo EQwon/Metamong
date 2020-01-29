@@ -1,10 +1,10 @@
-﻿쥐고 계신 검은 마을에 전해져 내려오는 보물입니다.
-용사님의 능력이라면 마물을 물리치는 데에 아무런 문제가 없을 겁니다.
-단... 어디까지나 마을의 유물이기 때문에
-이 <color=#FF0000FF>계약서</color>를 작성하지 않고는 사용할 수 없습니다.
-무기를 함부로 쓰지 않기 위한 규율이지요.
-<color=#FF0000FF>계약서</color>는 저와의 대화를 통해 작성하시면 됩니다.
-그럼, <color=#FF0000FF>계약서</color>를 쓰시겠습니까?
+﻿That blade in your hands is a heirloom of this village, handed down in the elder family for generations.
+Combined with your own skills, you will have no problem in defeating those monsters.
+However... this is still a treasured artifact,
+and you may not take it before you fill out this <color=#FF0000FF>contract</color> first.
+Necessary restrictions for such a valuable sword, you see.
+You may write or revise the <color=#FF000FF>contract</color> by talking to me.
+Now then, would you like to write the <color=#FF000FF>contract</color>?
 END
-<color=#FF0000FF>계약서</color>를 다시 작성하시겠습니까?
+Would you like to edit the terms of the <color=#FF000FF>contract</color>?
 END

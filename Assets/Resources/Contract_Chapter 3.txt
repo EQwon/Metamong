@@ -7,26 +7,26 @@
 0	6	Kill	Greater	0	InvincibleTime	0.8	기본 무적시간입니다.		
 0	7	Kill	Greater	0	KnockBackForce	800	기본 넉백 사거리입니다.		
 0	8	Kill	Greater	0	MoveDamping	0.05	기본 바닥 마찰력입니다.
-1	0	Always	None	0	None	0	무기와 던전에 관한 조항		
-1	1	Kill	Greater	0	JumpForce	1150	<color=#C80000>(필수) </color>이 무기는 던전을 시작할 때 계약서를 적용합니다.	12	13
-1	2	Kill	Greater	0	AttackSpeed	1.6	<color=#C80000>(필수) </color>이 무기의 사용권한을 얻습니다.	11	13
-1	3	Kill	Greater	0	Speed	2	<color=#C80000>(필수) </color>적을 처치할 때마다 [1]개의 영혼을 수집합니다.	11	12
-1	4	Kill	Greater	0	MoveDamping	1	모든 바닥이 얼음바닥의 성질을 가지게 됩니다.	36	
-1	5	MaxHealth	Less	140	BossHealth	0.5	보스 방 진입시 최대체력이 [140]이하이면 보스의 체력이 [1500] 감소합니다.	35	
-1	6	Kill	Greater	0	KillCnt	1	검이 적을 처치할 때마다 영혼을 [1]개 추가로 수집합니다.	22	32
-2	0	Always	None	0	None	0	무기 사용자의 체력에 관한 조항		
-2	1	Kill	Greater	0	MaxHealth	100	검의 주인은 [100]의 기본 체력을 가지고 시작합니다.	23	24
-2	2	Kill	Greater	0	MaxHealth	50	검의 주인이 [50]의 기본 체력을 가지고 시작합니다.	15	32
-2	3	Kill	Per	10	MaxHealth	10	검이 [10]개의 영혼을 얻을 때마다 검의 주인의 체력은 [10]씩 증가합니다.	21	24
-2	4	Kill	Greater	80	MaxHealth	80	검이 [80]개의 영혼을 얻을 시 검의 주인의 체력은 [20]으로 감소합니다.	21	23
-3	0	Always	None	0	None	0	무기의 공격과 속도에 관한 조항		
-3	1	Kill	Greater	0	AttackDamage	100	검의 주인은 [100]의 기본 공격력을 가지고 시작합니다.	33	34
-3	2	Kill	Greater	0	AttackDamage	90	검의 주인이 [90]의 기본 공격력을 가지고 시작합니다.	15	22
-3	3	Kill	Per	15	AttackDamage	-15	검이 [15]개의 영혼을 얻을 때마다 검의 공격력은 [15]씩 감소합니다.	31	34
-3	4	Kill	Greater	90	AttackDamage	200	검이 [90]개의 영혼을 얻을 시 검의 공격력은 [200]으로 증가합니다.	31	33
-3	5	Kill	Greater	0	AttackSpeed	1	검의 공격속도가 초당 [1]로 감소합니다.	15	
-3	6	Kill	Greater	40	AttackSpeed	3.2	검이 [40]명의 적을 처치할 시 공격속도가 초당 [3.2]로 고정됩니다.	14
-4	0	Always	None	0	None	0	무기 사용자의 이동에 관한 조항		
-4	1	Kill	Greater	0	Speed	6	검의 주인은 [6]의 기본 속도를 획득하고 시작합니다.	42	43
-4	2	Kill	Per	30	Speed	-1	검이 [30]개의 영혼을 얻을 때마다 주인의 속도는 [1]씩 감소합니다.	41	43
-4	3	Kill	Greater	80	Speed	8	검이 [80]개의 영혼을 얻을 시 주인의 속도는 [8]로 증가합니다.	41	42
+1	0	Always	None	0	None	0	Clauses regarding the Weapon and Dungeon		
+1	1	Kill	Greater	0	JumpForce	1150	<color=#C80000>(필수) </color>The contract shall come into effect the moment the user enters the dungeon.	12	13
+1	2	Kill	Greater	0	AttackSpeed	1.6	<color=#C80000>(필수) </color>The user gains the right to use the weapon of conern.	11	13
+1	3	Kill	Greater	0	Speed	2	<color=#C80000>(필수) </color>With each [1] enemy defeated by the user, the sword collects [1] soul.	11	12
+1	4	Kill	Greater	0	MoveDamping	1	The dungeon floor turns into ice.	36	
+1	5	MaxHealth	Less	140	BossHealth	0.5	<color=#0000C8>(권장) </color>When the user enters the boss room with a maximum HP (health point) of equal to or less than [140], the boss monster's HP decreases by [1500].	35	
+1	6	Kill	Greater	0	KillCnt	1	With each [1] enemy defeated by the user, the sword collects [1] extra soul.	22	32
+2	0	Always	None	0	None	0	Health Point of the Weapon's User		
+2	1	Kill	Greater	0	MaxHealth	100	The sword's user begins the dungeon with a health point of [100].	23	24
+2	2	Kill	Greater	0	MaxHealth	50	The sword's user begins the dungeon with a health point of [50].	15	32
+2	3	Kill	Per	10	MaxHealth	10	Each time the sword collects a multiple of [10] souls, the user's health point increases by [10].	21	24
+2	4	Kill	Greater	80	MaxHealth	80	If the sword collects [80] souls, the user's health point decreases to [20].	21	23
+3	0	Always	None	0	None	0	Speed and Attack of said Weapon		
+3	1	Kill	Greater	0	AttackDamage	100	The sword's user begins the dungeon with an attack power of [100].	33	34
+3	2	Kill	Greater	0	AttackDamage	90	The sword's user begins the dungeon with an attack power of [90].	15	22
+3	3	Kill	Per	15	AttackDamage	-15	Each time the sword collects a multiple of [15] souls, the sword's attack power decreases by [15].	31	34
+3	4	Kill	Greater	90	AttackDamage	200	If the sword collects [90] souls, the sword's attack power increases to [200].	31	33
+3	5	Kill	Greater	0	AttackSpeed	1	The sword's speed of attack decreases by [1] every second.	15	
+3	6	Kill	Greater	40	AttackSpeed	3.2	If the sword collects [40] souls, its speed of attack is fixed to [3.2] per second.	14
+4	0	Always	None	0	None	0	Speed of the Weapon's User		
+4	1	Kill	Greater	0	Speed	6	<color=#C80000>(필수) </color>The sword's user begins the dungeon with a base speed of [6].	42	43
+4	2	Kill	Per	30	Speed	-1	Each time the sword collects a multiple of [30] souls, the user's speed decreases by [1].	41	43
+4	3	Kill	Greater	80	Speed	8	If the sword collects [80] souls, the user's speed increases to [8].	41	42
