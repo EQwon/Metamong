@@ -7,24 +7,25 @@ public class ContractDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject clausePrefab;
 
-    private void Start()
+    private List<RectTransform> clauses;
+
+    private void Awake()
     {
         List<SingleContract> contracts = Contract.instance.contracts;
-
-        float validCnt = 0;
+        clauses = new List<RectTransform>();
 
         for (int i = 0; i < contracts.Count; i++)
         {
             if (contracts[i].Article == 0) continue;
 
             GameObject clause = CreateClause(contracts[i]);
-            clause.GetComponent<RectTransform>().localPosition -= new Vector3(0, validCnt * 100, 0);
-
-            if (contracts[i].Clause == 0) validCnt += 0.5f;
-            else validCnt += 1;
+            clauses.Add(clause.GetComponent<RectTransform>());
         }
+    }
 
-        GetComponent<RectTransform>().sizeDelta += new Vector2(0, validCnt * 100);
+    private void Update()
+    {
+        SizeAjusting();
     }
 
     private GameObject CreateClause(SingleContract contract)
@@ -49,5 +50,32 @@ public class ContractDisplay : MonoBehaviour
         clause.GetComponent<ContractController>().Init(contract.Article, contract.Clause, contract.RelatedContracts);
 
         return clause;
+    }
+
+    private void SizeAjusting()
+    {
+        float contentY = 0;
+
+        for (int i = 0; i < clauses.Count; i++)
+        {
+            float xPos = 0f;
+            float ySize = clauses[i].Find("Contract Text").GetComponent<RectTransform>().sizeDelta.y + 35f;
+
+            if (clauses[i].GetComponent<ContractController>().myNum.clause == 0)
+            {
+                xPos = -60f;
+            }
+            else
+            {
+                ySize = 100 > ySize ? 100 : ySize;
+            }
+            
+            clauses[i].sizeDelta = new Vector2(900, ySize);
+            clauses[i].anchoredPosition = new Vector2(xPos, contentY);
+
+            contentY -= clauses[i].sizeDelta.y;
+        }
+
+        GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, -contentY);
     }
 }

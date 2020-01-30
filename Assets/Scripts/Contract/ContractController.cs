@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ContractController : MonoBehaviour
 {
-    [SerializeField] private SimpleContract myNum;
+    public SimpleContract myNum;
     [SerializeField] private List<SimpleContract> relatedContracts;
 
     [SerializeField] private Image box;
