@@ -12,7 +12,7 @@
 1	2	Kill	Greater	0	AttackSpeed	1.6	<color=#C80000>(Required) </color>The user gains the right to use the weapon of conern.	11	13
 1	3	Kill	Greater	0	Speed	2	<color=#C80000>(Required) </color>With each [1] enemy defeated by the user, the sword collects [1] soul.	11	12
 1	4	Kill	Greater	0	MoveDamping	1	The dungeon floor turns into ice.	36	
-1	5	MaxHealth	Less	140	BossHealth	-4000	<color=#0000C8>(Recommended) </color>When the user enters the boss room with a maximum HP (health point) of equal to or less than [140], the boss monster's HP decreases by [1500].	35	
+1	5	MaxHealth	Less	140	BossHealth	-1500	<color=#0000C8>(Recommended) </color>When the user enters the boss room with a maximum HP (health point) of equal to or less than [140], the boss monster's HP decreases by [1500].	35	
 1	6	Kill	Greater	0	KillCnt	1	<color=#0000C8>(Recommended) </color>With each [1] enemy defeated by the user, the sword collects [1] extra soul.	22	32
 2	0	Always	None	0	None	0	Health Point of the Weapon's User		
 2	1	Kill	Greater	0	MaxHealth	100	The sword's user begins the dungeon with a health point of [100].	23	24
