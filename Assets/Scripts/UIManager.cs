@@ -92,25 +92,24 @@ public class UIManager : MonoBehaviour
         if (contracts.Count == 0) return;
         popUp.SetActive(true);
 
-        string state = willAgree ? "<color=#0000ffff>[동의]</color>" : "<color=#ff0000ff>[거절]</color>";
-        string text = "이 조항에 " + state + "할 시 ";
+        string state = willAgree ? "<color=#0000ffff>[Acceptance]</color>" : "<color=#ff0000ff>[Rejection]</color>";
+        string text = state + " of this clause will be regarded as " + state + " of ";
         string relateContracts = "\n";
 
         for (int i = 0; i < contracts.Count; i++)
         {
             SingleContract contract = Contract.instance.GetContract(contracts[i].article, contracts[i].clause); ;
-            text += contract.Article + "조 " + contract.Clause + "항";
+            text += "Article " + contract.Article + ", Clause " + contract.Clause;
 
-            relateContracts += contract.Article + "조 " + contract.Clause + "항\n";
+            relateContracts += "Article " + contract.Article + ", Clause " + contract.Clause + "\n";
             relateContracts += "- " + contract.ContractText;
 
             if (i != contracts.Count - 1)
             {
-                text += ", ";
+                text += " and ";
                 relateContracts += "\n";
             }
         }
-        text += "에 " + state + "하는 것으로 간주합니다.";
 
         warningText.text = text;
         relatedContractsText.text = relateContracts;
@@ -141,16 +140,16 @@ public class UIManager : MonoBehaviour
         switch (status)
         {
             case "AttackDamage":
-                nowText = "마물에게 <color=#225AF6>" + PlayerStatus.instance.Damage.ToString() + "</color>의 피해를 입힐 수 있습니다.";
+                nowText = "Inflict <color=#225AF6>" + PlayerStatus.instance.Damage.ToString() + "</color> amount of damage with each attack.";
                 break;
             case "AttackSpeed":
-                nowText = "1초에 <color=#225AF6>" + PlayerStatus.instance.AttackSpeed.ToString("0.00") + "</color>번 공격할 수 있습니다.";
+                nowText = "Attack at the speed of <color=#225AF6>" + PlayerStatus.instance.AttackSpeed.ToString("0.00") + "</color> times per second.";
                 break;
             case "MoveSpeed":
-                nowText = "1초에 약 <color=#225AF6>" + PlayerStatus.instance.Speed.ToString() + "</color>타일 이동할 수 있습니다.";
+                nowText = "Move at the speed of approx. <color=#225AF6>" + PlayerStatus.instance.Speed.ToString() + "</color> tiles per second.";
                 break;
             case "JumpForce":
-                nowText = "<color=#225AF6>" + PlayerStatus.instance.JumpForce.ToString() + "</color>의 힘으로 점프합니다.";
+                nowText = "Jump with the force of <color=#225AF6>" + PlayerStatus.instance.JumpForce.ToString() + "</color>";
                 break;
         }
 

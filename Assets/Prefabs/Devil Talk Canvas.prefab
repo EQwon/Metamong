@@ -385,7 +385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC190\uC744 \uC7A1\uB294\uB2E4."
+  m_Text: Accept the offer.
 --- !u!114 &3478737086865956135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,7 +1012,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAC70\uC808\uD55C\uB2E4."
+  m_Text: Reject the offer.
 --- !u!114 &2049039679022610354
 MonoBehaviour:
   m_ObjectHideFlags: 0

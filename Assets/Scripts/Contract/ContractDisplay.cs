@@ -35,12 +35,16 @@ public class ContractDisplay : MonoBehaviour
         string number;
         if (contract.Clause == 0)
         {
-            number = contract.Article + "조";
+            number = "Article " + contract.Article;
             RectTransform rect = clause.GetComponent<RectTransform>();
             rect.localPosition += new Vector3(-60f, 0, 0);
             rect.sizeDelta -= new Vector2(0, 50f);
+
+            RectTransform textRect = clause.transform.GetChild(1).GetComponent<RectTransform>();
+            textRect.sizeDelta += new Vector2(100f, 0);
+            textRect.anchoredPosition += new Vector2(20f, -5f);
         }
-        else number = contract.Clause + "항";
+        else number = "Clause " + contract.Clause;
 
         string text = contract.ContractText;
 
@@ -58,19 +62,19 @@ public class ContractDisplay : MonoBehaviour
 
         for (int i = 0; i < clauses.Count; i++)
         {
-            float xPos = 0f;
+            float xPos = 20f;
             float ySize = clauses[i].Find("Contract Text").GetComponent<RectTransform>().sizeDelta.y + 35f;
 
             if (clauses[i].GetComponent<ContractController>().myNum.clause == 0)
             {
-                xPos = -60f;
+                xPos = -20f;
             }
             else
             {
                 ySize = 100 > ySize ? 100 : ySize;
             }
             
-            clauses[i].sizeDelta = new Vector2(900, ySize);
+            clauses[i].sizeDelta = new Vector2(clauses[i].sizeDelta.x, ySize);
             clauses[i].anchoredPosition = new Vector2(xPos, contentY);
 
             contentY -= clauses[i].sizeDelta.y;

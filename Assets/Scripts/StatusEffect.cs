@@ -21,32 +21,32 @@ public class StatusEffect : MonoBehaviour
         string buffText;
         string statusText;
 
-        if (value > 0) buffText = " 증가";
-        else buffText = " 감소";
+        if (value > 0) buffText = " +";
+        else buffText = " -";
 
         switch (target)
         {
             case ResultClass.MaxHealth:
-                statusText = "최대 체력 ";
+                statusText = "Max.HP ";
                 break;
             case ResultClass.AttackDamage:
-                statusText = "공격력 ";
+                statusText = "Attack Damage ";
                 break;
             case ResultClass.AttackSpeed:
-                statusText = "공격속도 ";
+                statusText = "Attack Speed ";
                 break;
             case ResultClass.Speed:
-                statusText = "이동속도 ";
+                statusText = "Movement Speed ";
                 break;
             case ResultClass.BossHealth:
-                statusText = "보스 체력 ";
+                statusText = "Boss Hp ";
                 break;
             default:
                 statusText = "버그남 ";
                 break;
         }
 
-        myText.text = statusText + Mathf.Abs(value).ToString() + buffText;
+        myText.text = statusText + buffText + Mathf.Abs(value).ToString();
     }
 
     private void FixedUpdate()

@@ -191,7 +191,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>S</color>ound <color=#2159F7>C</color>reator     \uC774\uB3D9\uBBFC"
+  m_Text: <color=#2159F7>S</color>ound <color=#2159F7>C</color>reator     Dongmin
+    Lee
 --- !u!222 &51205214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -272,8 +273,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>T</color>echnical <color=#2159F7>A</color>dvisor     \uD55C\uC0C1\uBE48
-    \uAD50\uC218\uB2D8"
+  m_Text: <color=#2159F7>T</color>echnical <color=#2159F7>A</color>dvisor     Professor
+    Sangbin Han
 --- !u!222 &118438004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -839,7 +840,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>S</color>cenario <color=#2159F7>D</color>irector     \uAE40\uC544\uC601"
+  m_Text: <color=#2159F7>S</color>cenario <color=#2159F7>D</color>irector     Ah-young
+    Kim
 --- !u!222 &286953234
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1093,7 +1095,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>P</color>roject <color=#2159F7>M</color>anager     \uC774\uADDC\uC6D0"
+  m_Text: <color=#2159F7>P</color>roject <color=#2159F7>M</color>anager     Gyuwon
+    Lee
 --- !u!222 &624976753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1363,7 +1366,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>G</color>raphic <color=#2159F7>A</color>rtist     \uAE40\uD76C\uC900"
+  m_Text: <color=#2159F7>G</color>raphic <color=#2159F7>A</color>rtist     Hee-jun
+    Kim
 --- !u!222 &779940229
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1443,7 +1447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>A</color>rt <color=#2159F7>D</color>irector     \uAE40\uD76C\uC900"
+  m_Text: <color=#2159F7>A</color>rt <color=#2159F7>D</color>irector     Hee-jun Kim
 --- !u!222 &785785397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1968,7 +1972,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>E</color>nviroment <color=#2159F7>D</color>esigner     \uAE40\uC544\uC601"
+  m_Text: <color=#2159F7>E</color>nviroment <color=#2159F7>D</color>esigner     Ah-young
+    Kim
 --- !u!222 &1105061527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2048,7 +2053,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>M</color>ain <color=#2159F7>P</color>rogrammer     \uC774\uADDC\uC6D0"
+  m_Text: <color=#2159F7>M</color>ain <color=#2159F7>P</color>rogrammer     Gyuwon
+    Lee
 --- !u!222 &1114999603
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2353,7 +2359,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<color=#2159F7>M</color>ain <color=#2159F7>D</color>irector     \uC774\uB3D9\uBBFC"
+  m_Text: <color=#2159F7>M</color>ain <color=#2159F7>D</color>irector     Dongmin
+    Lee
 --- !u!222 &1495438180
 CanvasRenderer:
   m_ObjectHideFlags: 0

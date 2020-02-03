@@ -2047,7 +2047,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bossWarningCanvas
       value: 
-      objectReference: {fileID: 5820105192024887435, guid: ee18e34ba59ef2848868a8692fb51167,
+      objectReference: {fileID: 5820105192024887435, guid: 18952cd68cd49824b93019a9b8332288,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d281c88dcec7be4886586611e45ae9b, type: 3}
