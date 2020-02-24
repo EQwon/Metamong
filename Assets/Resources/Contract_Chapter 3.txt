@@ -7,6 +7,7 @@
 0	6	Kill	Greater	0	InvincibleTime	0.8	기본 무적시간입니다.		
 0	7	Kill	Greater	0	KnockBackForce	800	기본 넉백 사거리입니다.		
 0	8	Kill	Greater	0	MoveDamping	0.05	기본 바닥 마찰력입니다.
+0	9	Kill	Greater	0	KillCnt	0	검이 적을 처치할 때마다 영혼을 [0]개 추가로 수집합니다.
 1	0	Always	None	0	None	0	무기와 던전에 관한 조항		
 1	1	Kill	Greater	0	JumpForce	1150	<color=#C80000>(필수) </color>이 무기는 던전을 시작할 때 계약서를 적용합니다.	12	13
 1	2	Kill	Greater	0	AttackSpeed	1.6	<color=#C80000>(필수) </color>이 무기의 사용권한을 얻습니다.	11	13

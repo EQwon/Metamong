@@ -21,6 +21,11 @@ public class PrologueController : MonoBehaviour
         ShowNowStory();
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Talk")) NextPrologue();
+    }
+
     public void NextPrologue()
     {
         int targetNum = nowNum + 1;

@@ -27,6 +27,13 @@ public class SpeechController : MonoBehaviour
         speeches = Parser.SpeechParse(speechAsset);
         speechPanel.SetActive(false);
         choicePanel.SetActive(false);
+
+        enabled = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Talk")) NextSpeech();
     }
 
     public void ShowSpeech()
@@ -45,6 +52,7 @@ public class SpeechController : MonoBehaviour
             EndTalkEvent();
 
             nowNum = 0;
+            enabled = false;
             return;
         }
 

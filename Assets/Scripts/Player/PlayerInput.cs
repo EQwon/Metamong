@@ -74,10 +74,6 @@ public class PlayerInput : MonoBehaviour
         {
             attack = true;
         }
-        if (Input.GetButtonDown("Dash"))
-        {
-            dash = true;
-        }
         if (Input.GetButtonDown("Action"))
         {
             if (nowGate) nowGate.GetComponent<GateController>().UseGate();

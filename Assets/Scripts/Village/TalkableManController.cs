@@ -20,6 +20,7 @@ public class TalkableManController : MonoBehaviour
 
     public void StartContract()
     {
+        controller.enabled = true;
         controller.ShowSpeech();
     }
 
