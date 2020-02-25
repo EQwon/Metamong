@@ -53,8 +53,6 @@ public class StatusEffect : MonoBehaviour
     {
         float delta = isBuff ? 50 : -50;
         rect.localPosition += new Vector3(0, delta * Time.fixedDeltaTime);
-        if (transform.parent.localScale.x == 1) rect.localScale = Vector3.one;
-        else rect.localScale = new Vector3(-1, 1, 1);
     }
 
     public void Set(ResultClass target, float value, bool isBuff)
