@@ -161,7 +161,6 @@ public class UIManager : MonoBehaviour
     public void MoveToTitle()
     {
         SceneManager.LoadScene(0);
-        Contract.instance.InitializeContractLevel();
     }
 
     public void Menu()
@@ -190,7 +189,6 @@ public class UIManager : MonoBehaviour
         else villageScene = nowScene - 2;
 
         SceneManager.LoadScene(villageScene);
-        Contract.instance.InitializeKillCount();
     }
 
     public void QuitGame()

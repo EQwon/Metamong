@@ -74,6 +74,7 @@ public class Contract : MonoBehaviour
     private int contractLevel = 0;
 
     public int KillCnt { get { return killCnt; } }
+    public int ContractLevel { get { return contractLevel; } }
 
     private void Awake()
     {
@@ -81,25 +82,38 @@ public class Contract : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-
-        contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
     }
 
-    public void InitializeContractLevel()
+    private void OnEnable()
     {
-        contractLevel = 0;
-        contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void InitializeKillCount()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        killCnt = 0;
-    }
+        Debug.Log("새로운 씬이 로드됐습니다.");
 
-    public void ProgressContract()
-    {
-        contractLevel += 1;
-        contracts = GetComponent<ContractHolder>().ParseContract(contractLevel);
+        int sceneNum = SceneManager.GetActiveScene().buildIndex;
+
+        switch (sceneNum)
+        {
+            case 2:
+                contracts = GetComponent<ContractHolder>().ParseContract(0);
+                killCnt = 0;
+                contractLevel = 0;
+                break;
+            case 5:
+                contracts = GetComponent<ContractHolder>().ParseContract(1);
+                killCnt = 0;
+                contractLevel = 1;
+                break;
+            case 8:
+                contracts = GetComponent<ContractHolder>().ParseContract(2);
+                killCnt = 0;
+                contractLevel = 2;
+                break;
+        }
+
     }
 
     public SingleContract GetContract(int article, int clause)
@@ -150,7 +164,6 @@ public class Contract : MonoBehaviour
 
         if (killCntChanger != 0)
         {
-            Debug.Log("킬 수 계약 체크를 한 번 더합니다.");
             killCnt += killCntChanger;
             KillContractCheck();
         }
