@@ -145,10 +145,15 @@ public class Contract : MonoBehaviour
 
     public void KillEvent()
     {
-        killCnt += 1 + killCntChanger;
-        //Debug.Log("현재 킬 카운트는 " + killCnt + "입니다.");
-
+        killCnt += 1;
         KillContractCheck();
+
+        if (killCntChanger != 0)
+        {
+            Debug.Log("킬 수 계약 체크를 한 번 더합니다.");
+            killCnt += killCntChanger;
+            KillContractCheck();
+        }
     }
 
     public BossStatChanger BossEvent()
@@ -174,14 +179,15 @@ public class Contract : MonoBehaviour
             switch (contract.ConditionType)
             {
                 case ConditionType.Less:
-                    if (killCnt < contract.ConditionValue) ActivateKillResult(i);
+                    //if (killCnt < contract.ConditionValue) ActivateKillResult(i);
+                    Debug.LogError("사용하지 않아서 삭제했습니다. 나오면 버그");
                     break;
                 case ConditionType.Greater:
-                    if (killCnt >= contract.ConditionValue) ActivateKillResult(i);
+                    if (killCnt == contract.ConditionValue) ActivateKillResult(i);
                     break;
                 case ConditionType.Per:
                     int nowKillCnt = killCnt;
-                    for (int n = 0; n < nowKillCnt / contract.ConditionValue; n++) ActivateKillResult(i);
+                    if (nowKillCnt > 0 && nowKillCnt % contract.ConditionValue == 0) ActivateKillResult(i);
                     break;
             }
         }
