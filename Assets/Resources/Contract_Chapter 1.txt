@@ -19,7 +19,7 @@
 3	0	Always	None	0	None	0	무기의 공격과 속도에 관한 조항		
 3	1	Kill	Greater	0	AttackDamage	100	<color=#C80000>(필수) </color>검의 주인은 [100]의 기본 공격력을 가지고 시작합니다.	32	33
 3	2	Kill	Per	15	AttackDamage	-15	검이 [15]개의 영혼을 얻을 때마다 검의 공격력은 [15]씩 감소합니다.	31	33
-3	3	Kill	Greater	90	AttackDamage	400	검이 [90]개의 영혼을 얻을 시 검의 공격력은 [400]으로 증가합니다.	31	32
+3	3	Kill	Greater	90	AttackDamage	300	검이 [90]개의 영혼을 얻을 시 검의 공격력은 [300]으로 증가합니다.	31	32
 4	0	Always	None	0	None	0	무기 사용자의 이동에 관한 조항		
 4	1	Kill	Greater	0	Speed	6	<color=#C80000>(필수) </color>검의 주인은 [6]의 기본 속도를 획득하고 시작합니다.	42	43
 4	2	Kill	Per	30	Speed	-1	검이 [30]개의 영혼을 얻을 때마다 주인의 속도는 [1]씩 감소합니다.	41	43
